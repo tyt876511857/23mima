@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>23密码 | 基因检测结果</title>
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+<include file='index:Index:css'>
+<link href="__PUBLIC__/gaiban/css/jyy_a_bg.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/gaiban/js/highcharts.js"></script>
+<script type="text/javascript" src="__PUBLIC__/gaiban/js/highcharts-more.js"></script>
+</head>
+<body>
+<include file='index:Index:header'>
+	<div class="w1000 topnav">
+		
+			<div class="left"><a>我的报告</a>｜<span>报告概览</span></div>
+			<div class="right">
+				<include file='baogao'>
+			</div>
+		
+	</div>
+	<div class="w1000">
+		<div class="row" style="margin-bottom:0;">
+			<span class="">您的宝贝</span>
+			<?php
+			if($field1['moban'] == 'baogao2'){
+				echo '<h3><span>小</span><span>天</span><span>才</span><span>基</span><span>因</span></h3>';
+			}else{
+				echo '<h3><span>特</span><span>长</span><span>基</span><span>因</span><span>眼</span></h3>';
+			}
+			?>
+			
+			<span class="">检测结果</span>
+			<div class="tab">
+				<div class="field">
+					<span><?php echo $field['tuoye']['name'];?></span>
+					<span><?php echo $field['tuoye']['birthtime'];?></span>
+				</div>
+				<div id="container" style="width:800px;height:800px;margin:0 auto;"></div>
+				<script>
+					$(function() {
+						$('#container').highcharts({
+							chart: {
+								polar: true,
+								backgroundColor: {
+									linearGradient: [0, 300, 300, 400],
+									stops: [
+										[0, '#849cc8'],
+										[1, '#849cc8'],
+										[1, '#849cc8']
+									]
+								},
+							},
+							pane: {
+								size: '80%',
+								background: [ {
+												backgroundColor: '#eeefef',
+												borderWidth: 0,
+												outerRadius: '100%'
+											}]
+							},
+							title: {
+								text: null
+							},
+							tooltip: {
+								enabled: false
+							},
+							legend: {
+								enabled: false
+							},
+							credits: {
+								enabled: false
+							},
+							xAxis: {
+
+								categories: [
+								<foreach name='zheye' item='v'>
+								<foreach name='v' item='j'>
+								'{$j.name}',
+								</foreach>
+								</foreach>
+								],
+								tickmarkPlacement: 'on',
+								lineWidth: 0,
+								labels: {
+									style: {
+										color: '#7f7f80',
+										fontSize: '24px'
+									}
+								}
+							},
+							yAxis: {
+								categories: ["", "", "", "", "", "", "", ""],
+								tickmarkPlacement: 'on',
+								lineWidth: 0
+							},
+							plotOptions: {
+								series: {
+									color: '#849cc8',
+									lineWidth: 0,
+
+								}
+							},
+							series: [{
+								type: 'area',
+								name: 'Area',
+
+								data: [													
+								<foreach name='zheye' item='v'>
+								<foreach name='v' item='j'>
+								{$j.fenshu1},
+								</foreach>
+								</foreach>]
+							}]
+						});
+					});
+				</script>
+			</div>
+			
+		</div>
+	</div>
+	<img src="__PUBLIC__/gaiban/images/xtc.jpg" width="100%" />
+	
+		<div class="w1000 overflow">
+			<div class="row">
+				<foreach name='zheye' item='v'>
+				<foreach name='v' item='j'>
+				<a class="item" href='{:U("Index/baogao1/id/$_GET[id]/key/$j[id]/f/$j[fenshu1]")}'>
+					<img src="{$j.litpic}" class="left" width="200px"/>
+					<div class="left">
+						<p class="title">{$j.name}</p>
+						<span>
+						<?php
+						for($i=1;$i<=5;$i++){
+			  				if($i<=$j['fenshu1']){
+			  					echo '<img src="__PUBLIC__/gaiban/images/tal_star.png" />';
+			  				}else{
+			  					//echo '<img src="__PUBLIC__/baogao/tal_star.png" class="tal-star pictures">';
+			  				}
+			  			}
+						?>
+						</span>
+						<p class="desc">{$j.name}{$j.pingjia}</p>
+					</div>
+				</a>
+				</foreach>
+				</foreach>
+			</div>
+		</div>
+<include file='index:Index:footer'>
+</body>
+<script src="__PUBLIC__/gaiban/js/fit_a.js"></script>
+</html>

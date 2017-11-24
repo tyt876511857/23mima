@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>优惠码列表</title>
+<include file='css'>
+</head>
+<body id="right_bj">
+<div class="right_box">
+  <div class="title"><p>优惠码列表</p></div>
+  <table class="table" border="1" align="center">
+    <tr>
+      <td width="5%">编号</td>
+      <td width="27%">优惠码</td>
+      <td width="8%">用户</td>
+      <td width="15%">价格</td>
+      <td>状态</td>
+    </tr>
+    <foreach name='list' item='v'>
+      <tr>
+        <td>{$v.id}</td>
+        <td>{$v.title}</td>
+        <td>{$v.phone}</td>
+        <td>{$v.price}</td>
+        <td><if condition='$v['state']'>已使用<else>未使用</if></td>
+      </tr>
+    </foreach>
+  </table>
+  <ul id="page">{$showpage}</ul>
+</div>
+</body>
+</html>

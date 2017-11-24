@@ -1,0 +1,267 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>添加特长</title>
+<include file='css'>
+<style>textarea{width:100%}</style>
+</head>
+<body id="right_bj">
+<div class="right_box">
+  <div class="title"><p>添加特长</p></div>
+  <form action="{:U('Report/zheye_runadd')}" method="post" enctype="multipart/form-data">
+  <table class="addtable" border="0" align="center">
+  <?php if($field['cid']==4){?>
+	<tr>
+      <td>名称：</td>
+      <td><input name="name" type="text" value='{$field.name}'/></td>
+    </tr>
+    <tr>
+      <td>对应基因：</td>
+      <td><input name="title" type="text" value='{$field.title}'/>(多个以,隔开)</td>
+    </tr>
+    <tr>
+      <td>对应权重：</td>
+      <td><input name="value" type="text" value='{$field.value}'/>(多个以,隔开)</td>
+    </tr>
+    <tr>
+      <td>参考文献：</td>
+      <td>
+        <select name="typeid">
+          <foreach name='typelist' item='v'>
+          <option value='{$v.id}' <if condition='!empty($field)&&$field["typeid"]==$v["id"]'>selected='ture'</if>>{$v.title}</option>
+          </foreach>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>文字颜色：</td>
+      <td><input name="yichuanglv" type="text" value='{$field.yichuanglv}'/></td>
+    </tr>
+    <tr>
+      <td>描述：</td>
+      <td><textarea name="description" cols="40" rows="8">{$field.description}</textarea></td>
+    </tr>
+    <tr>
+      <td>基因解读：</td>
+      <td><script name="jianyi1" id="editor3" type="text/plain" style="width:100%;height:500px;">{$field.jianyi1}</script></td>
+    </tr>
+    
+<!--<tr>
+  <td>培育建议3：</td>
+  <td><textarea name="jianyi3" cols="40" rows="8">{$field.jianyi3}</textarea></td>
+</tr> -->
+   
+    <tr>
+      <td>PC端图片：</td>
+      <td>
+        <input type='text' name='textfield' id='textfield' class='txt' value="{$field.litpic}"/> 
+        <input type='button' value='浏览...' /> 
+        <input type="file" name="litpic" class="file" onchange="document.getElementById('textfield').value=this.value" />
+      </td>
+    </tr>
+    <tr>
+      <td>手机端图片：</td>
+      <td>
+        <input type='text' name='textfield1' id='textfield1' class='txt' value="{$field.litpic1}"/> 
+        <input type='button' value='浏览...' /> 
+        <input type="file" name="litpic1" class="file" onchange="document.getElementById('textfield1').value=this.value" />
+      </td>
+    </tr>
+    <tr>
+      <td>特长子页面：</td>
+      <td>
+        <input type='text' name='textfield2' id='textfield2' class='txt' value="{$field.litpic2}"/> 
+        <input type='button' value='浏览...' /> 
+        <input type="file" name="litpic2" class="file" onchange="document.getElementById('textfield2').value=this.value" />
+      </td>
+    </tr>
+    
+<!--     <tr>
+  <td>PC端图片：</td>
+  <td>
+    <input type='text' name='textfield' id='textfield' class='txt' value="{$field.litpic}"/> 
+    <input type='button' value='浏览...' /> 
+    <input type="file" name="litpic" class="file" onchange="document.getElementById('textfield').value=this.value" />
+  </td>
+</tr> -->
+    <tr>
+      <td>减肥建议-无效：</td>
+      <td>
+	  <!--引入并配置百度编辑器-->
+         
+          <script name="content1" id="editor" type="text/plain" style="width:100%;height:500px;">{$field.content1}</script>
+		   
+        <!--引入并配置百度编辑器-->
+	 
+	 </td>
+    </tr>
+    <tr>
+      <td>减肥建议-部分有效</td>
+      <td> <!--引入并配置百度编辑器-->
+          
+          <script name="content2" id="editor1" type="text/plain" style="width:100%;height:500px;">{$field.content2}</script>
+         
+        <!--引入并配置百度编辑器--></td>
+    </tr>
+    <tr>
+      <td>减肥建议-有效：</td>
+      <td> <!--引入并配置百度编辑器-->
+         
+          <script name="content3" id="editor2" type="text/plain" style="width:100%;height:500px;">{$field.content3}</script>
+         
+        <!--引入并配置百度编辑器--></td>
+    </tr>
+  <?php }else{?>
+    <tr>
+      <td>名称：</td>
+      <td><input name="name" type="text" value='{$field.name}'/></td>
+    </tr>
+    <tr>
+      <td>对应基因：</td>
+      <td><input name="title" type="text" value='{$field.title}'/>(多个以,隔开)</td>
+    </tr>
+    <tr>
+      <td>对应权重：</td>
+      <td><input name="value" type="text" value='{$field.value}'/>(多个以,隔开)</td>
+    </tr>
+    <tr>
+      <td>参考文献：</td>
+      <td>
+        <select name="typeid">
+          <foreach name='typelist' item='v'>
+          <option value='{$v.id}' <if condition='!empty($field)&&$field["typeid"]==$v["id"]'>selected='ture'</if>>{$v.title}</option>
+          </foreach>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>遗传率：</td>
+      <td><input name="yichuanglv" type="text" value='{$field.yichuanglv}'/></td>
+    </tr>
+    <tr>
+      <td>描述：</td>
+      <td><textarea name="description" cols="40" rows="8">{$field.description}</textarea></td>
+    </tr>
+    <tr>
+      <td>能力提升：</td>
+      <td><textarea name="jianyi1" cols="200" rows="8">{$field.jianyi1}</textarea></td>
+    </tr>
+     <tr>
+  <td>能力激发：</td>
+  <td><textarea name="jianyi2" cols="200" rows="8">{$field.jianyi2}</textarea></td>
+</tr>
+<!--<tr>
+  <td>培育建议3：</td>
+  <td><textarea name="jianyi3" cols="40" rows="8">{$field.jianyi3}</textarea></td>
+</tr> -->
+    <tr>
+      <td>优秀评价：</td>
+      <td><textarea name="description1" cols="40" rows="2">{$field.description1}</textarea>(ps:未来小刘翔 情景记忆小天才 小小莫扎特)</td>
+    </tr>
+    <tr>
+      <td>PC端图片：</td>
+      <td>
+        <input type='text' name='textfield' id='textfield' class='txt' value="{$field.litpic}"/> 
+        <input type='button' value='浏览...' /> 
+        <input type="file" name="litpic" class="file" onchange="document.getElementById('textfield').value=this.value" />
+      </td>
+    </tr>
+    <tr>
+      <td>手机端图片：</td>
+      <td>
+        <input type='text' name='textfield1' id='textfield1' class='txt' value="{$field.litpic1}"/> 
+        <input type='button' value='浏览...' /> 
+        <input type="file" name="litpic1" class="file" onchange="document.getElementById('textfield1').value=this.value" />
+      </td>
+    </tr>
+    <tr>
+      <td>特长子页面：</td>
+      <td>
+        <input type='text' name='textfield2' id='textfield2' class='txt' value="{$field.litpic2}"/> 
+        <input type='button' value='浏览...' /> 
+        <input type="file" name="litpic2" class="file" onchange="document.getElementById('textfield2').value=this.value" />
+      </td>
+    </tr>
+    <tr>
+      <td>科学基础：</td>
+      <td>
+        <input type='text' name='textfield3' id='textfield3' class='txt' value="{$field.litpic3}"/> 
+        <input type='button' value='浏览...' /> 
+        <input type="file" name="litpic3" class="file" onchange="document.getElementById('textfield3').value=this.value" />
+      </td>
+    </tr>
+    <tr>
+      <td>基因知识</td>
+      <td>
+        <input type='text' name='textfield4' id='textfield4' class='txt' value="{$field.litpic4}"/> 
+        <input type='button' value='浏览...' /> 
+        <input type="file" name="litpic4" class="file" onchange="document.getElementById('textfield4').value=this.value" />
+      </td>
+    </tr>
+    <tr>
+      <td>基因故事：</td>
+      <td>
+        <input type='text' name='textfield5' id='textfield5' class='txt' value="{$field.litpic5}"/> 
+        <input type='button' value='浏览...' /> 
+        <input type="file" name="litpic5" class="file" onchange="document.getElementById('textfield5').value=this.value" />
+      </td>
+    </tr>
+<!--     <tr>
+  <td>PC端图片：</td>
+  <td>
+    <input type='text' name='textfield' id='textfield' class='txt' value="{$field.litpic}"/> 
+    <input type='button' value='浏览...' /> 
+    <input type="file" name="litpic" class="file" onchange="document.getElementById('textfield').value=this.value" />
+  </td>
+</tr> -->
+    <tr>
+      <td>科学基础：</td>
+      <td>
+	  <!--引入并配置百度编辑器-->
+         
+          <script name="content1" id="editor" type="text/plain" style="width:100%;height:500px;">{$field.content1}</script>
+		   
+        <!--引入并配置百度编辑器-->
+	 
+	 </td>
+    </tr>
+    <tr>
+      <td>基因知识</td>
+      <td> <!--引入并配置百度编辑器-->
+          
+          <script name="content2" id="editor1" type="text/plain" style="width:100%;height:500px;">{$field.content2}</script>
+         
+        <!--引入并配置百度编辑器--></td>
+    </tr>
+    <tr>
+      <td>基因故事：</td>
+      <td> <!--引入并配置百度编辑器-->
+         
+          <script name="content3" id="editor2" type="text/plain" style="width:100%;height:500px;">{$field.content3}</script>
+         
+        <!--引入并配置百度编辑器--></td>
+    </tr>
+	<?php }?>
+  </table>
+  <script type="text/javascript" src="__DATA__/ueditor/ueditor.config.js"></script>
+          <script type="text/javascript" src="__DATA__/ueditor/ueditor.all.min.js"></script>
+          <script>
+          window.UEDITOR_HOME_UER = '__DATA__/Ueditor/';
+          window.UEDITOR_CONFIG.imageUrl="{:U('/Report/upload')}";
+          </script>
+          <script type="text/javascript" src="__DATA__/diy.ueditor.js"></script>
+  <div class="button-div">
+      <input type="submit" value=" 确定 " />
+      <input type="reset" value=" 重置 " />
+      <input type="hidden" name="id" value="{$field.id}" />
+      <input type="hidden" name="cid" value="{$_GET.cid}" />
+      <input type="hidden" name="code" value="{$GLOBALS.code}">
+  </div>
+  </form>
+</div>
+</body>
+</html>
+<style>
+  #image{max-width:80%;}
+</style>

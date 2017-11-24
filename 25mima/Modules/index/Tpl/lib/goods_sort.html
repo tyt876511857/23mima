@@ -1,0 +1,18 @@
+  <div  id="category_tree">
+  <h3><span>商品分类</span></h3>
+     <channelartlist />
+    <foreach name='data' item='v'>
+    <dl>
+     <dt><a  href="{$v.url}">{$v.typename}</a></dt>
+     <dd> 
+       <foreach name='v.child' item='j'>
+       <a  href="{$j.url}">{$j.typename}</a>
+        </foreach>
+     </dd>
+    </dl>
+    </foreach>
+      
+     
+  </div>
+
+<div  class="blank"></div>

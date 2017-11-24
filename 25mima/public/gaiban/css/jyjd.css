@@ -1,0 +1,7 @@
+.titlec{color:#676666;font-size:36px;text-align:center}
+.desc{color:#9f9d9a;font-size:12px;text-align:center;padding:50px 150px;line-height:2}
+.main{overflow:auto;width:667px;margin:0 auto;}
+
+.main .left-cont{float:left;width:318px;margin-top:30px;}
+.main .right-cont{float:right;width:318px;margin-top:30px;}
+.main .left-cont p,.main .right-cont p{color:#656565;line-height:2;height:60px;}

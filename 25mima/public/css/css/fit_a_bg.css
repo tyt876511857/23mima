@@ -1,0 +1,41 @@
+.topnav{overflow:auto;padding:10px 0;}
+.tip{color:#9f9d9a;font-size:24px;}
+h3>span{font-size:72px;}
+h3>span:nth-child(odd){color:#9f9d9a}
+h3>span:nth-child(even){color:#c7c7c7}
+
+.tabnav{float:left;width:300px;}
+.tabnav a.active{font-size:24px;color:#68d7c6;}
+.tabnav a{font-size:18px;color:#d4d4d4;float:right;width:100%;text-align:right;margin:10px 0;}
+.tabcont{float:right;width:770px;border:1px solid #bfbfbf;height:240px;}
+.tabcont p{padding:15px;font-size:12px;color:#8c8c8c;line-height:24px}
+.tabcont .show{display:block !important;}
+.tabcont .cont{display:none}
+.overflow{overflow:auto;}
+
+h3.titlec1{font-size:30px;color:#808080;font-weight:normal;width:224px;}
+.left .cont1{background:#fff;border:2px solid #b5b5b5;padding:40px 20px;margin-top:50px;}
+.left .cont1 .c1{font-size:18px;color:#989898;overflow:auto;}
+.left .cont1 .first{margin-bottom:40px;}
+.left .cont1 .c1 span{line-height:106px;float:left;width:120px;text-align:center}
+.left .cont1 .c1 .sj{font-size:80px;color:#989898;padding:0 30px 0 10px;border-right:1px solid #b5b5b5}
+.left .cont1 .c1 .zt{color:#fd5958;font-size:24px;padding:0 30px;font-weight:bold;}
+
+h3.titlec2{font-size:30px;color:#808080;font-weight:normal;width:560px;}
+.right .cont1{margin-top:50px;}
+
+h4.titlec{text-align:center;width:830px;}
+table{width:100%;text-align:center;border-top:4px solid #d2d2d2}
+table tr{border-bottom:1px solid #c9c9c9;color:#515151;height:50px}
+.ck{width:200px;padding:10px 455px;float:left;}
+.ck a{margin:0 10px;}
+.advice{border-top:4px solid #d2d2d2;border-bottom:4px solid #d2d2d2}
+h3.titlec3{font-size:30px;color:#808080;font-weight:normal;width:360px;}
+.advice{padding:15px;width:720px;}
+.item{float:left;width:505px;background:#fff;border:1px solid #b5b5b5;position:relative}
+.item_title1{font-size:24px;color:#686868;width:202px;padding:30px 25px 10px 25px;height:72px;}
+.item_title2{font-size:36px;color:#afafaf;padding:0px 35px;width:182px;}
+.check{position:absolute;bottom:10px;right:10px;width:100px;height:24px;line-height:24px;border:1px solid #c9c9c9;text-align:center}
+.row  a.item:nth-child(2){margin-left:95px}
+.row  a.item:nth-child(3){margin-top:95px}
+.row  a.item:nth-child(4){margin:95px 0 0 95px}

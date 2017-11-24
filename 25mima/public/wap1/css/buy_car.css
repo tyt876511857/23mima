@@ -1,0 +1,64 @@
+.buy_car {
+	width: 100%;
+	text-align: left;
+	background: #FFFFFF;
+	margin-bottom: 10px;
+	padding-top: 10px;
+}
+
+.buy_car li.ui-row-flex {
+	color: #58585A;
+	margin-bottom: 10px;
+}
+
+.b_c_detial {
+	color: #58585A;
+	padding-left: 5px;
+}
+
+.b_c_detial > h1 {
+	font-size: 1.5em;
+}
+
+.b_c_detial > .ui-txt-info {
+	color: #9E9E9E;
+	margin-bottom: 5px;
+}
+
+.b_c_d_price {
+	color: #00B7F0;
+}
+
+.b_c_d_price b {
+	font-weight: normal;
+}
+
+.buy_car input[type=text] {
+	border: none;
+	width: 60%;
+	text-align: center;
+}
+
+.but_num {
+	height: 30px;
+	line-height: 30px;
+}
+
+.but_num > span {
+	display: inline-block;
+	border: 1px solid #88888A;
+	width: 100%;
+	text-align: center;
+	height: 28px;
+}
+
+.but_num > span > a {
+	display: inline-block;
+	width: 20%;
+	color: #58585A;
+}
+
+.b_c_discount > li.ui-border-t:first-child,
+.b_c_discount > li:first-child > .ui-border-t {
+	border-bottom: 1px solid #9E9E9E;
+}

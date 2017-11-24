@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>基因检测结果-运动基因 </title>
+<include file='index:Index:css'>
+<link href="__PUBLIC__/gaiban/css/jyy_a_bg.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/gaiban/css/fit_a_bg.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/js/echarts.js"></script>
+<!-- <script type="text/javascript" src="__PUBLIC__/gaiban/js/highcharts.js"></script>
+<script type="text/javascript" src="__PUBLIC__/gaiban/js/highcharts-more.js"></script> -->
+<style>
+.ml20{margin-left:0px; }
+.w1000{width:100%; page-break-inside:avoid;}
+table {
+    width: 100%;
+    text-align: center;
+    border-top: 4px solid #d2d2d2;
+}
+.tr th{
+	font-size: 13px;
+}
+.topnav li{ line-height40px; height:40px; list-style:none;}
+.topnav li b{ font-size:16px; width:100px; float:left; text-align:right}
+
+.cont{
+	width:100%;margin:0 auto;background: url(__PUBLIC__/gaiban/images/bg8.jpg);background-position: 100% 0%; background-size:100%;background-repeat:no-repeat;position: relative;
+}
+.cont span{
+	color: #a196d6;font-size: 30px;
+}
+.dnap{
+	text-align: center;font-size: 34px;color: #b097c1;margin-top: 200px;
+}
+.zbgp{
+	margin: 80px auto;font-size: 19px;width: 100%;line-height: 42px;color: #3f3b3a;
+}
+.titlep{
+	font-size: 28px;position: absolute;left: 30px;top: 110px;
+}
+.leftdiv{
+	width: 98%;margin: 0 auto;
+}
+.commonp{
+	line-height: 26px;margin-top: 40px;font-size: 16px;color: #3f3b3a;padding: 10px;
+}
+.commonp span,.lastp span,.applebgp span{
+	color: #68a1a7;display: block;font-size: 23px;margin-bottom: 10px;
+}
+.lastp{
+	margin: 10px;padding: 10px;height: 460px;line-height: 26px;margin-top: 40px;font-size: 16px;color: #3f3b3a;background: #b7e8f3;
+}
+.rightdiv{
+	width: 100%;
+}
+.applebg{
+	margin-right: 10px;float: left;display: inline-block;width: 146px;height: 170px;background: url(__PUBLIC__/gaiban/images/apple.png);background-size:150px 155px;background-repeat:no-repeat;border-right: 4px solid #d2d2d2;
+}
+.applebgp{
+	width: 100%;line-height: 26px;font-size: 15px;color: #3f3b3a;
+}
+</style>
+</head>
+<body>
+<!--子报告开始  -->
+	<div class="w1000" >
+		<div class="cont">
+			<p class="titlep"> 运动基因检测：<span><?php echo $this->fzheye['2']['fenshu1']==5 ?'强':($this->fzheye['2']['fenshu1']==4 ?'良好':'一般'); ?></span></p>
+			<div style="padding-top: 200px;">
+				<svg height="180" version="1.1" width="150" xmlns="http://www.w3.org/2000/svg">
+					<circle cx="90" cy="90" r="50" stroke="#ccc"stroke-width="10" fill="#fff"/>
+					<path class="ring" stroke-linecap="round" rate="<?php echo $this->fzheye['2']['fenshu']-0.01;?>" fill="none" x="90" y="90" r="50" stroke="#a196d6"  stroke-width="10" />
+					<text fill="<?php if(1){echo '#3f3b3a';}else{echo '#c9c9c9';} ?>">
+						<tspan x='46' y='105' style="font-size:30px"><?php echo $this->fzheye['2']['fenshu'];?></tspan>
+						<tspan x='<?php if(strpos($this->fzheye['2']['fenshu'],".")!==false || $this->fzheye['2']['fenshu']==100) {echo 105;}else{echo 85;} ?>' y='105' style="font-size:32px">%</tspan>
+						<tspan x='34' y='170' style="font-size:15px;">您的分数: <?php echo $this->fzheye['2']['fenshu'];?>%</tspan>
+					</text>
+				</svg>
+				<svg height="180" version="1.1" width="180" style="" xmlns="http://www.w3.org/2000/svg">
+					<circle cx="90" cy="90" r="50" stroke="#ccc"stroke-width="10" fill="#fff"/>
+					<path class="ring" stroke-linecap="round" rate="<?php echo $avg-0.01;?>" fill="none" x="90" y="90" r="50" stroke="#68a1a7"  stroke-width="10" />
+					<text fill="<?php if(1){echo '#4f5a90';}else{echo '#c9c9c9';} ?>">
+						<tspan x='46' y='105' style="font-size:30px"><?php echo $avg;?></tspan>
+						<tspan x='<?php if(strpos($avg,".")!==false || $avg==100) {echo 105;}else{echo 85;} ?>' y='105' style="font-size:32px">%</tspan>
+						<tspan x='10' y='170' style="font-size:15px;">人口中的中等程度: <?php echo $avg;
+						?>%</tspan>
+					</text>
+				</svg>
+			</div>
+
+			<p style="font-size: 16px;margin:10px;padding:10px;line-height: 30px;color: #3f3b3a;background: #6ccdd2;height:160px;">
+				根据您的检测结果，可以通过运动控制高热量食物，控制脂肪摄入获得好的减肥效果
+			</p>
+
+		</div>
+
+
+		<div style="width:100%;margin:50px auto;">
+			<div class="leftdiv">
+				<table>
+					<thead>
+						<tr class="tr">
+							<th>测基因</th><th>位点</th><th>基因型</th><th>检测结果</th><th>PF%</th>
+						</tr>
+					</thead>
+					<tbody>
+					<?php foreach($this->fzheye['2']['CT'] as $key=>$vk) { ?>
+						<tr>
+							<td style="font-size: 12px;color: #3f3b3a;"><?php print_r($vk['3']);?></td>
+							<td style="font-size: 12px;color: #3f3b3a;"><?php print_r($key);?></td>
+							<td style="font-size: 12px;color: #3f3b3a;"><?php print_r($vk['1']);?></td>
+							<td style="font-size: 12px;color: #3f3b3a;"><?php print_r($vk['4']);?>：<span><?php if ($vk['2']>70) {
+							echo '强';
+							} elseif ($vk['2']>40) {
+							 echo '一般';
+							} else {
+							 echo '弱';
+							};?></span></td>
+							<td style="font-size: 12px;color: #3f3b3a;"><?php echo rand(30,40);?>%</td>
+						</tr>
+					<?php }?>				
+					</tbody>
+				</table>
+				<p style="text-align: right;font-size: 12px;">*注：FP%-在人口出现的频率，随数据的增多而进行不断的变化
+				</p>
+
+				<p class="commonp" >
+					<span >位点解读</span>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ACTN3基因位于人类11号染色体上，ACTN3蛋白主要参与快速肌肉纤维的产生，能够增强肌肉细胞无氧代谢能力，降低肌肉细胞有氧代谢能力。肌肉无氧代谢和爆发力是密切相关的，而肌肉的耐力是与肌肉有氧代谢密切相关的。ACTN3基因存在一个重要的C/T多态性，当C变为T时，原本编码精氨酸的密码子变成一个终止密码子，ACTN3蛋白就不能被完整的翻译和表达，ACTN3蛋白失去功能，导致快速肌肉纤维中细胞无氧代谢能力下降，运动相关的爆发力降低。CC携带者具有很强的爆发力，耐力一般；TT携带者爆发力一般，耐力较强。
+　　<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PPARA 基因位于人类22号染色体上，编码的PPARA蛋白参与葡萄糖和脂肪酸的代谢，在肌纤维类型的转换上起到了重要作用。
+     PPARA基因存在的G/C多态性和人类的耐力运动密切相关。携带G等位基因的人群具备更强的耐力，具有从事耐力运动的特长。  AQP1基因位于人类7号染色体上，AQP1蛋白主要负责通过水通道运送水进入细胞。在运动时，AQP1蛋白负责将血液中的水运输到肌肉组织中维持渗透压的平衡。在AQP1基因的3’端非编码区域存在一个C/G多态性，研究表明携带C等位基因的人群体液的转运速度显著高于其他人群，快速的液体流动不仅有利于维持肌肉组织的渗透压稳定，也可以带走身体运动中产生的热量，维持充沛的体能。CC携带者具有更好的体能，更好的完成各种运动。
+				</p>
+
+			</div>
+		</div>
+
+		<div class="rightdiv">
+			<p class="ml20 commonp">
+					<span >基因定位图</span>
+					帮助识别皮肤抗紫外线能力，提醒注意使用抗紫外线护肤产品、适当补充谷胱甘肽降低光敏风险。
+			</p>
+
+			<p class="lastp" >
+					<span >科学建议</span>
+					养成运动的习惯就要从我们的生活中做起，哪怕是每天早晨起床后的一个小动作也可以让我们的身体感到舒服，比如揉揉眼，搓搓脸，伸伸胳膊和腿，扭扭腰等动作，都可以起到运动的作用。想培养孩子的运动兴趣，就不能让孩子盲目的运动，父母要观察孩子喜欢的运动，让孩子自己选择运动的方式和项目，每天坚持运动，这样可以让孩子养成运动的习惯。给孩子制定一些运动的计划，鼓励孩子要坚持运动，把运动当成自己每天生活的一部分。
+
+			</p>
+		</div>
+		<div style="clear: both;"></div>
+	</div>
+	<!--子报告结束  -->		
+
+</body>
+
+<script src="__PUBLIC__/gaiban/js/fit_a.js"></script>
+</html>

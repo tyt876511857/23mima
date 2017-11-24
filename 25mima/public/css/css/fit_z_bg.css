@@ -1,0 +1,13 @@
+.titlec{line-height:47px;color:#808080;font-size:30px;font-weight:normal;float:left;width:175px}
+.titlec>Img{ margin-top: 20px;}
+
+.desc{float:right;width:900px;border-top:4px solid #c7c7c7;border-bottom:4px solid #c7c7c7;}
+.desc table {width:100%;text-align:center;color:#898989}
+.desc table tr.first{background:#f4f4f4;color:#515151;}
+.desc table tr.first th{width:25px;height:35px;line-height:35px;}
+.desc table table tr td{height:35px;}
+.desc>table>tbody>tr>td{border-left:1px solid #e2e3e4}
+
+tr.row-item:nth-child(odd){background:#f8f9fb;}
+
+.borderb{border-bottom:1px solid #e2e3e4}

@@ -1,0 +1,46 @@
+<div class="top">
+  <div class="w1000">
+	<a href="/index/Index/baogao" style="color:#23c4f1">示例报告</a>
+	<span class="line"></span>
+    <a href="{:U('/Index/add','user')}">绑定</a>
+    <span class="line"></span>
+    <if empty='$_SESSION["user_id"]'>
+      <a href="{:U('Index/loginurl','index')}">登录</a>
+    <else>
+		
+      
+	  <span class="user"><?php echo $_SESSION['user_userid'];?> <font color="#ccc" size="12px">▼</font></span>
+    </if>
+	
+  </div>
+  <if empty='$_SESSION["user_id"]'>
+  <else>
+  <div style="margin:0 auto;width:1110px;position:relative">
+	<div class="menu">
+		<a href="/user/Indent/index#binded">个人中心</a>
+		<a href="{:U('/Index/add','user')}">添加绑定</a>
+		<a href="{:U('Index/out','index')}">退出</a>
+	</div>	
+   </div> 
+  </if>
+  
+</div>
+<div class="header">
+  <div class="w1000 nav">
+    <div class="logo left">
+      <a href="/">
+        <img src="__PUBLIC__/gaiban/images/logo.png" alt="23密码"/>
+      </a>
+    </div>
+    <a href="/category_1.html" class="right" id="buy_btn">
+      购买
+    </a>
+    <ul class="right">
+      <li><a href="/">首页</a></li>
+      <li><a href="/category_1.html">产品</a></li>
+      <li><a href="/news_20.html">优势</a></li>
+      <li><a href="/news_10.html">动态</a></li>
+      <li><a href="/news_9.html">合作</a></li>
+    </ul>
+  </div>
+</div>

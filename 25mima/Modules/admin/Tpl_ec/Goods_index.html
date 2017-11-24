@@ -1,0 +1,236 @@
+<!-- $Id: goods_list.htm 17126 2010-04-23 10:30:26Z liuhui $ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ECSHOP 管理中心 - 商品列表 </title>
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<include file='css'>
+</head>
+<body>
+
+<h1>
+<span class="action-span"><a href="{:U('/Goods/add')}">添加新商品</a></span>
+<span class="action-span1"><a href="index.php?act=main">ECSHOP 管理中心</a> </span><span id="search_id" class="action-span1"> - 商品列表 </span>
+<div style="clear:both"></div>
+</h1>
+<script type="text/javascript" src="__SKIN__/js/utils.js"></script><script type="text/javascript" src="__SKIN__/js/listtable.js"></script>
+<!-- 商品搜索 -->
+<!-- $Id: goods_search.htm 16790 2009-11-10 08:56:15Z wangleisvn $ -->
+<div class="form-div">
+  <form action="javascript:searchGoods()" name="searchForm">
+    <img src="__SKIN__/images/icon_search.gif" width="26" height="22" border="0" alt="SEARCH" />
+        <!-- 分类 -->
+    <select name="cat_id"><option value="0">所有分类</option><option value="1" >手机类型</option><option value="4" >&nbsp;&nbsp;&nbsp;&nbsp;3G手机</option><option value="5" >&nbsp;&nbsp;&nbsp;&nbsp;双模手机</option><option value="2" >&nbsp;&nbsp;&nbsp;&nbsp;CDMA手机</option><option value="3" >&nbsp;&nbsp;&nbsp;&nbsp;GSM手机</option><option value="12" >充值卡</option><option value="15" >&nbsp;&nbsp;&nbsp;&nbsp;联通手机充值卡</option><option value="13" >&nbsp;&nbsp;&nbsp;&nbsp;小灵通/固话充值卡</option><option value="14" >&nbsp;&nbsp;&nbsp;&nbsp;移动手机充值卡</option><option value="6" >手机配件</option><option value="8" >&nbsp;&nbsp;&nbsp;&nbsp;耳机</option><option value="9" >&nbsp;&nbsp;&nbsp;&nbsp;电池</option><option value="11" >&nbsp;&nbsp;&nbsp;&nbsp;读卡器和内存卡</option><option value="7" >&nbsp;&nbsp;&nbsp;&nbsp;充电器</option></select>
+    <!-- 品牌 -->
+    <select name="brand_id"><option value="0">所有品牌</option><option value="1">诺基亚</option><option value="10">金立</option><option value="9">联想</option><option value="8">LG</option><option value="7">索爱</option><option value="6">三星</option><option value="5">夏新</option><option value="4">飞利浦</option><option value="3">多普达</option><option value="2">摩托罗拉</option><option value="11">  恒基伟业</option></select>
+    <!-- 推荐 -->
+    <select name="intro_type"><option value="0">全部</option><option value="is_best">精品</option><option value="is_new">新品</option><option value="is_hot">热销</option><option value="is_promote">特价</option><option value="all_type">全部推荐</option></select>
+         
+      <!-- 供货商 -->
+      <select name="suppliers_id"><option value="0">全部</option><option value="1">北京供货商</option><option value="2">上海供货商</option></select>
+            <!-- 上架 -->
+      <select name="is_on_sale"><option value=''>全部</option><option value="1">上架</option><option value="0">下架</option></select>
+        <!-- 关键字 -->
+    关键字 <input type="text" name="keyword" size="15" />
+    <input type="submit" value=" 搜索 " class="button" />
+  </form>
+</div>
+
+
+<script language="JavaScript">
+    function searchGoods()
+    {
+
+                listTable.filter['cat_id'] = document.forms['searchForm'].elements['cat_id'].value;
+        listTable.filter['brand_id'] = document.forms['searchForm'].elements['brand_id'].value;
+        listTable.filter['intro_type'] = document.forms['searchForm'].elements['intro_type'].value;
+                    listTable.filter['suppliers_id'] = document.forms['searchForm'].elements['suppliers_id'].value;
+                  listTable.filter['is_on_sale'] = document.forms['searchForm'].elements['is_on_sale'].value;
+        
+        listTable.filter['keyword'] = Utils.trim(document.forms['searchForm'].elements['keyword'].value);
+        listTable.filter['page'] = 1;
+
+        listTable.loadList();
+    }
+</script>
+<!-- 商品列表 -->
+<form method="post" action="" name="listForm" onsubmit="return confirmSubmit(this)">
+  <!-- start goods list -->
+  <div class="list-div" id="listDiv">
+<table cellpadding="3" cellspacing="1">
+  <tr>
+    <th>
+      <input onclick='listTable.selectAll(this, "checkboxes")' type="checkbox" />
+      <a href="javascript:listTable.sort('goods_id'); ">编号</a><img src="__SKIN__/images/sort_desc.gif"/>    </th>
+    <th><a href="javascript:listTable.sort('goods_name'); ">商品名称</a></th>
+    <th><a href="javascript:listTable.sort('goods_sn'); ">货号</a></th>
+    <th><a href="javascript:listTable.sort('shop_price'); ">价格</a></th>
+    <th><a href="javascript:listTable.sort('is_on_sale'); ">上架</a></th>
+    <th><a href="javascript:listTable.sort('is_best'); ">精品</a></th>
+    <th><a href="javascript:listTable.sort('is_new'); ">新品</a></th>
+    <th><a href="javascript:listTable.sort('is_hot'); ">热销</a></th>
+    <th><a href="javascript:listTable.sort('sort_order'); ">推荐排序</a></th>
+        <th><a href="javascript:listTable.sort('goods_number'); ">库存</a></th>
+        <th>操作</th>
+  <tr>
+  <foreach name='list' item='v'>
+    <tr>
+    <td><input type="checkbox" name="checkboxes[]" value="{$v.goods_id}" />{$v.goods_id}</td>
+    <td class="first-cell"><span onclick="listTable.edit(this, 'edit_goods_name', {$v.goods_id})">{$v.goods_name}</span></td>
+    <td><span onclick="listTable.edit(this, 'edit_goods_sn', {$v.goods_id})">{$v.goods_sn}</span></td>
+    <td align="right"><span onclick="listTable.edit(this, 'edit_goods_price', {$v.goods_id})">{$v.shop_price}
+    </span></td>
+    <td align="center"><img src="<if condition='$v['is_on_sale']'>__SKIN__/images/yes.gif<else>__SKIN__/images/no.gif</if>" onclick="listTable.toggle(this, 'toggle_on_sale', {$v.goods_id})" /></td>
+    <td align="center"><img src="<if condition='$v['is_best']'>__SKIN__/images/yes.gif<else>__SKIN__/images/no.gif</if>" onclick="listTable.toggle(this, 'toggle_best', {$v.goods_id})" /></td>
+    <td align="center"><img src="<if condition='$v['is_new']'>__SKIN__/images/yes.gif<else>__SKIN__/images/no.gif</if>" onclick="listTable.toggle(this, 'toggle_new', {$v.goods_id})" /></td>
+    <td align="center"><img src="<if condition='$v['is_hot']'>__SKIN__/images/yes.gif<else>__SKIN__/images/no.gif</if>" onclick="listTable.toggle(this, 'toggle_hot', {$v.goods_id})" /></td>
+    <td align="center"><span onclick="listTable.edit(this, 'edit_sort_order', {$v.goods_id})">{$v.rank}</span></td>
+        <td align="right"><span onclick="listTable.edit(this, 'edit_goods_number', {$v.goods_id})">{$v.goods_number}</span></td>
+        <td align="center">
+      <a href="../goods.php?id=32" target="_blank" title="查看"><img src="__SKIN__/images/icon_view.gif" width="16" height="16" border="0" /></a>
+      <a href='{:U("/Goods/update/id/$v[goods_id]")}' title="编辑"><img src="__SKIN__/images/icon_edit.gif" width="16" height="16" border="0" /></a>
+      <a href="goods.php?act=copy&goods_id=32&extension_code=" title="复制"><img src="__SKIN__/images/icon_copy.gif" width="16" height="16" border="0" /></a>
+      <a href='{:U("/Goods/totrack/id/$v[goods_id]/type/1")}' onclick="if(!confirm('您确定要把此商品移入回收站吗？')){return false;};" title="回收站"><img src="__SKIN__/images/icon_trash.gif" width="16" height="16" border="0" /></a>
+      <a href="goods.php?act=product_list&goods_id=32" title="货品列表"><img src="__SKIN__/images/icon_docs.gif" width="16" height="16" border="0" /></a>          </td>
+  </tr>
+  </foreach>  
+  </table>
+<!-- end goods list -->
+
+<!-- 分页 -->
+<table id="page-table" cellspacing="0">
+  <tr>
+    <td align="right" nowrap="true">
+          <!-- $Id: page.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+            <div id="turn-page">
+        总计  <span id="totalRecords">22</span>
+        个记录分为 <span id="totalPages">2</span>
+        页当前第 <span id="pageCurrent">1</span>
+        页，每页 <input type='text' size='3' id='pageSize' value="15" onkeypress="return listTable.changePageSize(event)" />
+        <span id="page-link">
+          <a href="javascript:listTable.gotoPageFirst()">第一页</a>
+          <a href="javascript:listTable.gotoPagePrev()">上一页</a>
+          <a href="javascript:listTable.gotoPageNext()">下一页</a>
+          <a href="javascript:listTable.gotoPageLast()">最末页</a>
+          <select id="gotoPage" onchange="listTable.gotoPage(this.value)">
+            <option value='1'>1</option><option value='2'>2</option>          </select>
+        </span>
+      </div>
+    </td>
+  </tr>
+</table>
+
+</div>
+
+<div>
+  <input type="hidden" name="act" value="batch" />
+  <select name="type" id="selAction" onchange="changeAction()">
+    <option value="">请选择...</option>
+    <option value="trash">回收站</option>
+    <option value="on_sale">上架</option>
+    <option value="not_on_sale">下架</option>
+    <option value="best">精品</option>
+    <option value="not_best">取消精品</option>
+    <option value="new">新品</option>
+    <option value="not_new">取消新品</option>
+    <option value="hot">热销</option>
+    <option value="not_hot">取消热销</option>
+    <option value="move_to">转移到分类</option>
+	    <option value="suppliers_move_to">转移到供货商</option>
+	    
+  </select>
+  <select name="target_cat" style="display:none">
+    <option value="0">请选择...</option><option value="1" >手机类型</option><option value="4" >&nbsp;&nbsp;&nbsp;&nbsp;3G手机</option><option value="5" >&nbsp;&nbsp;&nbsp;&nbsp;双模手机</option><option value="2" >&nbsp;&nbsp;&nbsp;&nbsp;CDMA手机</option><option value="3" >&nbsp;&nbsp;&nbsp;&nbsp;GSM手机</option><option value="12" >充值卡</option><option value="15" >&nbsp;&nbsp;&nbsp;&nbsp;联通手机充值卡</option><option value="13" >&nbsp;&nbsp;&nbsp;&nbsp;小灵通/固话充值卡</option><option value="14" >&nbsp;&nbsp;&nbsp;&nbsp;移动手机充值卡</option><option value="6" >手机配件</option><option value="8" >&nbsp;&nbsp;&nbsp;&nbsp;耳机</option><option value="9" >&nbsp;&nbsp;&nbsp;&nbsp;电池</option><option value="11" >&nbsp;&nbsp;&nbsp;&nbsp;读卡器和内存卡</option><option value="7" >&nbsp;&nbsp;&nbsp;&nbsp;充电器</option>  </select>
+	  <!--二级主菜单：转移供货商-->
+  <select name="suppliers_id" style="display:none">
+    <option value="-1">请选择...</option>
+    <option value="0">转移到网店</option>
+          <option value="1">北京供货商</option>
+          <option value="2">上海供货商</option>
+      </select>
+  <!--end!-->
+	  
+    <input type="hidden" name="extension_code" value="" />
+    <input type="submit" value=" 确定 " id="btnSubmit" name="btnSubmit" class="button" disabled="true" />
+</div>
+</form>
+
+<script type="text/javascript">
+  listTable.recordCount = 22;
+  listTable.pageCount = 2;
+
+    listTable.filter.cat_id = '0';
+    listTable.filter.intro_type = '';
+    listTable.filter.is_promote = '0';
+    listTable.filter.stock_warning = '0';
+    listTable.filter.brand_id = '0';
+    listTable.filter.keyword = '';
+    listTable.filter.suppliers_id = '';
+    listTable.filter.is_on_sale = '';
+    listTable.filter.sort_by = 'goods_id';
+    listTable.filter.sort_order = 'DESC';
+    listTable.filter.extension_code = '';
+    listTable.filter.is_delete = '0';
+    listTable.filter.real_goods = '1';
+    listTable.filter.record_count = '22';
+    listTable.filter.page_size = '15';
+    listTable.filter.page = '1';
+    listTable.filter.page_count = '2';
+    listTable.filter.start = '0';
+  
+  
+  onload = function()
+  {
+    startCheckOrder(); // 开始检查订单
+    document.forms['listForm'].reset();
+  }
+
+  /**
+   * @param: bool ext 其他条件：用于转移分类
+   */
+  function confirmSubmit(frm, ext)
+  {
+      if (frm.elements['type'].value == 'trash')
+      {
+          return confirm(batch_trash_confirm);
+      }
+      else if (frm.elements['type'].value == 'not_on_sale')
+      {
+          return confirm(batch_no_on_sale);
+      }
+      else if (frm.elements['type'].value == 'move_to')
+      {
+          ext = (ext == undefined) ? true : ext;
+          return ext && frm.elements['target_cat'].value != 0;
+      }
+      else if (frm.elements['type'].value == '')
+      {
+          return false;
+      }
+      else
+      {
+          return true;
+      }
+  }
+
+  function changeAction()
+  {
+      var frm = document.forms['listForm'];
+
+      // 切换分类列表的显示
+      frm.elements['target_cat'].style.display = frm.elements['type'].value == 'move_to' ? '' : 'none';
+			
+			      frm.elements['suppliers_id'].style.display = frm.elements['type'].value == 'suppliers_move_to' ? '' : 'none';
+			
+      if (!document.getElementById('btnSubmit').disabled &&
+          confirmSubmit(frm, false))
+      {
+          frm.submit();
+      }
+  }
+
+</script>
+<include file='pagefooter'>
+</body>
+</html>

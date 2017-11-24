@@ -1,0 +1,124 @@
+
+<!-- $Id: articlecat_info.htm 16752 2009-10-20 09:59:38Z wangleisvn $ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ECSHOP 管理中心 - 添加文章分类 </title>
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<include file='css'>
+<script language="JavaScript">
+<!--
+// 这里把JS用到的所有语言都赋值到这里
+var process_request = "正在处理您的请求...";
+var todolist_caption = "记事本";
+var todolist_autosave = "自动保存";
+var todolist_save = "保存";
+var todolist_clear = "清除";
+var todolist_confirm_save = "是否将更改保存到记事本？";
+var todolist_confirm_clear = "是否清空内容？";
+var no_catname = "没有输入分类的名称";
+var sys_hold = "系统保留分类，不允许添加子分类";
+var remove_confirm = "您确定要删除选定的分类吗？";
+//-->
+</script>
+</head>
+<body>
+
+<h1>
+<span class="action-span"><a href="articlecat.php?act=list">文章分类</a></span>
+<span class="action-span1"><a href="index.php?act=main">ECSHOP 管理中心</a> </span><span id="search_id" class="action-span1"> - 添加文章分类 </span>
+<div style="clear:both"></div>
+</h1>
+<div class="main-div">
+<form method="post" action="{:U('News/runadd')}" name="theForm"  onsubmit="return validate()">
+<table cellspacing="1" cellpadding="3" width="100%">
+  <tr>
+    <td class="label">文章分类名称</td>
+    <td><input type="text" name="typename" maxlength="60" size = "30" value="{$field.typename}" /><span class="require-field">*</span></td>
+  </tr>
+  <tr>
+    <td class="label">上级分类</td>
+    <td>
+      <select name="pid" onchange="catChanged()"  >
+        <option value="0">顶级分类</option>
+        <foreach name='cate' item='v'>
+        <option value="{$v.id}" <if condition='!empty($field)&&$v["id"]==$field["pid"]'>selected="ture"</if> >{$v.html}{$v.typename}</option>
+        </foreach>
+        </select>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">排序:</td>
+    <td>
+      <input type="text" name='rank'  value="<if empty='$field'>50<else>{$field.rank}</if>" size="15" />
+    </td>
+  </tr>
+  <tr>
+    <td class="label"><a href="javascript:showNotice('notice_keywords');" title="点击此处查看提示信息">
+        <img src="__SKIN__/images/notice.gif" width="16" height="16" border="0" alt="点击此处查看提示信息"></a>关键字</td>
+    <td><input type="text" name="keywords" maxlength="60" size="50" value="{$field.keywords}" />
+    <br /><span class="notice-span" style="display:block"  id="notice_keywords">关键字为选填项，其目的在于方便外部搜索引擎搜索</span>
+    </td>
+  </tr>
+  <tr>
+    <td class="label">描述</td>
+    <td><textarea  name="description" cols="60" rows="4">{$field.description}</textarea></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center"><br />
+      <input type="submit" class="button" value=" 确定 " />
+      <input type="reset" class="button" value=" 重置 " />
+      <input type="hidden" name="id" value="{$field.id}" />
+    </td>
+  </tr>
+</table>
+</form>
+</div>
+<script type="text/javascript" src="../js/utils.js"></script><script type="text/javascript" src="js/validator.js"></script>
+<script language="JavaScript">
+<!--
+/**
+ * 检查表单输入的数据
+ */
+function validate()
+{
+    validator = new Validator("theForm");
+    validator.required("typename",  no_catname);
+    return validator.passed();
+}
+
+/**
+ * 选取上级分类时判断选定的分类是不是底层分类
+ */
+function catChanged()
+{
+  var obj = document.forms['theForm'].elements['parent_id'];
+
+  cat_type = obj.options[obj.selectedIndex].getAttribute('cat_type');
+  if (cat_type == undefined)
+  {
+    cat_type = 1;
+  }
+
+  if ((obj.selectedIndex > 0) && (cat_type == 2 || cat_type == 3 || cat_type == 5))
+  {
+    alert(sys_hold);
+    obj.selectedIndex = 0;
+    return false;
+  }
+
+  return true;
+}
+
+onload = function()
+{
+    // 开始检查订单
+    startCheckOrder();
+}
+//-->
+</script>
+
+<include file='pagefooter'>
+</body>
+</html>

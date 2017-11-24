@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ECSHOP 管理中心 - 文章分类 </title>
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<include file='css'>
+<script language="JavaScript">
+<!--
+// 这里把JS用到的所有语言都赋值到这里
+var process_request = "正在处理您的请求...";
+var todolist_caption = "记事本";
+var todolist_autosave = "自动保存";
+var todolist_save = "保存";
+var todolist_clear = "清除";
+var todolist_confirm_save = "是否将更改保存到记事本？";
+var todolist_confirm_clear = "是否清空内容？";
+var no_catname = "没有输入分类的名称";
+var sys_hold = "系统保留分类，不允许添加子分类";
+var remove_confirm = "您确定要删除选定的分类吗？";
+//-->
+</script>
+</head>
+<body>
+<h1>
+<span class="action-span"><a href="{:U('/News/add')}">添加文章分类</a></span>
+<span class="action-span1"><a href="index.php?act=main">ECSHOP 管理中心</a> </span><span id="search_id" class="action-span1"> - 文章分类 </span>
+<div style="clear:both"></div>
+</h1>
+<script type="text/javascript" src="__SKIN__/js/utils.js"></script><script type="text/javascript" src="__SKIN__/js/listtable.js"></script>
+<form method="post" action="" name="listForm">
+<!-- start ad position list -->
+<div class="list-div" id="listDiv">
+
+<table width="100%" cellspacing="1" cellpadding="2" id="list-table">
+  <tr>
+    <th>文章分类名称</th>
+    <th>描述</th>
+    <th>排序</th>
+    <th>操作</th>
+  </tr>
+    <foreach name='list' item='v'>
+    <tr align="center" class="0" id="0_{$v.id}">
+    <td align="left" class="first-cell nowrap" valign="top" >
+            <img src="__SKIN__/images/menu_minus.gif" id="icon_0_{$v.id}" width="9" height="9" border="0" style="margin-left:0em" onclick="rowClicked(this)" />
+            <span><a href="article.php?act=list&amp;cat_id=1">{$v.typename}</a></span>
+    </td>
+    <td align="left" valign="top">{$v.description}</td>
+    <td width="10%" align="right" class="nowrap" valign="top"><span onclick="listTable.edit(this, 'edit_sort_order', 1)">{$v.rank}</span></td>
+    <td width="24%" align="right" class="nowrap" valign="top" style="background-color: rgb(255, 255, 255);">
+      <a href='{:U("/News/update/id/$v[id]")}'>编辑</a>
+      |
+      <a href='{:U("/News/delete/id/$v[id]")}' onclick="if(!confirm('确实要删除此栏目以及所有子栏目吗?')){return false;};" title="移除">移除</a>
+          </td>
+  </tr>
+    <foreach name='v.child' item='j'>
+    <tr align="center" class="1" id="1_{$j.id}">
+    <td align="left" class="first-cell nowrap" valign="top" >
+            <img src="__SKIN__/images/menu_minus.gif" id="icon_1_{$j.id}" width="9" height="9" border="0" style="margin-left:1em" onclick="rowClicked(this)" />
+            <span><a href="article.php?act=list&amp;cat_id=2">{$j.typename}</a></span>
+    </td>
+    <td align="left" valign="top">{$j.description}</td>
+    <td width="10%" align="right" class="nowrap" valign="top"><span onclick="listTable.edit(this, 'edit_sort_order', 2)">{$j.rank}</span></td>
+    <td width="24%" align="right" class="nowrap" valign="top" style="background-color: rgb(255, 255, 255);">
+      <a href='{:U("/News/update/id/$j[id]")}'>编辑</a>
+      |
+      <a href='{:U("/News/delete/id/$j[id]")}' onclick="if(!confirm('确实要删除此栏目以及所有子栏目吗?')){return false;};" title="移除">移除</a>
+          </td>
+  </tr>
+    </foreach>
+    </foreach>
+  </table>
+
+</div>
+</form>
+
+
+<script language="JavaScript">
+<!--
+
+onload = function()
+{
+  // 开始检查订单
+  startCheckOrder();
+}
+
+var imgPlus = new Image();
+imgPlus.src = "__SKIN__/images/menu_plus.gif";
+
+/**
+ * 折叠分类列表
+ */
+function rowClicked(obj)
+{
+   // 当前图像
+  img = obj;
+  // 取得上二级tr>td>img对象
+  obj = obj.parentNode.parentNode;
+  // 整个分类列表表格
+  var tbl = document.getElementById("list-table");
+  // 当前分类级别
+  var lvl = parseInt(obj.className);
+  // 是否找到元素
+  var fnd = false;
+  var sub_display = img.src.indexOf('menu_minus.gif') > 0 ? 'none' : (Browser.isIE) ? 'block' : 'table-row' ;
+  // 遍历所有的分类
+  for (i = 0; i < tbl.rows.length; i++)
+  {
+      var row = tbl.rows[i];
+      if (row == obj)
+      {
+          // 找到当前行
+          fnd = true;
+          //document.getElementById('result').innerHTML += 'Find row at ' + i +"<br/>";
+      }
+      else
+      {
+          if (fnd == true)
+          {
+              var cur = parseInt(row.className);
+              var icon = 'icon_' + row.id;
+              if (cur > lvl)
+              {
+                  row.style.display = sub_display;
+                  if (sub_display != 'none')
+                  {
+                      var iconimg = document.getElementById(icon);
+                      iconimg.src = iconimg.src.replace('plus.gif', 'minus.gif');
+                  }
+              }
+              else
+              {
+                  fnd = false;
+                  break;
+              }
+          }
+      }
+  }
+
+  for (i = 0; i < obj.cells[0].childNodes.length; i++)
+  {
+      var imgObj = obj.cells[0].childNodes[i];
+      if (imgObj.tagName == "IMG" && imgObj.src != '__SKIN__/images/menu_arrow.gif')
+      {
+          imgObj.src = (imgObj.src == imgPlus.src) ? '__SKIN__/images/menu_minus.gif' : imgPlus.src;
+      }
+  }
+}
+//-->
+</script>
+
+<include file='pagefooter'>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>文章列表</title>
+<include file='css'>
+</head>
+<body id="right_bj">
+<div class="right_box">
+  <div class="title"><p>文章列表</p><a href='{:U("/Article/add/cid/$cid")}'>添加新文章</a></div>
+  <table class="table" border="1" align="center">
+    <tr>
+      <td width="2%">编号</td>
+      <td width="15%">文章标题</td>
+      <td width="5%">文章分类</td>
+      <td width="10%">文章重要性</td>
+      <td width="5%">是否显示</td>
+      <td width="5%">排序</td>
+      <td width="5%">添加日期</td>
+      <td width="5%">操作</td>
+    </tr>
+    <foreach name='list' item='v'>
+      <tr>
+        <td>{$v.id}</td>
+        <td style="text-align:left">{$v.title}</td>
+        <td>{$v.typename}</td>
+        <td>{$v.article_type}</td>
+        <td><img src="<if condition='$v['is_open']'>__SKIN__/images/yes.gif<else>__SKIN__/images/no.gif</if>" /></td>
+        <td>{$v.rank}</td>
+        <td>{$v.time}</td>
+        <td>
+          <a href="{:C('REWRITE_CONTENT')}{$v.id}.html" target="_blank" title="查看"><img src="__SKIN__/images/icon_view.gif" border="0" height="16" width="16" /></a>&nbsp;
+          <a href='{:U("Article/update/id/$v[id]")}' title="编辑"><img src="__SKIN__/images/icon_edit.gif" border="0" height="16" width="16" /></a>&nbsp;
+          <a href='{:U("/Article/delete/id/$v[id]")}' onclick="if(!confirm('您确认要删除这篇文章吗？')){return false;};" title="移除"><img src="__SKIN__/images/icon_drop.gif" border="0" height="16" width="16"></a>
+        </td>
+      </tr>
+    </foreach>
+  </table>
+  <ul id="page">{$showpage}</ul>
+</div>
+</body>
+</html>

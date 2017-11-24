@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>订单详情</title>
+<include file='index:Index:css'>
+<include file='css'>
+</head>
+<body>
+<include file='index:Index:header'>
+<div class="w1200" style="height:500px;">
+    <include file='left'>
+    <div class="user_right">
+        <p class="user_title">订单详情</p>  
+        <div class="info">
+          <p><span>订单编号：</span>{$data.indent}</p>
+          <p><span>提交时间：</span>{$date('y-m-d H:i:s',$data['addtime'])}</p>
+          <p><span>收货地址：</span>{$data.name},{$data.phone},{$data.size}</p>
+          <p><span>商品总价：</span>{$data.price}</p>
+          <p><span>快递公司：</span>{$data.company}</p>
+          <p><span>快递单号：</span>{$data.express}</p>
+        </div>
+    </div>
+</div>
+<include file='index:Index:footer'>
+</body>
+</html>
+<style>
+.info p{line-height:30px;}
+</style>

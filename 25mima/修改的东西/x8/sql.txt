@@ -1,0 +1,5 @@
+ALTER TABLE `gs_bg_property` ADD INDEX idx_title (`title`);
+ALTER TABLE `gs_bg_baogao` ADD INDEX idx_title (`title`);
+ALTER TABLE `gs_bg_tuoye` ADD INDEX idx_identifier (`identifier`);
+ALTER TABLE `gs_bg_tuoye` ADD INDEX idx_uid (`uid`);
+ALTER TABLE `gs_code` ADD INDEX idx_code (`code`);

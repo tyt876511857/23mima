@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title><?php if(isset($field['title'])){echo $field['title'];} ?></title>
+<meta name="Keywords" content="<?php if(isset($field['keywords'])){echo $field['keywords'];} ?>">
+<meta name="Description" content="<?php if(isset($field['description'])){echo $field['description'];} ?>">
+<?php $this->display('index:Index:css','lib') ?>
+<link href="/public/gaiban/css/power.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<?php $this->display('index:Index:header','lib') ?>
+	<img src="/public/gaiban/images/power.jpg" width="100%" />
+	<div class="row">
+		<div class="main1">
+			
+			<img src="/public/gaiban/images/power01.jpg" width="60%" />
+			<div class="contl">
+				<h3>权威的文献依据</h3>
+				<p>所有产品由澳大利亚悉尼大学、香港大学医学院、复旦大学生命科学院、浙江大学医学院等国内外一流遗传学、分子生物学、生物信息学、儿科医学专家团队针对中国儿童成长发育、营养健康及遗传病诊断而设计的基因检测项目。</p>
+			</div>
+		</div>
+		<div class="main2">
+			<img src="/public/gaiban/images/power02.jpg" width="40%" />
+			<div class="contr">
+				<ul>
+					<li>
+						<span>01</span>
+						<div class="cont">
+							<h4>源于权威国际文献报道</h4>
+							<p>通过Web of science、 Sciencedirect、Medline、Springer等国际权威生物或医学数据库收集人类基因组学研究论文。</p>
+						</div>
+					</li>
+					<li>
+						<span>02</span>
+						<div class="cont">
+							<h4>在中国人群或亚洲人群中得到验证</h4>
+							<p>由于人种的基因差异性，23密码检测项目中的基因主要来源于中国人群或亚洲人群的科研报道，是真正意义上的中国人群的基因检测。</p>
+						</div>
+					</li>
+					<li>
+						<span>03</span>
+						<div class="cont">
+							<h4>经过大样本量的实验和验证</h4>
+							<p>基因和性状的确切关联需要大量的数据来支撑，23密码检测项目中的基因主要来源于大样本量的研究或大量的重复验证研究，检测基因和相关性状具有很高的关联性。</p>
+						</div>
+					</li>
+					<li>
+						<span>04</span>
+						<div class="cont">
+							<h4>有功能学验证的实验结果</h4>
+							<p>23密码检测项目中的基因 SNP位点多数具有功能学验证的结果支持，检测基因和相关性状关联性具备可靠的实验依据。</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+<?php $this->display('index:Index:footer','lib') ?>
+</body>
+
+</html>

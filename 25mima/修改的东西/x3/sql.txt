@@ -1,0 +1,20 @@
+alter table gs_bg_baogao add `pdfurl` VARCHAR(500) NOT NULL DEFAULT '' comment '报告pdf文件路径';
+alter table gs_bg_baogao add `pdfname` VARCHAR(500) NOT NULL DEFAULT '' comment '报告pdf原始文件名';
+if (strpos($_SERVER['HTTP_USER_AGENT'], 'MicroMessenger') !== false ) {
+    $notGetOpenidArr = array('getBaogaoList','queryBaogao','downloadpdf');
+    $currUrlArr = explode('/',$_SERVER['REQUEST_URI']);
+    $_SESSION['weixin'] = '1';
+    if (!in_array($currUrlArr[3], $notGetOpenidArr)) {
+        if(empty($_SESSION['openId'])){
+             header('location:http://23mima.com/index/Login/wapwechat/type/base');  
+        }
+    }
+  //print_r($_SESSION);exit;
+	
+  // setcookie("login_url1", trim(__ROOT__,'/').$_SERVER['REQUEST_URI'],0,'/');
+  //  echo('<script>window.location.href="'.__ROOT__.'Login/wapwechat/type/base";</script>');
+  //  die();
+}else{
+ //  print_r(11);exit;
+//	echo('<script>window.location.href="http://23mima.com/"'.$_SESSION['loginurl'].';</script>');
+}

@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>基因检测结果-肥胖基因 </title>
+<include file='index:Index:css'>
+<link href="__PUBLIC__/gaiban/css/jyy_a_bg.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/gaiban/css/fit_a_bg.css" rel="stylesheet" type="text/css" />
+<!-- <script type="text/javascript" src="__PUBLIC__/js/echarts.js"></script> -->
+<!-- <script type="text/javascript" src="__PUBLIC__/gaiban/js/highcharts.js"></script>
+<script type="text/javascript" src="__PUBLIC__/gaiban/js/highcharts-more.js"></script> -->
+<style>
+.indenx{padding: 0px 18px;}
+p{text-align: justify;}
+.ml20{margin-left:0px; }
+.w1000{width:100%; page-break-inside:avoid;}
+table {
+    width: 100%;
+    text-align: center;
+    border-top: 4px solid #d2d2d2;
+}
+.tr th{
+	font-size: 13px;
+}
+.topnav li{ line-height40px; height:40px; list-style:none;}
+.topnav li b{ font-size:16px; width:100px; float:left; text-align:right}
+
+.cont{
+	width:100%;margin:0 auto;background: url(__PUBLIC__/gaiban/images/baogao/thirdbg2.jpg);background-position: 100% 0%; background-size:100%;background-repeat:no-repeat;position: relative;
+}
+.cont span{
+	color: #a196d6;font-size: 30px;
+}
+.dnap{
+	text-align: center;font-size: 34px;color: #b097c1;margin-top: 200px;
+}
+.zbgp{
+	margin: 80px auto;font-size: 19px;width: 100%;line-height: 42px;color: #3f3b3a;
+}
+.titlep{padding-top: 130px;text-align: center;font-size: 23px;}
+.leftdiv{
+	width: 98%;margin: 0 auto;
+}
+.commonp{
+	text-align: justify;line-height: 26px;margin-top: 40px;font-size: 16px;color: #3f3b3a;padding: 10px;
+}
+.commonp span,.lastp span,.applebgp span{
+	color: #c6b6d2;display: block;font-size: 23px;margin-bottom: 10px;
+}
+.lastp{
+	margin: 10px;padding: 10px;line-height: 26px;margin-top: 40px;font-size: 16px;color: #3f3b3a;background: #fbeffa;
+}
+.rightdiv{
+	width: 100%;
+}
+.applebg{
+	margin-right: 10px;float: left;display: inline-block;width: 146px;height: 170px;background: url(__PUBLIC__/gaiban/images/apple.png);background-size:150px 155px;background-repeat:no-repeat;border-right: 4px solid #d2d2d2;
+}
+.applebgp{
+	width: 100%;line-height: 26px;font-size: 15px;color: #3f3b3a;
+}
+</style>
+</head>
+<body>
+<!--子报告开始  -->
+	<div class="w1000" >
+		<div class="cont">
+			<p class="titlep"> 减肥基因检测：<span><?php echo $feipang['fenshu1']==5 ?'强':($feipang['fenshu1']==4 ?'一般':'弱'); ?></span></p>
+			<div >
+			<div style="margin:0 auto;width: 338px;">
+				<svg height="170" style="padding-left: 13px;" version="1.1"  width="150" xmlns="http://www.w3.org/2000/svg">
+					<circle cx="80" cy="80" r="50" stroke="#ccc"stroke-width="10" fill="#fff"/>
+					<path class="ring" stroke-linecap="round" rate="<?php echo $feipang['fenshu']-0.01;?>" fill="none" x="80" y="80" r="50" stroke="#a196d6"  stroke-width="10" />
+					<text fill="<?php if(1){echo '#3f3b3a';}else{echo '#c9c9c9';} ?>">
+						<tspan x='<?php if(strpos($feipang['fenshu'],".")!==false || $feipang['fenshu']==100) {echo 40;}else{echo 50;} ?>' y='93' style="font-size:30px"><?php echo $feipang['fenshu'];?></tspan>
+						<tspan x='<?php if(strpos($feipang['fenshu'],".")!==false || $feipang['fenshu']==100) {echo 93;}else{echo 85;} ?>' y='93' style="font-size:32px">%</tspan>
+						<tspan x='27' y='157' style="font-size:15px;">您的分数: <?php echo $feipang['fenshu'];?>%</tspan>
+					</text>
+				</svg>
+				
+				<svg height="170" version="1.1" width="170" style="" xmlns="http://www.w3.org/2000/svg">
+					<circle cx="80" cy="80" r="50" stroke="#ccc"stroke-width="10" fill="#fff"/>
+					<path class="ring" stroke-linecap="round" rate="<?php echo $avg-0.01;?>" fill="none" x="80" y="80" r="50" stroke="#f7a0bc"  stroke-width="10" />
+					<text fill="<?php if(1){echo '#3f3b3a';}else{echo '#c9c9c9';} ?>">
+						<tspan x='50' y='93' style="font-size:30px"><?php echo $avg;?></tspan>
+						<tspan x='85' y='93' style="font-size:32px">%</tspan>
+						<tspan x='0' y='157' style="font-size:15px;">人群中的中等程度: <?php echo $avg;
+						?>%</tspan>
+					</text>
+				</svg>
+			</div>
+			</div>
+
+			<p style="font-size: 16px;margin:10px;padding:10px;line-height: 30px;color: #fff;background: -webkit-gradient(linear, 0% 25%, 75% 100%, from(#f0b4c6), to(#aa92ba));">
+				<b class="indenx"></b><?php echo $this->fenxi; ?>
+			</p>
+
+		</div>
+
+
+		<div style="width:100%;margin:50px auto;">
+			<div class="leftdiv">
+				<table>
+					<thead>
+						<tr class="tr">
+							<th>检测基因</th><th>位点</th><th>基因型</th><th>检测结果</th><th>PF%</th>
+						</tr>
+					</thead>
+					<tbody>
+					<?php foreach($feipang['CT'] as $key=>$vk) { ?>
+						<tr>
+							<td style="font-size: 12px;color: #3f3b3a;"><?php print_r($vk['3']);?></td>
+							<td style="font-size: 12px;color: #3f3b3a;"><?php print_r($key);?></td>
+							<td style="font-size: 12px;color: #3f3b3a;"><?php print_r($vk['1']);?></td>
+							<td style="font-size: 12px;color: #3f3b3a;"><?php if ($key=='rs662799') {echo '控制脂肪摄入塑身效果';} elseif ($key=='rs1801282') {
+								echo '单不饱和脂肪酸塑身效果';
+							} elseif ($key=='rs4994') {
+								echo '控制高热量食物塑身效果';
+							} else {
+								echo '运动塑身效果';
+							}?>
+
+							<span>
+							<?php if ($vk['2']>70) {
+							echo '强';
+							} elseif ($vk['2']>40) {
+							 echo '一般';
+							} else {
+							 echo '弱';
+							};?></span></td>
+							<td style="font-size: 12px;color: #3f3b3a;">
+
+							<?php if ($key=='rs662799') {echo '43.5';} elseif ($key=='rs1801282') {
+								echo '4.3';
+							} elseif ($key=='rs4994') {
+								echo 73.9;
+							} else {
+								echo 87.2;
+							}?>
+
+							%</td>
+						</tr>
+					<?php }?>				
+					</tbody>
+				</table>
+				<p style="text-align: right;font-size: 12px;">*注：PF%-在人群出现的频率，随数据的增多而进行不断的变化
+				</p>
+
+				<p class="commonp" >
+					<span >关于本系列</span>
+					<b class="indenx"></b>不同人群对脂肪的分解速率是不同的，是否可以通过一定的有氧体育运动、补充单不饱和脂肪酸、控制高热量食物等措施消耗身体多余脂肪，促进新陈代谢，从而科学塑身是要因人而异的。
+				</p>
+
+				<p class="commonp">
+					<span >缺乏运动的表现</span>
+					<img width="100%" src="__PUBLIC__/gaiban/images/baogao/thirdp1.jpg" />
+				</p>
+
+				<p class="commonp">
+					<span >我们为什么要控制高热量食物和脂肪的摄入</span>
+					<b class="indenx"></b>当人们进食高热量食物过多却又无法完全消耗时，多余的热量就会变成脂肪贮存起来，时间久了，身体就胖起来了。食用过多脂肪会令人肥胖并破坏人的动脉，更会令人衰老。 进入人体内的脂肪量，是一个人衰老的速度和患病机会大小的。
+				</p>
+			</div>
+		</div>
+
+		<div class="rightdiv">
+			<div class="ml20 commonp">
+					<span >我们为什么要摄入单不饱和脂肪酸</span>
+					<b class="indenx"></b>血液中坏胆固醇太多，就容易损坏血管壁以及引起动脉阻塞，单不饱和脂肪酸则能清除血液中的坏胆固醇。
+			</div>
+			<p class="ml20 commonp">
+					<span >肥胖的危害</span>
+					<b class="indenx"></b>肥胖不仅影响形体美，而且给生活带来不便，更重要的是容易引起多种并发症，加速衰老和死亡，肥胖是疾病的先兆、衰老的信号。
+			</p>
+
+			<p class="lastp" >
+					<span >科学建议</span><b class="indenx"></b>控制脂肪摄入不是一点不能吃，有些食物中富含的不饱和脂肪酸多吃反而有益，脂肪能够为人体提供能量，保护内脏，维持体温，并参与机体各种代谢活动。脂肪摄入过多会造成肥胖，带来一系列代谢相关疾病，但摄入不足，也会危害健康。<br><b class="indenx"></b>饱和脂肪酸分子相对稳定，可源源不断地提供能量，但也会直接导致低密度脂蛋白胆固醇等指标升高，增加心血管疾病风险，因此常被称为“坏脂肪”；不饱和脂肪酸分为单不饱和脂肪酸和多不饱和脂肪酸两种，其分子不稳定，进入人体后可起到调节胆固醇水平的作用，多被称为“好脂肪”。<br><b class="indenx"></b>规律运动有助于减缓人的老化现象，减少心血管疾病风险，消除精神紧张，改善体型，建议养成规律运动的好习惯。
+
+
+			</p>
+
+			<p style="margin: 10px;padding: 10px;line-height: 26px;color: #3f3b3a;">
+				备注：<br><b class="indenx"></b>
+检测结果只针对本次送检样本，非临床诊断指标；检测结果仅包括检测范围内的位点多态性，不能反应您的全部风险。<br><b class="indenx"></b>
+由于个体差异以及其他一些不可控原因，可能出现假阳性或假阴性结果。<br><b class="indenx"></b>
+以上结论是根据此基因携带人群的平均水平得出的，相同基因型携带者之间的个人水平有可能与相应人群的平均水平有一定差异。
+			</p>
+		</div>
+		<div style="clear: both;"></div>
+	</div>
+	<!--子报告结束  -->		
+
+</body>
+
+<script src="__PUBLIC__/gaiban/js/fit_a.js"></script>
+</html>

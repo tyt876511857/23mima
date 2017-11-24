@@ -1,0 +1,19 @@
+/*微信验证*/
+*{margin:0;padding:0;}
+body{max-width:640px;margin:0 auto;font-family:'微软雅黑';}
+#logo{width:100%;}
+#logo img{width:100%;}
+#sm{background:#ffb83c;width:100%;height:52px;font-size: 8px;line-height: 52px;color:#ffffff;text-indent: 44px;font-size: 16px;}
+form{margin:42px auto 0;background:url(../images/yz_07.jpg) no-repeat;width:90%;height:164px;}
+form p{font-size: 8px;padding:10px 0;padding-left:115px;height:30px;}
+form p input{border:#dbdbdb 1px solid;border-radius:5px;height:28px;float:left;font-size: 16px;}
+form p #hidden{width:280px;overflow:hidden;}
+form p #yz{float:left;height:20px;padding-top:5px;margin-left:5px;}
+#footer{width:100%;height:130px;border-top:solid 1px #dfdfdf; }
+#footer img{width:100%;}
+form p a{line-height: 40px;display: block;float:left;}
+#submit{width:148px;height: 38px;background: #20d2df;border:0;color:#fff;margin-left:135px;}
+#pingtai{position:relative;height:314px;background:url(../images/yz_10.jpg) no-repeat center;}
+#pingtai img{width:100%;position:absolute;top:0;}
+#pingtai a{display: block;width:50%;height:157px;float:left;}
+#pingtai a:first-child{width:100%;}

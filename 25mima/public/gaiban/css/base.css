@@ -1,0 +1,49 @@
+*{margin:0;border:0;padding:0;font-size:14px;font-family:"微软雅黑";line-height:1.5;text-decoration:none;color:#000;}
+ul{list-style-type:none;}
+
+.w1000{width:1110px;margin:0 auto;}
+.top{width:100%;border-bottom:1px solid #ccc;padding:6px 0;background:#fff}
+.top a{float:right;padding:0px 15px;color:#a1a1a1;}
+.top a:hover{color:#23c4f1;}
+.top span.line{float:right;background:#dbdbdb;width:1px;height:13px;*height:17px;margin:4px 0;}
+.top span.user{float:right;color:#23C4F1;cursor:pointer;padding: 0 15px;}
+.menu{position: absolute;left: 928px;background:#fff;border:1px solid #ccc;z-index:10;display:none}
+.menu a{border-bottom:1px solid #ccc;display: block;float: none;padding:10px 25px;}
+.top .w1000{overflow:auto}
+.left{float:left}
+.right{float:right}
+#buy_btn{
+	position:relative;
+	font-size:18px;
+	background:#23c4f1;
+	color:#fff;
+	padding:0 45px;
+	margin:21px;
+	 /* Webkit 支持 */ 
+	-webkit-border-radius:20px;
+	/* Mozilla 支持 */
+	-moz-border-radius:20px;
+	behavior:url('css/PIE.htc');					
+	border-radius:20px;
+	border-radius: 20px 20px 20px 20px;
+	}
+.header{border-bottom:2px solid #23c4f1;background:#fff}
+.header .nav{height:70px;}
+.header .nav ul{width:550px;*width:600px;}
+.header .nav ul li{float:left}
+.header .nav ul li a.active{border-top:2px solid #23c4f1;color:#23c4f1}
+.header .nav ul li a{padding:20px 0;margin:0 37px;float:left;border-top:2px solid #fff;font-size:18px;}
+.header .nav ul li a:hover{border-top:2px solid #23c4f1;color:#23c4f1}
+.whire{background:#fff;}
+.noflow{overflow:inherit;}
+.row{margin:60px 0;overflow:auto;}
+
+.footer{border-top:2px solid #23c4f1;background:#fff;}
+.footer .cont{padding:50px 0;overflow:auto;}
+.footer .cont ul li{width:227px;float:left}
+.footer .cont ul li a.title{color:#23c4f1;font-size:18px;margin-bottom:20px;}
+.footer .cont ul li a {display:block;margin-bottom:5px;color:#acacac}
+.footer .cont span.left{margin: 30px 0;width: 1px;height: 80px;background: #a1a1a1;}
+
+.footer_copy{border-top:1px solid #a1a1a1;background:#fff;}
+.footer_copy .cont{color:#bbbbbb}

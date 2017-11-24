@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>属性管理</title>
+<include file='css'>
+</head>
+<body id="right_bj">
+<div class="right_box">
+  <div class="title"><p>属性管理</p><a href='{:U("Report/property_add/cid/$_GET[id]")}'>添加属性</a></div>
+  <table class="table" border="1" align="center">
+    <tr>
+      <td width="5%">编号</td>
+      <td width="10%">名称</td>
+	  <td width="10%">唯一识别码</td>
+	  <td width="10%">SNP位点</td>
+      <td width="10%">中文名称</td>
+      <td width="10%">基因值</td>
+      <td width="10%">操作</td>
+    </tr>
+    <foreach name='list' item='v'>
+      <tr>
+        <td>{$v.id}</td>
+		<td>{$v.title_c}</td>
+        <td>{$v.title}</td>
+		<td>{$v.SNP}</td>
+        <td>{$v.name}</td>
+        <td>
+          <?php
+            $sql = 'select * from '.$this->fenshu.' where pid='.$v['id'];
+            $r = $this->db->getAll($sql);
+            foreach($r as $j){
+              echo $j['name'].'='.$j['sum'].',';
+            }
+          ?>
+        </td>
+        <td>
+          <a href='{:U("Report/fenshu_index/id/$v[id]")}'>基因值列表</a>
+          <a href='{:U("Report/property_update/id/$v[id]/cid/$_GET[id]")}' title="编辑">
+            <img src="__SKIN__/images/icon_edit.gif" border="0" height="16" width="16" />
+          </a>
+          <a href='{:U("/Report/property_delete/id/$v[id]")}' onclick="listTable.remove(1, '您确认要删除这条记录吗?')" title="移除">
+            <img src="__SKIN__/images/icon_drop.gif" border="0" height="16" width="16" />
+          </a>
+        </td>
+      </tr>
+    </foreach>
+  </table>
+  <!-- <ul id="page">{$showpage}</ul> -->
+</div>
+</body>
+</html>

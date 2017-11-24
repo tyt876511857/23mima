@@ -1,0 +1,125 @@
+<!-- $Id: ad_position_list.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ECSHOP 管理中心 - 广告位置 </title>
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<include file='css'>
+<script language="JavaScript">
+<!--
+// 这里把JS用到的所有语言都赋值到这里
+var process_request = "正在处理您的请求...";
+var todolist_caption = "记事本";
+var todolist_autosave = "自动保存";
+var todolist_save = "保存";
+var todolist_clear = "清除";
+var todolist_confirm_save = "是否将更改保存到记事本？";
+var todolist_confirm_clear = "是否清空内容？";
+var posit_name_empty = "广告位名称不能为空!";
+var ad_width_empty = "请输入广告位的宽度!";
+var ad_height_empty = "请输入广告位的高度!";
+var ad_width_number = "广告位的宽度必须是一个数字!";
+var ad_height_number = "广告位的高度必须是一个数字!";
+var no_outside_address = "建议您指定该广告所要投放的站点的名称，方便于该广告的来源统计!";
+var width_value = "广告位的宽度值必须在1到1024之间!";
+var height_value = "广告位的高度值必须在1到1024之间!";
+var ad_name_empty = "请输入广告名称!";
+var ad_link_empty = "请输入广告的链接URL!";
+var ad_text_empty = "广告的内容不能为空!";
+var ad_photo_empty = "广告的图片不能为空!";
+var ad_flash_empty = "广告的flash不能为空!";
+var ad_code_empty = "广告的代码不能为空!";
+var empty_position_style = "广告位的模版不能为空!";
+//-->
+</script>
+</head>
+<body>
+
+<h1>
+<span class="action-span"><a href="{:U('/Myad/add')}">添加新广告</a></span>
+<span class="action-span1"><a href="index.php?act=main">ECSHOP 管理中心</a> </span><span id="search_id" class="action-span1"> - 广告位置 </span>
+<div style="clear:both"></div>
+</h1>
+<script type="text/javascript" src="../js/utils.js"></script><script type="text/javascript" src="js/listtable.js"></script>
+<form method="post" action="" name="listForm">
+<!-- start ad position list -->
+<div class="list-div" id="listDiv">
+
+<table cellpadding="3" cellspacing="1">
+  <tr>
+    <th>编号</th>
+    <th>调用代码</th>
+    <th>广告名称</th>
+    <th>广告说明</th>
+    <th>是否开启</th>
+    <th>排序</th>
+    <th>操作</th>
+  </tr>
+  <foreach name='data' item='v'>
+    <tr>
+    <td align="right"><span>{$v.id}</span></td>
+    <td class="first-cell">
+    <span onclick="javascript:listTable.edit(this, 'edit_position_name', 1)">{$v.type}</span>
+    </td>
+    <td class="first-cell">
+    <span onclick="javascript:listTable.edit(this, 'edit_position_name', 1)">{$v.title}</span>
+    </td>
+    <td class="first-cell">
+    <span onclick="javascript:listTable.edit(this, 'edit_position_name', 1)">{$v.description}</span>
+    </td>
+    <td align='center'><img src="<if condition='$v['switch']'>__SKIN__/images/yes.gif<else>__SKIN__/images/no.gif</if>" onclick="listTable.toggle(this, 'toggle_show_in_nav', {$v.id})" /></td>
+    <td align="right"><span onclick="javascript:listTable.edit(this, 'edit_ad_width', 1)">{$v.rank}</span></td>
+    <td align="center">
+      <a href="ads.php?act=list&pid=1" title="查看广告内容">
+      <img src="__SKIN__/images/icon_view.gif" border="0" height="16" width="16" /></a>
+      <a href='{:U("Myad/update/id/$v[id]")}' title="编辑">
+      <img src="__SKIN__/images/icon_edit.gif" border="0" height="16" width="16" /></a>
+      <a href="javascript:;" onclick="listTable.remove(1, '您确认要删除这条记录吗?')" title="移除"><img src="__SKIN__/images/icon_drop.gif" border="0" height="16" width="16" /></a>
+    </td>
+  </tr>
+  </foreach>
+    <tr>
+    <td align="right" nowrap="true" colspan="5">      <!-- $Id: page.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+            <div id="turn-page">
+        总计  <span id="totalRecords">1</span>
+        个记录分为 <span id="totalPages">1</span>
+        页当前第 <span id="pageCurrent">1</span>
+        页，每页 <input type='text' size='3' id='pageSize' value="15" onkeypress="return listTable.changePageSize(event)" />
+        <span id="page-link">
+          <a href="javascript:listTable.gotoPageFirst()">第一页</a>
+          <a href="javascript:listTable.gotoPagePrev()">上一页</a>
+          <a href="javascript:listTable.gotoPageNext()">下一页</a>
+          <a href="javascript:listTable.gotoPageLast()">最末页</a>
+          <select id="gotoPage" onchange="listTable.gotoPage(this.value)">
+            <option value='1'>1</option>          </select>
+        </span>
+      </div>
+</td>
+  </tr>
+</table>
+
+</div>
+<!-- end ad_position list -->
+</form>
+
+<script type="text/javascript" language="JavaScript">
+  listTable.recordCount = 1;
+  listTable.pageCount = 1;
+
+    listTable.filter.record_count = '1';
+    listTable.filter.page_size = '15';
+    listTable.filter.page = '1';
+    listTable.filter.page_count = '1';
+    listTable.filter.start = '0';
+    
+  onload = function()
+  {
+    // &#64138;&#53036;&#10870;鵥
+    startCheckOrder();
+  }
+  
+</script>
+<include file='pagefooter'>
+</body>
+</html>

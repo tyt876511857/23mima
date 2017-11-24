@@ -1,0 +1,261 @@
+.tal-lh30 {
+  line-height: 30px;
+}
+.tal-pl5 {
+  padding-left: 5px;
+}
+.tal-mb10 {
+  margin-bottom: 10px;
+}
+.tal-ls2 {
+  letter-spacing: 2px;
+}
+.tal-fcyellow {
+  color: #f5c71a;
+}
+
+/* 报告选择&面包屑 */
+.tal-switch-wrapper {
+  background-color: #00b5c5;
+  color: #fff;
+}
+.tal-switch-link:hover {
+  text-decoration: underline;
+}
+.tal-switch-wrapper2 {
+  margin: 20px auto 0 auto;
+  width: 1000px;
+  position: relative;
+}
+
+/* 顶部区域 */
+.tal-header {
+  height: 400px;
+}
+.tal-result {
+  float: left;
+  width: 370px;
+}
+.tal-result-title {
+  font-size: 28px;
+  color: #666;
+  font-weight: 300;
+}
+.tal-tag-wrap {
+  margin-top: 45px;
+  width: 370px;
+  height: 210px;
+  font-size: 14px;
+}
+.tal-tag {
+  float: left;
+  padding-left: 64px;
+  width: 116px;
+  height: 65px;
+  background-repeat: no-repeat;
+  background-position: left center;
+  color: #fff;
+  line-height: 69px;
+}
+.tal-tag-ads {
+  background-image: url(/res/desktop/img/reports/talent/tal_tag_ads.png);
+}
+.tal-tag-hlg {
+  background-image: url(/res/desktop/img/reports/talent/tal_tag_hlg.png);
+}
+.tal-tag-xb {
+  background-image: url(/res/desktop/img/reports/talent/tal_tag_xb.png);
+}
+.tal-tag-memory {
+  background-image: url(/res/desktop/img/reports/talent/tal_tag_memory.png);
+}
+.tal-tag-sport {
+  background-image: url(/res/desktop/img/reports/talent/tal_tag_sport.png);
+}
+.tal-tag-mzt {
+  background-image: url(/res/desktop/img/reports/talent/tal_tag_mzt.png);
+}
+.tal-tag-discipline {
+  background-image: url(/res/desktop/img/reports/talent/tal_tag_discipline.png);
+}
+.tal-tag-discipline2 {
+  background-image: url(/res/desktop/img/reports/talent/tal_tag_discipline_boy.png);
+}
+.tal-tag-attention {
+  background-image: url(/res/desktop/img/reports/talent/tal_tag_attention.png);
+}
+.tal-tag-speech {
+  background-image: url(/res/desktop/img/reports/talent/tal_tag_speech.png);
+}
+.tal-tag-super {
+  background-image: url(/res/desktop/img/reports/talent/tal_tag_super.png);
+}
+
+/* 雷达图表 */
+.tal-polar-wrap {
+  position: relative;
+  float: left;
+  margin-left: 100px;
+  margin-top: 10px;
+  width: 340px;
+  text-align: center;
+  color: #fff;
+}
+.tal-polar-text {
+  position: absolute;
+  width: 340px;
+  z-index: 100;
+  letter-spacing: 2px;
+}
+.tal-polar-text-name {
+  top: 135px;
+}
+.tal-polar-text-date {
+  font-size: 14px;
+  top: 158px;
+}
+
+.tal-activity {
+  float: left;
+  position: relative;
+  margin-left: 18px;
+  width: 259px;
+  height: 345px;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 24px;
+  color: #666;
+  text-align: center;
+}
+.tal-activity-title {
+  height: 50px;
+  font-size: 16px;
+  color: #f66a87;
+  line-height: 50px;
+}
+.tal-share {
+  display: block;
+  margin: 20px auto 0 auto;
+  padding-left: 30px;
+  width: 170px;
+  height: 40px;
+  line-height: 40px;
+  color: #fff;
+  background-color: #f66a87;
+  border-radius: 4px;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-image: url(/res/desktop/img/reports/talent/tal_weixin.png);
+  background-position: 40px 0;
+}
+.tal-activity-point {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 6px solid #eee;
+  border-radius: 50%;
+}
+.tal-activity-point1 {
+  top: 10px;
+  left: 10px;
+}
+.tal-activity-point2 {
+  top: 10px;
+  right: 10px;
+}
+.tal-activity-point3 {
+  bottom: 10px;
+  left: 10px;
+}
+.tal-activity-point4 {
+  bottom: 10px;
+  right: 10px;
+}
+
+/* 微信分享 */
+#jiathis_weixin_share { /* 更改引用插件的样式权重 */
+  display: block!important;
+}
+#jiathis_weixin_modal {
+  border: 1px solid #ddd!important;
+}
+#jiathis_weixin_tip a{
+  display: none;
+}
+
+/* 中间部分 */
+.tal-main-wrap {
+  padding-top: 40px;
+  height: 660px;
+  background-color: #fafafa;
+}
+.tal-main-gene {
+  float: left;
+  margin: 0 10px 40px 10px;
+  padding-top: 15px;
+  padding-left: 15px;
+  width: 295px;
+  height: 165px;
+  border-top: 2px solid #00b5c5;
+  background-color: #fff;
+  color: #666;
+  box-shadow: 1px 1px 1px #dfdfdf;
+  cursor: pointer;
+}
+.tal-gene-img {
+  float: left;
+  width: 105px;
+  height: 105px;
+  display: block;
+}
+.tal-gene-content {
+  float: left;
+  margin-left: 20px;
+  padding-top: 15px;
+  font-size: 18px;
+}
+.tal-star {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+}
+.tal-star-half {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(/res/desktop/img/reports/talent/tal_star_half.png);
+  background-size: 24px 24px;
+}
+
+/* 参考文献 */
+.tal-footer {
+  margin: 0 auto;
+  padding: 20px 40px 120px 20px;
+  width: 960px;
+  font-size: 14px;
+  line-height: 30px;
+  color: #666;
+}
+.tal-footer a {
+  color: #666;
+}
+.tal-footer a:hover {
+  text-decoration: underline;
+}
+.tal-footer-ckwx {
+  float: left;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+}
+a.tal-link {
+  display: inline-block;
+  font-size: 14px;
+  color: #ed5760;
+}
+.tal-link:hover {
+  text-decoration: underline;
+}

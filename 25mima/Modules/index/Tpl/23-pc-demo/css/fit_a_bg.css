@@ -1,0 +1,5 @@
+.topnav{overflow:auto;padding:10px 0;}
+.tip{color:#9f9d9a;font-size:24px;}
+h3>span{font-size:72px;}
+h3>span:nth-child(odd){color:#9f9d9a}
+h3>span:nth-child(even){color:#c7c7c7}

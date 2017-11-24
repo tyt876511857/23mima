@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>{$field.title}</title>
+<meta name="Keywords" content="{$field.keywords}">
+<meta name="Description" content="{$field.description}">
+<include file='index:Index:css'>
+<link href="__PUBLIC__/gaiban/css/goods.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<include file='index:Index:header'>
+<script>
+$('.header ul li:eq(1) a').addClass('active');
+</script>
+	
+	
+	
+	
+	<div class="row" style=" position:relative">
+	`<form action="{:U('Shopping/mima')}" method="post">
+		<input type="hidden" name="number[]" value="1" />
+        <input type="hidden" name='goods_id[]' value="{$field.goods_id}">
+	  
+		{$field.goods_brief}
+		</form>
+	</div>
+	
+	
+	
+	
+<include file='index:Index:footer'>
+</body>
+<script>
+function dialog(id){
+	$.get('{:U("Goods/xianmuRow")}/id/'+id,function(data,status){
+	var json = eval('(' + data + ')');
+	$('#title').html(json['title']);
+    $('#desc').html(json['pdesc']);
+    $('.dialog').fadeIn();
+  	});
+}
+$('.dialog').siblings().click(function(){
+	$('.dialog').fadeOut();
+})
+</script>
+</html>
+<style>
+	.ljgm{    border-radius: 10px;
+    width: 200px;
+	position:absolute;
+	z-index:999;
+	left:440px;
+	top:400px;
+    height: 52px;
+    background: #d1bfb1;
+    color: #fff;
+    text-align: center;
+    line-height: 52px;
+    font-size: 28px;
+    display: block;
+    margin: 0 auto;}
+</style>

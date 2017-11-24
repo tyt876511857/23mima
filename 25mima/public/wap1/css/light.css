@@ -1,0 +1,32 @@
+
+
+.lights {
+	
+	background: url(../images/report/light.png) no-repeat;
+	height: 30px;
+}
+
+.lights.lv1 {
+	width: 30px;
+}
+
+.lights.lv2 {
+	width: 60px;
+}
+
+.lights.lv3 {
+	width: 90px;
+}
+
+.lights.lv4 {
+	width: 120px;
+}
+
+.lights.lv5 {
+	width: 150px;
+}
+.gene_con_cell .power{
+	position: absolute;
+	top: 30%;
+	left: 95px;
+}

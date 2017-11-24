@@ -1,0 +1,35 @@
+.topnav{overflow:auto;padding:10px 0;}
+.tip{color:#9f9d9a;font-size:24px;}
+h3>span{font-size:72px;}
+h3>span:nth-child(odd){color:#9f9d9a}
+h3>span:nth-child(even){color:#c7c7c7}
+
+
+.overflow{overflow:auto;}
+h3.titlec{font-size:60px;color:#22a564;font-weight:normal;text-align:center;}
+.toptitle  span{display:block;width:125px;margin:0 auto;}
+.toptitle  p{color:#808080;text-align:center;margin-top:30px}
+.toptitle span>img{width:25px}
+.ck1{float:right;width:100%;text-align:right}
+
+.jyadvice{padding:15px;width:718px;background:#fff;border:1px solid #c9c9c9;min-height: 150px;}
+.dna a:nth-child(4){margin-right:0 !important;}
+.dna a{float:left;width:164px;margin-right:40px;padding:10px;}
+.dna a>img{padding: 10px 27px;}
+.dna a>span{font-size:18px;width:100%;display:block;text-align:center}
+.dna a>span>font{font-size:30px;}
+
+h3.titlec1{font-size:30px;color:#808080;font-weight:normal;width:230px;text-indent: 8px;}
+
+
+h3.titlec2{font-size:30px;color:#808080;font-weight:normal;width:250px;}
+.right .cont1{margin-top:50px;}
+
+h4.titlec{text-align:center;width:830px;}
+table{width:830px;text-align:center;border-top:4px solid #d2d2d2}
+table tr{border-bottom:1px solid #c9c9c9;color:#515151;height:50px}
+.ck{width:200px;padding:10px 455px;float:left;}
+.ck a{margin:0 10px;}
+
+h3.titlec3{font-size:30px;color:#808080;font-weight:normal;width:360px;}
+.advice{padding:15px;width:718px;border:1px solid #c9c9c9;min-height: 150px;}

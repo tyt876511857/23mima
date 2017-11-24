@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>{$field.title}</title>
+<meta name="Keywords" content="{$field.keywords}">
+<meta name="Description" content="{$field.description}">
+<include file='css'>
+</head>
+<body class="list">
+<include file='header'>
+<div id="position">
+  <div class="position w1000">
+    <position type='category' />
+  </div>
+</div>
+<div class="banner w1400">
+
+</div>
+<div class="w1400">
+  <foreach name='list' item='v'>
+  <div class="gs_list">
+    <a href="{$v.url}" target="_blank"><img src="{$v.goods_thumb}" /></a>
+    <p><a href="{$v.typeurl}" target="_blank">{$v.typename}</a></p>
+    <p><a href="{$v.url}" target="_blank">{$v.goods_name}</a></p>
+    <span>￥{$v.shop_price}</span>
+    <div class="pingfen"><a style="width:{$v.stars}%;"></a></div>
+    <li><a href="{$v.url}" target="_blank">查看</a><a href='{:U("Shopping/addRow/id/$v[goods_id]")}'>快速购买</a></li>
+  </div>
+  </foreach>
+  <div class="page">{$page}</div>
+  
+</div>
+<include file='footer'>
+<script src="__PUBLIC__/js/index.js"></script>
+</body>
+</html>

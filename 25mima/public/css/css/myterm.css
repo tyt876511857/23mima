@@ -1,0 +1,10 @@
+h3.title{color:#646464;font-size:45px;margin-bottom:30px;text-align:center}
+.overflow{overflow:auto;}
+.top-cont{padding:70px 0;}
+.top-cont p{color:#9f9d9a;text-align:center;font-size:18px;}
+
+.item{border:13px solid #1eaddd;width:340px;float:left;position:relative;margin:136px 94px 80px 94px;height:400px}
+.item .dlogo{position:absolute;top:-136px;left:65px;}
+.item h4{font-size:24px;color:#1eaddd;text-align:center;margin-top:80px;font-weight:normal;}
+.item .js{font-size:18px;text-align:center;margin-bottom:20px;}
+.item .cont{padding:15px;color:#606060}

@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>新建商品类型</title>
+<include file='css'>
+</head>
+<body id="right_bj">
+<div class="right_box">
+  <div class="title"><p>新建商品类型</p></div>
+  <form action="{:U('/GoodsType/runadd')}" method="post">
+  <table class="addtable" border="0" align="center">
+    <tr>
+      <td>商品类型名称:</td>
+      <Td>
+        <input type="text" name="typename" value="{$field.typename}" size="40" />
+        <span class="require-field">*</span>
+      </Td>
+    </tr>
+    <tr>
+      <td>状态:</td>
+      <Td>
+        <input type="radio" name="enabled" value="0" <if condition="!empty($field)&&$field['enabled']==0">checked</if> >&nbsp;禁用&nbsp;
+        <input type="radio" name="enabled" value="1" <if condition="empty($field)||$field['enabled']==1">checked</if> >&nbsp;启用&nbsp;
+      </Td>
+    </tr>
+    <tr>
+      <td>属性分组</td>
+      <Td><textarea name="attr_group" rows="5" cols="40">{$field.attr_group}</textarea></Td>
+    </tr>
+  </table>
+  <div class="button-div">
+      <input type="submit" value=" 确定 " />
+      <input type="reset" value=" 重置 " />
+      <input type="hidden" name="cat_id" value="{$field.cat_id}" />
+  </div>
+  </form>
+</div>
+</body>
+</html>

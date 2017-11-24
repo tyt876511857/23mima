@@ -1,0 +1,443 @@
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+input:focus {
+    outline: none;
+}
+
+.User_ad {
+    position: relative;
+    min-height: 278px;
+}
+
+.User_ad_th {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 1000px;
+    margin-left: -500px;
+    z-index: 99;
+}
+
+.User_ad_th h2 {
+    font-size: 36px;
+    color: #75CAF3;
+    letter-spacing: 5px;
+}
+
+.User_ad_th span {
+    font-size: 22px;
+    color: #9B9B9B;
+}
+
+.User_bg {
+    background: #eee;
+    padding: 20px 0;
+}
+
+.User {
+    background: #fff;
+}
+
+.User_th {
+    width: 100%;
+    height: 45px;
+}
+
+.User_th li {
+    float: left;
+    width: 370px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    background-color: #75CAF3;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.User_th li.active {
+    background-color: #fff;
+    color: #75CAF3;
+}
+
+.hide{
+	display:none;
+}
+
+.U_c_cell {
+    min-height: 300px;
+    clear: both;
+    padding-bottom: 50px;
+}
+
+
+/*我的账户*/
+
+.UserAccount {
+    width: 96%;
+    margin: 0 auto;
+}
+
+.U_a_con {
+    border: 1px solid #B9B9B9;
+    border-left: none;
+    border-right: none;
+    padding: 20px 0;
+}
+
+.U_a_th {
+    height: 100px;
+    line-height: 100px;
+    font-size: 16px;
+}
+
+.U_a_th span {
+    font-size: 30px;
+    color: #EC9105;
+}
+
+.U_a_con > div {
+    height: 80px;
+    line-height: 80px;
+}
+
+.UsingBtn {
+    background-color: #1CADF0;
+    color: #fff;
+    padding: 2px 15px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.UsingBtn:active {
+    background-color: #1496d2;
+}
+
+.addText {
+    border: 1px solid #ddd;
+    padding: 0 5px;
+}
+
+.addBtn {
+    background-color: #FBA721;
+    color: #fff;
+    padding: 2px 30px;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.addBtn:active {
+    background-color: #ea9a1b;
+}
+
+
+/*我的订单*/
+
+.UserOrder {
+    width: 96%;
+    margin: 0 auto;
+}
+
+.UserOrder h3 {
+    height: 60px;
+    line-height: 60px;
+    font-size: 16px;
+    border-bottom: 2px solid #BCBCBC;
+}
+
+.UserOrder table {
+    width: 100%;
+}
+
+.UserOrder table th {
+    height: 40px;
+    line-height: 40px;
+    color: #1DAEDD;
+    text-align: center;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.UserOrder table tr {
+    border-bottom: 1px solid #BDBDBD;
+    position: relative;
+}
+
+.UserOrder table td {
+    padding: 20px 5px;
+    vertical-align: top;
+    text-align: center;
+    position: relative;
+}
+
+.checkType:hover {
+    color: #1DAEDD;
+}
+
+.UserOrder_info,
+.box_info {
+    height: 200px;
+}
+
+.UserOrder_info p,
+.box_info p {
+    font-size: 18px;
+    color: #999;
+    text-align: center;
+    line-height: 150px;
+}
+
+.UserOrder_info a {
+    display: block;
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 18px;
+    color: #fff;
+    background-color: #1CACF2;
+}
+
+.checkType_con {
+    background-color: #D3F1FB;
+    padding: 10px;
+    width: 250px;
+    position: absolute;
+    text-align: left;
+    z-index: 99;
+}
+
+.checkType_con h4 {
+    color: #1DB8EE;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+}
+
+.checkType_con li {
+    height: 30px;
+    line-height: 30px;
+}
+
+.checkType_con span {
+    color: #757678;
+}
+
+
+/*采样盒*/
+
+.box {
+    width: 96%;
+    margin: 0 auto;
+}
+
+.box > ul {
+    width: 100%;
+    min-height: 200px;
+    margin-top: 30px;
+}
+
+.box > ul li {
+    float: left;
+    width: 355px;
+    margin-top: 100px;
+}
+
+.box_cell {
+    width: 200px;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+    padding: 60px 20px 20px 20px;
+    position: relative;
+}
+
+.box_cell h4 {
+    color: #1CACF2;
+    font-size: 26px;
+}
+
+.box_cell p {
+    line-height: 40px;
+    color: #A1A1A1;
+}
+
+.box_cell span {
+    display: block;
+    border-top: 1px dashed #A6A6A6;
+    margin-top: 20px;
+    padding-top: 10px;
+    color: #A1A1A1;
+}
+
+.box_cell_pic {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: #fff;
+   
+    -webkit-border-radius: 90px;
+    -moz-border-radius: 90px;
+    behavior: url('css/PIE.htc');
+    border-radius: 10px;
+    top: -65px;
+    right: -55px;
+    z-index: 99;
+}
+
+.addBox {
+    display: block;
+    width: 150px;
+    margin: 0 auto;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    color: #35C0F0;
+    border: 1px solid #35C0F0;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    behavior: url('css/PIE.htc');
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+
+/*采样盒状态*/
+
+.CheckBox {
+    min-height: 500px;
+    padding: 20px 0;
+}
+
+.CheckBox > h2 {
+    color: #6A6A6A;
+    text-align: center;
+    font-size: 26px;
+    font-weight: normal;
+}
+
+.cb_mess {
+    width: 400px;
+    height: 200px;
+    margin: 50px auto;
+    border: 1px solid #E7E7E7;
+    padding: 50px;
+}
+
+.cb_Pic {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    margin: 0 auto 30px auto;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    behavior: url('css/PIE.htc');
+    border-radius: 50px;
+}
+
+.cb_mess p {
+    text-align: center;
+    color: #838383;
+    font-size: 18px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.cb_con {
+    margin-top: 20px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 100px;
+}
+
+.cb_con h3 {
+    color: #6A6A6A;
+    font-size: 26px;
+    font-weight: normal;
+}
+
+.cb_con ul {
+    width: 100%;
+    margin-top: 30px;
+    position: relative;
+    z-index: 5;
+}
+
+.cb_con ul li {
+    float: left;
+    width: 12.5%;
+}
+
+.cb_cell {
+    width: 110px;
+    margin: 0 auto;
+}
+
+.cb_color {
+    border: 5px solid #E4E4E4;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    behavior: url('css/PIE.htc');
+    border-radius: 50px;
+    margin: 0 auto;
+    background: #fff;
+}
+
+.co0 {
+    background-color: #9CCBD5;
+}
+
+.co1 {
+    background-color: #87D0C9;
+}
+
+.co2 {
+    background-color: #68C6AE;
+}
+
+.co3 {
+    background-color: #B3D893;
+}
+
+.co4 {
+    background-color: #EDCB62;
+}
+
+.co5 {
+    background-color: #E4A766;
+}
+
+.co6 {
+    background-color: #ED9065;
+}
+
+.co7 {
+    background-color: #B595BE;
+}
+
+.cb_cell > span {
+    display: block;
+    padding: 5px 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.cb_cell > p {
+    color: #C1C1C1;
+}
+
+.cb_line {
+    position: absolute;
+    top: 98px;
+    left: 55px;
+    width: 1000px;
+    height: 5px;
+    background-color: #E4E4E4;
+    z-index: 2;
+}

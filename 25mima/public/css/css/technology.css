@@ -1,0 +1,30 @@
+h3.title{color:#646464;font-size:45px;margin-bottom:30px;text-align:center}
+.overflow{overflow:auto;}
+.top-cont{padding:70px 0;}
+.top-cont p{color:#9f9d9a;text-align:center;font-size:18px;}
+
+.jishu01{margin:100px 0 0 300px;}
+.jishu01 img{float:left}
+.jishu01 .jcont{float:left;width:510px;margin-left:10px;}
+.jishu01 .jcont h3{font-size:24px;color:#8d8d8d;font-weight:normal;margin-bottom:20px;}
+.jishu01 .jcont p{color:#8d8d8d;line-height:30px;}
+
+.jishu02{margin-top:100px;}
+.jishu02 img{float:left}
+.jishu02 .jcont{float:left;width:510px;margin-left:10px;}
+.jishu02 .jcont h3{font-size:24px;color:#8d8d8d;font-weight:normal;margin-bottom:20px;}
+.jishu02 .jcont p{color:#8d8d8d;line-height:30px;}
+
+.jishu03{margin:100px 0 0 500px;}
+.jishu03 img{float:left}
+.jishu03 .jcont{float:left;width:408px;margin-left:10px;}
+.jishu03 .jcont h3{font-size:24px;color:#8d8d8d;font-weight:normal;margin-bottom:20px;}
+.jishu03 .jcont p{color:#8d8d8d;line-height:30px;}
+
+.jishu04{margin:100px 0 60px 76px;}
+.jishu04 img{float:left}
+.jishu04 .jcont{float:left;width:510px;margin-left:10px;}
+.jishu04 .jcont h3{font-size:24px;color:#8d8d8d;font-weight:normal;margin-bottom:20px;}
+.jishu04 .jcont p{color:#8d8d8d;line-height:30px;}
+.bottom_img1{float:left;width:49%;margin-top:180px;}
+.bottom_img2{float:left;width:50%;}

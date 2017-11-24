@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>{$field.title}</title>
+<meta name="Keywords" content="{$field.keywords}">
+<meta name="Description" content="{$field.description}">
+<include file='css'>
+</head>
+<body>
+<include file='header'>
+<div id="wrapper">
+<myad type='wap_type_banner'>
+<div class="banner"><img src="[field:litpic /]" alt=""></div>
+</myad>
+<div class="list_title">{$field.typename}</div>
+<div class="mtbd">
+	<ul class="lb">
+	<foreach name='list' item='v'>
+	<li>
+		<div class="mtbd-box">
+		<p class="mtbd02">{$v.title}</p>
+		<p class="mtbd03"><a href="{$v.url}">查看详情</a></p>
+		</div>
+	</li>
+	</foreach>
+	</ul>
+	<div class="page">{$page}</div>
+</div>
+<include file='footer'>
+</div>
+</body></html>
+<style>
+.mtbd03,.mtbd02{margin:0 auto;text-align:center;font-size:1em;top:0;}
+</style>

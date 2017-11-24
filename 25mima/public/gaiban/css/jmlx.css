@@ -1,0 +1,6 @@
+.titlec{line-height:64px;color:#1eb9ee;font-size:36px;font-weight:normal;}
+.titlec>span{float: left;margin: 0 80px 0 405px;}
+.desc{padding:0 150px;}
+.desc>h4{color:#1eb9ee;font-size:24px;font-weight:normal;margin-top:60px;}
+.desc p{color:#555555;font-size:18px;padding:20px 0;}
+.desc>p>a{color:#1eb9ee;font-size:18px;}

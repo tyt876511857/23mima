@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>添加广告</title>
+<include file='css'>
+</head>
+<body id="right_bj">
+<div class="right_box">
+  <div class="title"><p>添加广告</p></div>
+  <form action="{:U('Myad/runadd')}" method="post" enctype="multipart/form-data">
+  <table class="addtable" border="0" align="center">
+    <tr>
+      <td>广告位标识：</td>
+      <td>
+        <input name="type" type="text" value='{$field.type}'/>（使用英文或数字表示的简洁标识）</td>
+    </tr>
+    <tr>
+      <td>广告标题：</td>
+      <td><input name="title" type="text" value='{$field.title}'/></td>
+    </tr>
+    <tr>
+      <td>广告描述：</td>
+      <td><input name="description" type="text" value='{$field.description}'/></td>
+    </tr>
+    <tr>
+      <td>广告链接：</td>
+      <td><input name="url" type="text" id="url" size="30" class='iptxt' value='{$field.url}'/></td>
+    </tr>
+    <tr>
+      <td>排序：</td>
+      <td>
+        <input name="rank" type="text" id="sortrank" size="10" class='iptxt' <if empty='$field'>value='50'<else>value="{$field.rank}"</if> />
+      </td>
+    </tr>
+    <tr>
+      <td>广告图片：</td>
+      <td>
+        <input type='text' name='textfield' id='textfield' class='txt' value="{$field.litpic}"/> 
+        <input type='button' value='浏览...' /> 
+        <input type="file" name="litpic" class="file" onchange="document.getElementById('textfield').value=this.value" />
+      </td>
+    </tr>
+    <tr>
+      <td>是否开启：</td>
+      <td>
+        <select name='switch' style='width:60px'>
+          <option value='1' <if condition="empty($field)||$field['switch']==='1'">selected</if>>开启</option>
+          <option value='0' <if condition="!empty($field)&&$field['switch']==='0'">selected</if>>关闭</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>广告内容：</td>
+      <td><textarea name="content" cols="3" rows="10" style="width:80%;height:100">{$field.content}</textarea></td>
+    </tr>
+    <tr>
+      <td>当前广告素材：</td>
+      <td><img id="image" src='{$field.litpic}'/></td>
+    </tr>
+  </table>
+  <div class="button-div">
+      <input type="submit" value=" 确定 " />
+      <input type="reset" value=" 重置 " />
+      <input type="hidden" name="id" value="{$field.id}" />
+      <input type="hidden" name="code" value="{$GLOBALS.code}">
+  </div>
+  </form>
+</div>
+</body>
+</html>
+<style>
+  #image{max-width:80%;}
+</style>

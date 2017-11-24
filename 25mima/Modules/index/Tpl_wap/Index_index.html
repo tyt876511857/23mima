@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>{$field.title}</title>
+		<meta name="Keywords" content="{$field.keywords}">
+		<meta name="Description" content="{$field.description}">
+		<include file='css'>
+	</head>
+
+	<body style="background: #F6F4F5;">
+		<include file='header'>
+		<section class="ui-container">
+			<div class="ui-row" style="position: relative;">
+				<img src="__PUBLIC__/wap1/images/index01.jpg" alt="" width="100%" style="position: relative;z-index: 1;" />
+				<div class="ui-row ui-whitespace" style="position: absolute;top:0;left: 0;z-index: 9;width: 100%;text-align: center;color: #FFFFFF;">
+					<h1 style="font-size:1.3em;margin: 20% 0 10px 0;">揭秘儿童生命基因<br/>为孩子塑造一个传奇未来</h1>
+					<p style="font-size: 1em;margin: 10% 0 10px 0;">讲述中国人的成长故事<br/>解读中国人的智慧密码</p>
+					<p style="font-size: 1em;margin: 0 0 10% 0;">我们专注于儿童<br/>特长基因检测和儿童易感基因检测</p>
+					<div>
+						<a href="/index/Index/baogao" style="color: #FFFFFF;display: inline-block;padding: 10px;border: 1px solid #FFFFFF;margin-top:5px;">查看示例报告</a>
+					</div>
+				</div>
+			</div>
+			<div class="ui-whitespace">
+				<ul class="ui-row product_list">
+					<arclist limit='2'>
+					<li><a href="[field:url /]">
+						<img src="[field:goods_img /]" alt="" width="100%" />
+						<div class="ui-row-flex" >
+							<div class="ui-col ui-col-3">
+								<h3>[field:goods_name /]</h3>
+								<p>[field:description /]</p>
+							</div>
+							<div class="ui-col ui-col-2 font15" id="price">
+								<span>￥[field:market_price /]</span>
+              <span>心享价：</span>
+              <span>￥[field:shop_price /]</span>     
+							</div>
+						</div>
+						<!-- <div class="ui-row p_l_mark">
+							<div>
+								<form action="/index/Shopping/mima" method="post">
+										              <input type="hidden" name=number[] value="1">
+										              <input type="hidden" name=goods_id[] value=[field:goods_id/]>
+										              <a href="javascript:;" style="position:relative;">
+										              <input type="submit" class="submit" value="" />
+								<img src="__PUBLIC__/wap1/images/product_icon01.png" alt=""></a><br/><br/>
+								<a href="[field:url /]" class="iconfont">进一步了解</a>
+								</form>
+							</div>
+						</div> --></a>
+					</li>
+					</arclist>
+<style>
+.submit{display:block;width:200px;height:138px;position:absolute;left:0px;background:none;border:none;}
+</style>
+				</ul>
+				<a href="/category_1.html"><button style="background: #1EB9EE; color: #FFFFFF;width: 100%;padding: 10px 0;">查看更多产品</button></a>
+			</div>
+			<div class="ui-row">
+				<img src="__PUBLIC__/wap1/images/step.jpg" width="100%" alt="" />
+				<div class="ui-row" style="position: relative;">
+					<img src="__PUBLIC__/wap1/images/index02.jpg" alt="" width="100%" style="position: relative;z-index: 1;" />
+					<div class="ui-row ui-whitespace" style="position: absolute;top:0;left: 0;z-index: 9;width: 100%;text-align: center;color: #FFFFFF;">
+						<h1 style="font-size:1.3em;margin: 5% 0 10px 0;">口腔采样<br/>为儿童量身定制</h1>
+						<p style="font-size: 1em;line-height:1.5;margin-bottom: 10%;">需要血液采集？不！<br/> 需要一口一口不断吐口水？不！
+							<br/> 口腔黏膜细胞采集法，同孩子做一个“15秒清理”小游戏。
+							<br/> 用棉签拭子头轻刷口腔，即可获取孩子的口腔唾液中存在的黏膜细胞，23密码简单快速采样，为孩子量身定制。
+						</p>
+						<div>
+							<a href="/news_5.html" style="color: #FFFFFF;display: inline-block;padding: 10px;border: 1px solid #FFFFFF;margin-top:5px;">查看采样方式</a>
+						</div>
+
+					</div>
+				</div>
+				<h1 style="text-align:center;margin-top: 10px;font-size: 1.3em;color: #494949;">为什么选择23密码</h1>
+				<style>
+					.index_ul li {
+						margin-bottom: 10px;
+					}
+					
+					.index_ul li h3 {
+						font-size: 1.2em;
+					}
+					
+					.index_ul li > p {
+						font-size: .8em;
+					}
+					
+					.index_ul li:nth-child(odd) {
+						padding-right: 5px;
+						/*border-right: 1px solid #494949;*/
+					}
+					
+					.index_ul li:nth-child(even) {
+						padding-left: 5px;
+						border-left: 1px solid #494949;
+					}
+				</style>
+				<ul class="ui-row ui-whitespace index_ul" style="color: #494949;padding:2em;">
+					<li class="ui-col ui-col-50">
+						<h3>精准</h3>
+						<p>专注于0-9岁儿童的特长基因和易感基因的检测</p>
+					</li>
+					<li class="ui-col ui-col-50">
+						<h3>全面</h3>
+						<p>具有丰富而全面的儿童基因检测项目</p>
+					</li>
+					<li class="ui-col ui-col-50">
+						<h3>尖端</h3>
+						<p>采用最新测序技术，检测结果准确性高达99.99%</p>
+					</li>
+					<li class="ui-col ui-col-50">
+						<h3>科学</h3>
+						<p>遗传学专家专业解读，教育学专家制定童成长计划，儿科学专家制定营养健康计划</p>
+					</li>
+					<li class="ui-col ui-col-50" style="border-right: 1px solid #494949;">
+						<h3>强大</h3>
+						<p>依据国际权威大样本文献报道筛选出符合中国儿童健康成长的相关基因</p>
+					</li>
+				</ul>
+				<h1 style="text-align:center;margin-top: 10px;font-size: 1.3em;color: #494949;">权威研究合作团队</h1>
+				<img src="__PUBLIC__/wap1/images/school05.jpg" alt="" width="100%" />
+				<div class="ui-row" style="position: relative;">
+					<img src="__PUBLIC__/wap1/images/index03.jpg" alt="" width="100%" style="position: relative;z-index: 1;" />
+					<div class="ui-row ui-whitespace" style="position: absolute;top:0;left: 0;z-index: 9;width: 100%;text-align: center;color: #FFFFFF;">
+						<h1 style="font-size:1.3em;margin: 10px 0 5px 0;">寻找合伙人</h1>
+						<p style="font-size: 1em;margin-bottom: 5px;">携手23密码，做一件有意义的事！</p>
+						<div>
+							<a href="/news_9.html" style="color: #FFFFFF;display: inline-block;padding: 10px;border: 1px solid #FFFFFF;margin-top:5px;">点击了解详情</a>
+						</div>
+
+					</div>
+				</div>
+				<div class="ui-row" style="text-align: center;margin-bottom: 85px;">
+					<span style="display: inline-block;background: #0079FF;color: #FFFFFF;padding: 5px 20px;">免费咨询 400-109-2599</span>
+				</div>
+			</div>
+		</section>
+		<include file='footer'>
+	</body>
+</html>
+<style>
+#price span{display:block;width:100%;font-size:0.8em;line-height:1.2em;text-align:center;}
+#price span:first-child{font-size:0.6em;text-decoration:line-through}
+#price span:first-child+span{font-size:0.4em;}
+</style>

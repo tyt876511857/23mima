@@ -1,0 +1,399 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>我的订单</title>
+<meta name="Keywords" content="<?php if(isset($field['keywords'])){echo $field['keywords'];} ?>">
+<meta name="Description" content="<?php if(isset($field['description'])){echo $field['description'];} ?>">
+<?php $this->display('css','lib') ?>
+</head>
+<body class="shopping">
+<?php $this->display('header','lib') ?>
+	<div class="w1000" style="margin:20px auto 50px">
+		<div class="shop_title1 shop_title"></div>
+		<form action="<?php echo U('Indent/indent') ?>" method="post" style="border:solid 1px #dcddde">
+			<div id="shop1">
+				<table id="table1">
+					<tr>
+						<th width="72"><input type="checkbox" id="quanxuan" name='quanxuan' onchange="is_quanxuan()">全选</th>
+						<th width="244">产品名称</th>
+						<th width="128">规格</th>
+						<th width="88">单价</th>
+						<th width="108">数量</th>
+						<th width="128">折扣金额</th>
+						<th width="96">小计</th>
+						<th width="136">操作</th>
+					</tr>
+					<script>
+					function is_quanxuan(){
+						var obj = $('#quanxuan').filter(':checked');
+						if(obj[0]){//选 中的话
+							$("#table1 .goods_list").prop("checked",'true');
+						}else{
+							$("#table1 .goods_list").removeAttr("checked");//取消全选 
+						}
+						is_select();
+					}
+
+					</script>
+					<?php foreach ($list as $key=>$v){ ?>
+					<tr>
+						<td><input onchange='is_select()' name="goods_list[<?php if(isset($v['id'])){echo $v['id'];} ?>]" type="checkbox" class="goods_list" value="<?php if(isset($v['goods_id'])){echo $v['goods_id'];} ?>" /></td>
+						<td class="goods_name"><a href="<?php if(isset($v['url'])){echo $v['url'];} ?>" target="_blank"><img src="<?php if(isset($v['goods_thumb'])){echo $v['goods_thumb'];} ?>" height="69"><span><?php if(isset($v['goods_name'])){echo $v['goods_name'];} ?></span></a></td>
+						<td>
+						<?php if(!empty($v["option"])){ ?>
+							<?php foreach ($v['option'] as $k=>$n){ ?>
+								<select name="attr_value[<?php if(isset($v['id'])){echo $v['id'];} ?>][]" onchange='refreshProductDetailUp(this,<?php echo $key; ?>)' class="attr_value">
+									<?php foreach ($n['option'] as $j){ ?>
+						              <option value="<?php echo $j; ?>" <?php if(strstr($v["attr_value"],$j)){ ?>selected<?php } ?> ><?php echo $j; ?></option>
+						            <?php } ?>
+								</select>
+							<?php } ?>
+						<?php } ?>
+						</td>
+						<td class="danjia">￥<?php if(isset($v['shop_price'])){echo $v['shop_price'];} ?></td>
+						<td>
+							<select name="number[<?php if(isset($v['id'])){echo $v['id'];} ?>]" class="number" onchange='refreshProductDetailUp(this,<?php echo $key; ?>)'>
+							<?php for($j=1;$j<=10;$j++){$type = $j==$v['number']?'selected':'';?>
+	           				 <option value="<?php echo $j; ?>" <?php echo $type; ?>><?php echo $j; ?></option>
+							<?php } ?>
+							</select>
+						</td>
+						<td class="danjia chajia">￥<?php if(isset($v['chajia'])){echo $v['chajia'];} ?></td>
+						<td class="danjia xiaoji">￥00</td>
+						<td class="handle"><a href="javascript:;" onclick="favorite(<?php if(isset($v['goods_id'])){echo $v['goods_id'];} ?>)">收藏</a><a href='<?php echo U("Shopping/delete/id/$v[id]") ?>'>删除</a></td>
+					</tr>
+					<?php } ?>
+				</table>
+				<!-- <div id="ajax">
+					 <h3>您已经获得以下赠品：</h3>
+					 <div id="present"></div>
+					 <h2>免费领取您的试用装</h2>
+					 <h3>您已领取<span>0</span>件试用装，可再领取<span>3</span>件，购物满<span>89</span>元能领取<span>3</span>件试用装</h3>
+					 <div id="probation"></div>
+				</div> -->
+				<div id="indent">
+				 	<div class="left">
+				 		<!-- <p>使用优惠劵<input type="text" ><span>使用</span></p> -->
+				 		<!--<ul>
+				 			<span>特价商品不适用现金劵和折扣劵</span>
+				 			<li>* 特价商品不适用现金劵和折扣劵</li>
+				 			<li>* 特价商品不适用现金劵和折扣劵</li>
+				 			<li>* 特价商品不适用现金劵和折扣劵</li>
+				 		</ul>-->
+				 	</div>
+				 	<div class="right">
+				 		<p style="display:none">商品总价：<span class='sum'>￥2400.00</span></p>
+				 		<p style="display:none">折扣金额：<span class='chajia'>￥2400.00</span></p>
+				 		<p style="display:none">优惠劵折扣：<span>￥0.00</span></p>
+				 		<p>订单总计：<span class='aggregate'>￥2400.00</span></p>
+				 	</div>
+				 </div>
+				 <div class="jiesuan1">
+				 	<a class="gouwu left" href="/" target="_blank"></a>
+				 	<a class="jiesuan right" href="javascript:;" onclick="show2()"></a>
+				 </div>
+			</div>
+			<!--shop1 end-->
+			<div id="show2">
+			<script type="text/javascript" src="/public/js/GlobalProvinces_main.js"></script>
+			<script type="text/javascript" src="/public/js/GlobalProvinces_extend.js"></script>
+			<script type="text/javascript" src="/public/js/initLocation.js"></script>
+				<div class="title"><p><span>收货人信息</span>CONSIGNEE</p></div>
+				<ul id="alladdress">
+					<a onclick="$(address).css('display','block')";>添加新地址</a>
+					<?php foreach ($site as $v){ ?>
+					<li class="s<?php if(isset($v['id'])){echo $v['id'];} ?>"><input name="site" type="radio" value="<?php if(isset($v['id'])){echo $v['id'];} ?>" checked="checked"><span class='name'><?php if(isset($v['name'])){echo $v['name'];} ?></span><span class='phone'><?php if(isset($v['phone'])){echo $v['phone'];} ?></span><span class='sheng'><?php if(isset($v['sheng'])){echo $v['sheng'];} ?></span><span class='shi'><?php if(isset($v['shi'])){echo $v['shi'];} ?></span><span class='xian'><?php if(isset($v['xian'])){echo $v['xian'];} ?></span><span class='site'><?php if(isset($v['site'])){echo $v['site'];} ?></span><span class='encoding'><?php if(isset($v['encoding'])){echo $v['encoding'];} ?></span><a onclick="upSite(this)">修改</a></li>
+					<?php } ?>
+
+				</ul>
+				<div id="address" <?php if($site){ ?>style='display:none'<?php } ?>>
+					<p><span>* 收 货 人</span><input type="text" name="address[name]" /></p>
+					<p>
+						<span>* 区&nbsp;&nbsp;&nbsp;&nbsp;域</span>
+						<select id="sheng" name="address[province]"></select>
+						<select id="shi" name="address[city]">	</select>
+						<select id="xian" name="address[country]" ></select>
+						<select id="xiang" name="address[street]" ></select>
+					</p>
+					<p><span>* 地&nbsp;&nbsp;&nbsp;&nbsp;址</span><input type="text" class="site" name="address[site]" />“请认真详细填写，以免无法准时收到”</p>
+					<p><span>* 邮政编码</span><input type="text" name="address[encoding]" /></p>
+					<p><span>* 手机号码</span><input type="text" name="address[phone]" /></p>
+					<p>*全国包邮（除香港、澳门、台湾、海外地区及新疆、西藏、内蒙古、青海、甘肃、宁夏六个偏远地区）</p>
+					<input type="hidden" name="address[id]" value='0' />
+					<p><input name="buttom" id="buttom" type="button" onclick='addSite()' /></p>
+				</div>
+				<div class="title"><p><span>付款及配送方式</span>PAYMENT & SHIPPING</p></div>
+				<table id="table2">
+					<tr style="display:none">
+						<td>支付方式</td>
+						<td>
+							<p><input name="payment" type="radio" value="0" Checked>支付宝</p>
+							<p><input name="payment" type="radio" value="1">微信支付</p>
+						</td>
+					</tr>
+					<tr>
+						<td>送货方式</td>
+						<td>我们将根据您选择的支付方式自动选择最优惠、最快的配送方式。</td>
+					</tr>
+					<tr>
+						<td>送货时间</td>
+						<td>
+							<p><input name="delivery" type="radio" value="1" Checked>工作日、双休与假日均可送货</p>
+							<p><input name="delivery" type="radio" value="2">只双休日、假日送货（工作日不用送）</p>
+							<p><input name="delivery" type="radio" value="3">只工作日送货（双休日。假日不用送）（注：写字楼/商用地址客户请选择）</p>
+						</td>
+					</tr>
+				</table>
+				<div class="title"><p><span>产品清单</span>PRODUCTS LIST<a href="javascript:;" onclick="show1()" class="right"><<返回购物袋修改商品</a></p></div>
+				<table id="table3">
+					<tr><th>产品名称</th><th>单价</th><th>数量</th><th>折扣金额</th><th>小计</th></tr>
+				</table>
+				<!-- <div class="title"><p><span>结算信息</span>checkout information</p></div> -->
+				<div id="jsinfo">
+					<!-- <div class="left">
+						<h3><img src="/public/index/-.jpg" />已使用的优惠卷<span>( 您当前有0张可用的优惠卷)</span><a href="javascript:;" onclick="show1()">返回购物袋修改商品</a></h3>
+						<ul class="h31">
+							<li>优惠卷包含现金体验卷、折扣卷等，每个订单最多使用三张优惠卷，同种类型的优惠卷一个订单只能使用一次</li>
+							<li>如您的订单中的赠品或者试用装缺货，我们将自动为您更换同等或价值更高的同品牌赠品或者试用装，以确保您享受同等优惠</li>
+							<li>除非有特殊说明，满额赠礼机制适用于订单应付金额而非价格，如您应付金额未达到指定额度，将无法享受满赠活动</li>
+						</ul>
+						<h3><img src="/public/index/+.jpg" />领取礼物包装</h3>
+					</div>
+					<div class="right">
+						<p>商品总价：<span class='sum'>￥2400.00</span></p>
+										 		<p>折扣金额：<span class='chajia'>￥2400.00</span></p>
+										 		<p>优惠劵折扣：<span>￥0.00</span></p>
+									 		<p>应付总额：<span class='aggregate'>￥2400.00</span></p>
+					</div> -->
+					<input name="" type="submit" class="submit" value="" />
+				</div>
+			</div>
+			<!--shop2 end-->
+		</form>
+		<!-- <div id='liulan'>
+		 	<ul id="liulan_show">
+		      <li onmousemove="nTabs(this,0)" class="li2">我买过的商品</li>
+		      <li onmousemove="nTabs(this,1)">我浏览过的商品</li>
+		      <li onmousemove="nTabs(this,2)">超值套装</li>
+		      <li onmousemove="nTabs(this,3)">我收藏的商品</li>
+		    </ul>
+		    <div class="liulan" id="liulan_show0" style="display:block;">
+				<?php foreach ($shopping as $v){ ?>
+				<div class="product_show">
+					<a href="<?php if(isset($v['url'])){echo $v['url'];} ?>" target="_blank" title="<?php if(isset($v['goods_name'])){echo $v['goods_name'];} ?>">
+						<img src="<?php if(isset($v['goods_thumb'])){echo $v['goods_thumb'];} ?>">
+						<p><?php if(isset($v['goods_name'])){echo $v['goods_name'];} ?></p>
+					</a>
+					<span>￥<?php if(isset($v['shop_price'])){echo $v['shop_price'];} ?></span>
+				</div>
+				<?php } ?>
+		    </div>
+		    <div class="liulan" id="liulan_show1">
+		    	<?php foreach ($history as $v){ ?>
+				<div class="product_show">
+					<a href="<?php if(isset($v['url'])){echo $v['url'];} ?>" target="_blank" title="<?php if(isset($v['goods_name'])){echo $v['goods_name'];} ?>">
+						<img src="<?php if(isset($v['goods_thumb'])){echo $v['goods_thumb'];} ?>">
+						<p><?php if(isset($v['goods_name'])){echo $v['goods_name'];} ?></p>
+					</a>
+					<span>￥<?php if(isset($v['shop_price'])){echo $v['shop_price'];} ?></span>
+				</div>
+				<?php } ?>
+		    </div>
+		    <div class="liulan" id="liulan_show2">暂无</div>
+		    <div class="liulan" id="liulan_show3">
+		    	<?php foreach ($favorite as $v){ ?>
+				<div class="product_show">
+					<a href="<?php if(isset($v['url'])){echo $v['url'];} ?>" target="_blank" title="<?php if(isset($v['goods_name'])){echo $v['goods_name'];} ?>">
+						<img src="<?php if(isset($v['goods_thumb'])){echo $v['goods_thumb'];} ?>">
+						<p><?php if(isset($v['goods_name'])){echo $v['goods_name'];} ?></p>
+					</a>
+					<span>￥<?php if(isset($v['shop_price'])){echo $v['shop_price'];} ?></span>
+				</div>
+				<?php } ?>
+		    </div>
+		 </div> -->
+	</div>
+<?php $this->display('footer','lib') ?>
+<script src="/public/js/index.js"></script>
+<script>
+	var option =new Array();
+    var attr_price =new Array();
+    var price =new Array();
+    var chajia =new Array();
+    
+    <?php foreach ($list as $a=>$b){ ?>
+    	price[<?php echo $a; ?>] = <?php if(isset($b['shop_price'])){echo $b['shop_price'];} ?>;
+    	chajia[<?php echo $a; ?>] = <?php if(isset($b['chajia'])){echo $b['chajia'];} ?>;
+    	option[<?php echo $a; ?>] = new Array();
+    	attr_price[<?php echo $a; ?>] = new Array();
+    	<?php if(!empty($b["option"])){ ?>
+		<?php foreach ($b['option'] as $k=>$v){ ?>
+			<?php foreach ($v['option'] as $kk=>$j){ ?>
+				option[<?php echo $a; ?>][<?php echo $k; ?><?php echo $kk; ?>] = '<?php echo $j; ?>';
+			<?php } ?>
+			<?php foreach ($v['attr_price'] as $kk=>$j){ ?>
+				attr_price[<?php echo $a; ?>][<?php echo $k; ?><?php echo $kk; ?>] = '<?php echo $j; ?>';
+			<?php } ?>
+		<?php } ?>
+		<?php } ?>
+    <?php } ?>
+    
+	function refreshProductDetailUp(obj,id){
+		var tr = obj.parentNode.parentNode;
+		var str_price	=	price[id];
+		var str_chajia	=	chajia[id];
+		var num = $(tr).find('.number option:selected').text();
+	    $(tr).find('.attr_value').each(function(){
+	      var str = $(this).contents('option:selected').text();
+	      for(i in option[id]){
+	        if(option[id][i]==str){
+	          str_price += parseFloat(attr_price[id][i]);
+	        }
+	      }
+	    })
+	    str_price 	*= num;
+	    str_chajia	*= num;
+	    $(tr).contents('.xiaoji').html('￥'+str_price.toFixed(2));
+	    $(tr).contents('.chajia').html('￥'+str_chajia.toFixed(2));
+	    is_select();
+	}
+	$(function(){
+		$('#table1 tr:gt(0)').each(function(i){
+			var obj = $(this).find('input:first');
+			//console.log(obj);
+			refreshProductDetailUp(obj[0],i);
+		})
+		initLocation({sheng_val:"",shi_val:"",xian_val:"",xiang_val:""});
+	})
+	function is_select(){
+		var sum = 0;
+		var chajia = 0;
+		$('#table1 .goods_list').each(function(i){
+			var obj = $(this).filter(':checked');
+			if(obj[0]){
+				var a = $('#table1 tr:eq('+(i+1)+') .xiaoji').html();
+				sum += parseFloat(a.slice(1));
+				var b = $('#table1 tr:eq('+(i+1)+') .chajia').html();
+				chajia += parseFloat(b.slice(1));
+			}
+		})
+		$('.sum').html('￥'+sum.toFixed(2));
+		$('.aggregate').html('￥'+sum.toFixed(2));
+		$('.chajia').html('￥'+chajia.toFixed(2));
+		//ajax试用赠品
+		var num = Math.floor(sum/100);
+		/*$.post("<?php echo U('Shopping/present') ?>",{number:num},function(data,status){
+          	$('#present').html(data);
+        });
+        $.post("<?php echo U('Shopping/shiyong') ?>",{number:num},function(data,status){
+          	$('#probation').html(data);
+        });*/
+	}
+	function show1(){
+		$('#shop1').css('display','block');
+		$('#liulan').css('display','block');
+		$('#show2').css('display','none');
+	}
+	function show2(){
+		var sign = 0;
+		$('#table1 .goods_list').each(function(i){
+			var obj = $(this).filter(':checked');
+			if(obj[0]){
+				sign = 1;
+			}
+		})
+		if(sign == 0){
+			alert('请先选择宝贝！');
+			return false;
+		}
+		$('.shop_title1').removeClass('shop_title1').addClass('shop_title2');
+		$('#shop1').css('display','none');
+		$('#liulan').css('display','none');
+		$('#show2').css('display','block');
+		var kin = $('#table3');
+		var str = '<tr><th>产品名称</th><th>单价</th><th>数量</th><th>折扣金额</th><th>小计</th></tr>';
+		$('#table1 .goods_list').each(function(i){
+			var obj = $(this).filter(':checked');
+			if(obj[0]){
+				str += '<tr><td>'+$('#table1 tr:eq('+(i+1)+') .goods_name span').html()+'</td><td class="red">'+$('#table1 tr:eq('+(i+1)+') .danjia').html()+'</td><td>'+$('#table1 tr:eq('+(i+1)+') .number option:selected').text()+'</td><td class="red">'+$('#table1 tr:eq('+(i+1)+') .chajia').html()+'</td><td class="red">'+$('#table1 tr:eq('+(i+1)+') .xiaoji').html()+'</td></tr>';
+			}
+		})
+		var present = $('#present a span');
+      	present.each(function(i){
+      		str += '<tr><td>'+$(this).html()+'</td><td class="red"></td><td></td><td class="red"></td><td class="red"></td></tr>';
+      	})
+		kin.html(str);
+	}
+	//$('#liulan').css('display','none');
+	$('.title').css('display','block');
+	//$('#address').css('display','block');
+	//$('#table2').css('display','block');
+	//$('#show2').css('display','block');
+	//添加到我的收藏
+	function favorite(id){
+        $.post("<?php echo U('Ajax/favorite') ?>",{goods_id:id},
+        function(data,status){
+            alert(data);
+        });
+      }
+    //判断地址正确性并提交收货地址
+    function addSite(){
+    	//判断地址正确性
+    	if($('[name="address[name]"]').val()=='' || $('[name="address[country]"]').val()=='' || $('[name="address[site]"]').val()=='' || $('[name="address[phone]"]').val()==''){
+    		alert('收货地址信息不正确！');
+    		return false;
+    	}else if($('[name="address[name]"]').val().length>4){
+    		alert('姓名请小于4个字符！');
+    		return false;
+    	}else if($('[name="address[phone]"]').val().length!=11){
+    		alert('手机号码不正确');
+    		return false;
+    	}
+    	$.post("<?php echo U('Site/addSite','user') ?>",{
+    		id:$('[name="address[id]"]').val(),
+    		name:$('[name="address[name]"]').val(),
+    		sheng:$('[name="address[province]"]').val(),
+    		shi:$('[name="address[city]"]').val(),
+    		xian:$('[name="address[country]"]').val(),
+    		site:$('[name="address[site]"]').val(),
+    		phone:$('[name="address[phone]"]').val(),
+    		encoding:$('[name="address[encoding]"]').val(),
+    	},
+        function(data,status){
+        	//$('#address').css('display','none');
+        	var dataobj = eval("(" +data +")");
+        	var str = '<li class="s'+dataobj.id+'"><input name="site" type="radio" value="'+dataobj.id+'" checked="checked"><span class="name">'+dataobj.name+'</span><span class="phone">'+dataobj.phone+'</span><span class="sheng">'+dataobj.sheng+'</span><span class="shi">'+dataobj.shi+'</span><span class="xian">'+dataobj.xian+'</span><span class="site">'+dataobj.site+'</span><span class="encoding">'+dataobj.encoding+'</span><a onclick="upSite(this)">修改</a></li>';
+        	var body = $('#alladdress');
+        	$('#alladdress .s'+dataobj.id).remove();
+        	$('[name="address[id]"]').val(0);
+        	$(str).appendTo(body);
+        	$('#address').css('display','none');
+			//var dataobj = eval("(" +data +")");
+        	//alert(dataobj.name);
+        });
+    }
+    function upSite(obj){
+    	var li = obj.parentNode;
+    	var id = $(li).find('[name="site"]').val();
+    	var name = $(li).find('.name').html();
+    	var phone = $(li).find('.phone').html();
+    	var sheng = $(li).find('.sheng').html();
+    	var shi = $(li).find('.shi').html();
+    	var xian = $(li).find('.xian').html();
+    	var site = $(li).find('.site').html();
+    	var encoding = $(li).find('.encoding').html();
+
+    	$('[name="address[id]"]').val(id);
+    	$('[name="address[name]"]').val(name);
+    	$('[name="address[phone]"]').val(phone);
+    	$('[name="address[site]"]').val(site);
+    	$('[name="address[encoding]"]').val(encoding);
+    	initLocation({sheng_val:sheng,shi_val:shi,xian_val:xian});
+
+    	//$(li).remove();
+    	$('#address').css('display','block');
+    }
+</script>
+</body>
+</html>

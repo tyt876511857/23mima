@@ -1,0 +1,134 @@
+
+<!-- $Id: brand_list.htm 15898 2009-05-04 07:25:41Z liuhui $ -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ECSHOP 管理中心 - 商品品牌 </title>
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<include file='css'>
+<script language="JavaScript">
+<!--
+// 这里把JS用到的所有语言都赋值到这里
+var process_request = "正在处理您的请求...";
+var todolist_caption = "记事本";
+var todolist_autosave = "自动保存";
+var todolist_save = "保存";
+var todolist_clear = "清除";
+var todolist_confirm_save = "是否将更改保存到记事本？";
+var todolist_confirm_clear = "是否清空内容？";
+var no_brandname = "您必须输入品牌名称！";
+var require_num = "排序序号必须是一个数字";
+//-->
+</script>
+</head>
+<body>
+
+<h1>
+<span class="action-span"><a href="{:U('Brand/add')}">添加品牌</a></span>
+<span class="action-span1"><a href="index.php?act=main">ECSHOP 管理中心</a> </span><span id="search_id" class="action-span1"> - 商品品牌 </span>
+<div style="clear:both"></div>
+</h1>
+<script type="text/javascript" src="../js/utils.js"></script><script type="text/javascript" src="js/listtable.js"></script><!-- 品牌搜索 -->
+<!-- $Id: brand_search.htm 2009-05-04 liuhui $ -->
+<div class="form-div">
+  <form action="javascript:search_brand()" name="searchForm">
+    <img src="__SKIN__/images/icon_search.gif" width="26" height="22" border="0" alt="SEARCH" />
+     <input type="text" name="brand_name" size="15" />
+    <input type="submit" value=" 搜索 " class="button" />
+  </form>
+</div>
+
+<script language="JavaScript">
+    function search_brand()
+    {
+        listTable.filter['brand_name'] = Utils.trim(document.forms['searchForm'].elements['brand_name'].value);
+        listTable.filter['page'] = 1;
+        
+        listTable.loadList();
+    }
+
+</script>
+<form method="post" action="" name="listForm">
+<!-- start brand list -->
+<div class="list-div" id="listDiv">
+
+  <table cellpadding="3" cellspacing="1">
+    <tr>
+      <th>品牌名称</th>
+      <th>品牌网址</th>
+      <th>品牌描述</th>
+      <th>排序</th>
+      <th>是否显示</th>
+      <th>操作</th>
+    </tr>
+    <foreach name='list' item='v'>
+        <tr>
+      <td class="first-cell">
+        <span style="float:right">
+        <if noempty='$v["brand_logo"]'>
+        <a href="{$v.brand_logo}" target="_brank"><img src="__SKIN__/images/picflag.gif" width="16" height="16" border="0" alt=品牌LOGO /></a>
+        </if>
+        </span>
+        <span onclick="javascript:listTable.edit(this, 'edit_brand_name', 1)">{$v.brand_name}</span>
+      </td>
+      <td><a href="http://www.nokia.com.cn/" target="_brank">{$v.site_url}</a></td>
+      <td align="left">{$v.brand_desc}</td>
+      <td align="right"><span onclick="javascript:listTable.edit(this, 'edit_sort_order', 1)">{$v.rank}</span></td>
+      <td align="center"><img src="<if condition='$v['is_show']'>__SKIN__/images/yes.gif<else>__SKIN__/images/no.gif</if>" onclick="listTable.toggle(this, 'toggle_show', 1)" /></td>
+      <td align="center">
+        <a href='{:U("/Brand/update/id/$v[brand_id]")}' title="编辑">编辑</a> |
+        <a href='{:U("/Brand/delete/id/$v[brand_id]")}' onclick="if(!confirm('您确定要移除此品牌吗？')){return false;};" title="编辑">移除</a>
+      </td>
+    </tr>
+    </foreach>
+    
+        <tr>
+      <td align="right" nowrap="true" colspan="6">
+            <!-- $Id: page.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+            <div id="turn-page">
+        总计  <span id="totalRecords">11</span>
+        个记录分为 <span id="totalPages">1</span>
+        页当前第 <span id="pageCurrent">1</span>
+        页，每页 <input type='text' size='3' id='pageSize' value="15" onkeypress="return listTable.changePageSize(event)" />
+        <span id="page-link">
+          <a href="javascript:listTable.gotoPageFirst()">第一页</a>
+          <a href="javascript:listTable.gotoPagePrev()">上一页</a>
+          <a href="javascript:listTable.gotoPageNext()">下一页</a>
+          <a href="javascript:listTable.gotoPageLast()">最末页</a>
+          <select id="gotoPage" onchange="listTable.gotoPage(this.value)">
+            <option value='1'>1</option>          </select>
+        </span>
+      </div>
+      </td>
+    </tr>
+  </table>
+
+<!-- end brand list -->
+</div>
+</form>
+
+<script type="text/javascript" language="javascript">
+  <!--
+  listTable.recordCount = 11;
+  listTable.pageCount = 1;
+
+    listTable.filter.record_count = '11';
+    listTable.filter.page_size = '15';
+    listTable.filter.page = '1';
+    listTable.filter.page_count = '1';
+    listTable.filter.start = '0';
+  
+  
+  onload = function()
+  {
+      // 开始检查订单
+      startCheckOrder();
+  }
+  
+  //-->
+</script>
+<include file='pagefooter'>
+</body>
+</html>

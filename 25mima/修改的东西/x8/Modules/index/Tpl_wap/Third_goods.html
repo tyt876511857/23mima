@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>基因产品列表</title>
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<include file='css'>
+    <style>
+      .p_detial.hover {
+        background: #E5E4E2;
+      }
+      
+      .p_d_job {
+        width: 100%;
+        margin-bottom: 50px;
+      }
+      
+      .p_d_job th {
+        text-align: center;
+        color: #0079FF;
+        font-size: 1.5em;
+        border-bottom: 1px solid #C7ECFC;
+        height: 50px;line-height: 50px;
+      }
+      
+      .p_d_job td {
+        width: 50%;
+        vertical-align: middle;
+        border-bottom: 1px solid #C7ECFC;
+      }
+      .p_d_job td:nth-child(odd){
+        font-size:1.5em;
+      /*  font-weight: bold;*/
+        color: #383735;
+      }
+      .p_d_job td:nth-child(even){
+        color:#898989 ;
+        font-size: 1em;
+      }
+      .slbg{
+			    margin: 1% 2%;
+    padding: 1%;
+    width: 25%;
+    float: left;
+    text-align: center;
+    border: 1px solid;
+    border-radius: 5px;
+	  }
+	  .ljgm{
+  		display: inherit;
+      margin: 1% 2%;
+      font-size: 22px;
+      line-height: 29px;
+      background: #F1590d;
+      color: #fff;
+      width: 38%;
+      border-radius: 38px;
+      float: right;
+      text-align: center;
+      border: 1px solid #F1590d;
+	  }
+	  .ds{
+		    margin: 1% 2%;
+			padding: 1%;
+			background:#999;
+			color:#fff;
+			width: 60%;
+			float: left;
+			text-align: center;
+			border: 1px solid #999;
+			
+	  }
+    div.ui-row1 {
+        display: block;
+    }
+    #ui-row1 img {
+      display: block;
+      width: 100%;
+  }
+    </style>
+    <script>
+    $(function(){
+      $('.p_detial').click(function(){
+        var a=$(this).index();
+        $(this).removeClass('hover').siblings().addClass('hover');
+        $('.p_d_con').eq(a).removeClass('hide').siblings('.p_d_con').addClass('hide');
+      });
+    })
+      
+    </script>
+  </head>
+
+  <body style="background: #FFFFFF;">
+  <?php foreach ($fields as $key => $field) { ?>
+    <section class="ui-container">
+        <div class="ui-row1 p_d_con" id="ui-row1" >
+        <?php
+        if(empty($field['goods_brief1'])){
+        echo $field['goods_brief'];
+        }else{
+        echo $field['goods_brief1'];
+        }
+        ?>
+        </div>
+       <!--  <div class="ui-row1 p_d_con hide" style="text-align: center;">
+          <img src="{$field.goods_img1}" alt="" width="100%" />
+        </div> -->
+
+      </div>
+	  <!-- <div style="margin-bottom: 85px;clear:both;width:100%"> -->
+</div>
+
+    <div  style="height: 40px;background: rgba(255,255,255,.9);">
+      <form action="/index/Third/mima" id="form_{$field.goods_id}" method="post">
+      <input type="hidden" name='number[]' value="1">
+      <input type="hidden" name='goods_id[]' value="{$field.goods_id}">
+	  <?php if($field['is_on_sale']==1){ ?>
+     <a href="javascript:$('#form_{$field.goods_id}').submit();" class=" ljgm" >立即激活</a>
+	 <?php }else{ ?>
+	  <a  class=" ds" >待售中</a>
+	<?php } ?>
+      </form>
+</div> 
+</section>
+
+    <?php } ?>
+  </body>
+</html>
+<style>
+#ui-row1 img{display:block;width:100%;}
+</style>

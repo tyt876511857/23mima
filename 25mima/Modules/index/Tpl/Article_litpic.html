@@ -1,0 +1,124 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>{$field.title}</title>
+<meta name="Keywords" content="{$field.keywords}">
+<meta name="Description" content="{$field.description}">
+<include file='css'>
+<link href="__PUBLIC__/css/meiquan.css" rel="stylesheet" type="text/css">
+<base target="_blank" />
+</head>
+<body class="mq_litpic">
+<include file='header'>
+<include file='header-meishe'>
+<div class="title">{$field.postname}</div>
+<div class="w1000">
+  <div class="left">
+  <a id="left" onclick='move(0)'></a>
+  <div class="box">{$field.content}</div>
+  <a id="right" onclick='move(1)'></a>
+  </div>
+</div>
+<div class="w1540">
+  <div>
+    <arclist typeid='13' limit='8' is_news='1' type='2'>
+    <a href="[field:url /]">
+      <span></span><span>[field:i /]</span>
+      <img src="[field:litpic /]" alt="">
+      <p>[field:title /]</p>
+    </a>
+    </arclist>
+  </div>
+</div>
+<div class="pinglun">
+  <div class="w1000">
+    <div class="left">
+      <div class="title"></div>
+      <h3><span>全部评价</span></h3>
+      <foreach name='comments' item='v'>
+      <div class="pinlun-content">
+        <img src="<if noempty='$v["litpic"]'>{$v.litpic}<else>__PUBLIC__/index/meiquan/toux.jpg</if>" alt="{$v.user_name}">
+        <div class="left">
+          <a>{$v.user_name}<span>{:date('y-m-d',$v['add_time'])}</span></a>
+          <p>{$v.content}</p>
+          <li onclick="vote({$v.id},'ding');" href="javascript:;">(<span id='vote_ding'>{$v.ding}</span>)</li>
+        </div>
+      </div>
+      </foreach>
+      <div class="padding"></div>
+      <form action="{:U('/Comment/add','user')}" method="post">
+        <div class="pinglun-submit">
+          <img src="__PUBLIC__/index/meiquan/toux.jpg">
+          <input type="hidden" name='comment_rank' value="5">
+          <input type="hidden" name="type" value="1" />
+          <input type="hidden" name="goods_id" value="{$field.id}" />
+          <textarea name='content' rows="6" cols="60"></textarea>
+        </div>
+        <div class="pinglun-bottom">
+          <p>网友评论仅供其表达个人看法，并不表明决美舍立场</p>
+          <input type="submit" value="">
+        </div>
+      </form>
+    </div>
+    <div class="right">
+      <a href=""><img src="http://img1.126.net/channel6/2015/019445/300-250-25k.jpg" alt=""></a>
+      <ul>
+        <h3>热门图文</h3>
+        <arclist typeid='13' limit='10' is_news='1'>
+        <li><span>[field:i /]</span><a href="[field:url /]">[field:title /]</a><span>☆</span></li>
+        </arclist>
+      </ul>
+    </div>
+  </div>
+</div>
+<include file='footer'>
+<script src="__PUBLIC__/js/index.js"></script>
+<script src="__PUBLIC__/js/meiquan.js"></script>
+<script>
+  var p_height = $('.w1000 .box p').height();
+  var first = $('.w1000 .box p img');
+  var length = first.length;
+  first.removeAttr('float');
+  first.load(function(){
+    var first_h = first.height();
+    var first_h = (p_height-first_h)/2;
+    first.css('margin-top',first_h);
+  })
+
+  $('.w1000 .box p').each(function(i){
+    var img = $(this).find('img');  //获取img对象
+    var title = img.attr('title');  //获取title内容
+    img.removeAttr('title');        //移除title属性
+    $(img).after('<div><span><a>'+(i+1)+'</a><a>'+length+'</a></span>'+title+'</div>');//添加节点
+  })
+  function move(i){
+    var img_all = $('.w1000 .box p img');
+    var img = img_all.eq(i);
+    img_all.parent('p').css('display','none');//所有设置为none
+    img.parent('p').css('display','block');//显示当前选中
+    var h = img.height();
+    img.css('margin-top',(p_height-h)/2);
+    //左右切换修改
+    if(i!=0){$('#left').attr('onclick','move('+(i-1)+')');}
+    if(i!=length-1){$('#right').attr('onclick','move('+ (i+1) +')');}
+  }
+//评论顶
+  function vote(vid,vtype){
+      $.post("{:U('Ajax/vote')}",{
+        'comment_id':vid,
+        'type':vtype
+      },
+        function(data,status){
+          if(data==='true'){
+            var sum = parseInt($('#vote_'+vtype).html())+1;
+            $('#vote_'+vtype).html(sum);
+            alert('投票成功！');
+          }else{
+            alert('您已投过票了！');
+          }
+        });
+    }
+</script>
+</body>
+</html>

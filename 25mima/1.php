@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>基因检测结果-美容基因 </title>
+<meta name="Description" content="" />
+
+<script src="http://23mima.com/public/js/style.js"></script>
+<meta name="baidu-site-verification" content="iL0kZqbXkY" />
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<link href="http://23mima.com/public/gaiban/css/base.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="http://23mima.com/public/gaiban/js/jquery-1.8.3.min.js"></script>
+<link rel="stylesheet" href="http://23mima.com/public/gaiban/css/idangerous.swiper.css">
+<script src="http://23mima.com/public/gaiban/js/idangerous.swiper.min.js"></script>
+<!--[if lt IE 9]>
+    <script type="text/javascript" src="/public/gaiban/js/PIE_IE678.js"></script>
+	</script>
+    <![endif]-->
+<!--[if gt IE 8]>
+	<script type="text/javascript" src="/public/gaiban/js/PIE_IE9.js"></script>
+ <![endif]-->
+
+<script type="text/javascript" src="http://www.25mima.com/public/js/echarts.js"></script>
+<style>
+.w1000{width:100%; page-break-inside:avoid;}
+.topnav li{ line-height40px; height:40px; list-style:none;}
+.topnav li b{ font-size:16px; width:100px; float:left; text-align:right}
+</style>
+</head>
+<body>
+	<div class="w1000 topnav">
+		<img src='http://23mima.com/uploads/meirong_bg/1.jpg' width='100%'>
+	</div>
+	<div class="w1000 topnav" style='background:#fff'>
+
+		<img src='http://23mima.com/uploads/meirong_bg/021.jpg' width='100%'>
+		<ul style=' width:400px; margin:0 auto;'>
+			<li><b>姓名：</b>梅花</li>
+			<li><b>性别：</b>女</li>
+			<li><b>年龄：</b>0岁2个月</li>
+			<li><b>联系电话：</b></li>
+			<li><b>联系地址：</b></li>
+			<li><b>绑定日期：</b>梅花</li>
+			<li><b>报告日期：</b>梅花</li>
+			<li><b>样品编号：</b>M-LHJ5-DBTA</li>
+		</ul>
+	</div>
+	<div class="w1000 topnav">
+		<img src='http://23mima.com/uploads/meirong_bg/3.jpg' width='100%'>
+	</div>
+	<div class="w1000 topnav">
+		<img src='http://23mima.com/uploads/meirong_bg/4.jpg' width='100%'>
+	</div>
+	<div class="w1000 topnav">
+		<img src='http://23mima.com/uploads/meirong_bg/5.jpg' width='100%'>
+	</div>
+	<div class="w1000 topnav">
+		<img src='http://23mima.com/uploads/meirong_bg/061.jpg' width='100%'>
+		<div class="row" style="margin-bottom:0;">
+			<div class="tab">			
+				<div id="container" style="width:800px;height:800px;margin:0 auto;"></div>
+				<script>
+				 var myChart = echarts.init(document.getElementById('container'));
+					option = {
+						
+						    radar: [
+						       
+						        {
+						            indicator: [
+						                { text: '语文', max: 150 },
+						                { text: '数学', max: 150 },
+						                { text: '英语', max: 150 },
+						                { text: '物理', max: 120 },
+						                { text: '化学', max: 108 },
+						                { text: '生物', max: 72 }
+						            ],
+						            radius: 200
+						        }
+						    ],
+						    series: [
+						        {
+						            name: '成绩单',
+						            type: 'radar',
+						            radarIndex: 0,
+						            data: [
+						                {
+						                    value: [90, 113, 140, 30, 70, 60],
+						                    name: '李四',
+						                    areaStyle: {
+						                        normal: {
+						                            opacity: 0.9,
+						                            color: new echarts.graphic.RadialGradient(0.5, 0.5, 1, [
+						                                {
+						                                    color: '#B8D3E4',
+						                                    offset: 0
+						                                },
+						                                {
+						                                    color: '#72ACD1',
+						                                    offset: 1
+						                                }
+						                            ])
+						                        }
+						                    }
+						                }
+						            ]
+						        }
+						    ]
+						}
+						myChart.setOption(option);
+				</script>
+			</div>
+			
+		</div>
+		</div>
+		<img src='http://23mima.com/uploads/meirong_bg/062.jpg' width='100%'>
+		
+		
+	</div>
+	
+</body>
+<script src="http://23mima.com/public/gaiban/js/fit_a.js"></script>
+</html><br />

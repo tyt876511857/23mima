@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>验证码列表</title>
+<include file='css'>
+</head>
+<body id="right_bj">
+<div class="right_box">
+  <div class="title"><p>验证码列表</p><a href="{:U('/Verify_diy/add')}">添加验证码</a></div>
+  <table class="table" border="1" align="center">
+    <tr>
+      <td width="5%">编号</td>
+      <td width="10%">验证码</td>
+      <td width="10%">操作</td>
+    </tr>
+    <foreach name='list' item='v'>
+      <tr>
+        <td>{$v.id}</td>
+        <td>{$v.verify}</td>
+        <td>
+          <a href='{:U("/Verify_diy/delete/id/$v[id]")}' onclick="if(!confirm('确实要删除吗?')){return false;};" title="移除">移除</a>
+        </td>
+      </tr>
+    </foreach>
+  </table>
+</div>
+</body>
+</html>

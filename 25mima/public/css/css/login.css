@@ -1,0 +1,170 @@
+.login {
+    height: 700px;
+    position: relative;
+}
+
+.login_con {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 645px;
+    margin: -185px 0 0 -350px;
+    border: 1px solid #ddd;
+    padding-bottom: 80px;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.hide {
+    display: none;
+}
+
+.login_mothed {
+    width: 90%;
+    text-align: right;
+    height: 60px;
+    line-height: 60px;
+}
+
+.login_mothed > span {
+    display: inline-block;
+    text-align: left;
+    margin-right: 60px;
+    cursor: pointer;
+}
+
+.login_mothed > span.active > i {
+    background-color: #1CACF1;
+}
+
+.login_mothed i {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border: 1px solid #1CACF1;
+    background-color: #fff;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.login_mothed input[type=radio] {
+    display: none;
+}
+
+.login_th {
+    width: 150px;
+    /*    height: 250px;*/
+    text-align: center;
+}
+
+.login_th p {
+    font-size: 24px;
+    color: #1CACF1;
+}
+
+
+/**/
+
+.login_input {
+    border-left: 1px solid #1CACF1;
+}
+
+.login_input dl {
+    clear: both;
+    height: 60px;
+}
+
+.login_input dt,
+.login_input dd {
+    float: left;
+}
+
+.login_input dt {
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    width: 110px;
+    text-align: right
+}
+
+.login_input dd {
+    padding-left: 15px;
+    width: 253px;
+}
+
+.login_input dd input[type=text],
+.login_input dd input.login_pass {
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    margin-top: 8px;
+    float: left;
+}
+
+.login_input dd input[name=phone],
+.login_input dd input.login_pass {
+    width: 230px;
+}
+
+.login_input dd input[name=code],
+.login_input dd input[name=phoneCode] {
+    width: 90px;
+}
+
+.sendCode,
+.code {
+    display: inline-block;
+    border: 1px solid;
+    width: 110PX;
+    height: 31px;
+    line-height: 31px;
+    text-align: center;
+    float: right;
+    margin-top: 8px;
+}
+
+.login_info {
+    clear: both;
+    color: #f00;
+}
+
+.code {
+    border-color: #1CACF2;
+    color: #fff;
+    background-color: #1CACF2;
+    cursor: pointer;
+}
+
+.sendCode {
+    border-color: #D1D1D1;
+    background-color: #E8E8E8;
+    color: #ADADAD;
+}
+
+.sendCode.active {
+    background-color: coral;
+    border: 1px solid coral;
+    color: #fff;
+}
+
+input[name=submit] {
+    width: 252px;
+    background-color: #53A9E4;
+    color: #fff;
+    font-size: 16px;
+    padding: 3px 0;
+    margin: 20px 0 0 126px;
+    cursor: pointer;
+}
+
+.login_input dd input.false {
+    border: 1px solid #f00;
+}

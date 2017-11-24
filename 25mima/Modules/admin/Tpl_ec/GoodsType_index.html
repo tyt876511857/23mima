@@ -1,0 +1,111 @@
+
+<!-- $Id: goods_type.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ECSHOP 管理中心 - 商品类型 </title>
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<include file='css'>
+<script language="JavaScript">
+<!--
+// 这里把JS用到的所有语言都赋值到这里
+var process_request = "正在处理您的请求...";
+var todolist_caption = "记事本";
+var todolist_autosave = "自动保存";
+var todolist_save = "保存";
+var todolist_clear = "清除";
+var todolist_confirm_save = "是否将更改保存到记事本？";
+var todolist_confirm_clear = "是否清空内容？";
+var lang_enabled = "启用";
+var lang_remove = "移除";
+var attribute = "属性";
+var remove_confirm = "删除商品类型将会清除该类型下的所有属性。\
+您确定要删除选定的商品类型吗？";
+var type_name_empty = "商品类型名称不能为空！";
+//-->
+</script>
+</head>
+<body>
+
+<h1>
+<span class="action-span"><a href="{:U('/GoodsType/add')}">新建商品类型</a></span>
+<span class="action-span1"><a href="index.php?act=main">ECSHOP 管理中心</a> </span><span id="search_id" class="action-span1"> - 商品类型 </span>
+<div style="clear:both"></div>
+</h1>
+<script type="text/javascript" src="__SKIN__/js/utils.js"></script><script type="text/javascript" src="__SKIN__/js/listtable.js"></script>
+<form method="post" action="" name="listForm">
+<!-- start goods type list -->
+<div class="list-div" id="listDiv">
+
+<table width="100%" cellpadding="3" cellspacing="1" id="listTable">
+  <tr>
+    <th>商品类型名称</th>
+    <th>属性分组</th>
+    <th>属性数</th>
+    <th>状态</th>
+    <th>操作</th>
+  </tr>
+  <foreach name='list' item='v'>
+    <tr>
+    <td class="first-cell"><span onclick="javascript:listTable.edit(this, 'edit_type_name', 2)">{$v.}</span></td>
+    <td></td>
+    <td align="right">19</td>
+    <td align="center"><img src="<if condition='$v['enabled']'>__SKIN__/images/yes.gif<else>__SKIN__/images/no.gif</if>" ></td>
+    <td align="center">
+      <a href='{:U("Attribute/index/id/$v[cat_id]")}' title="属性列表">属性列表</a> |
+      <a href='{:U("GoodsType/update/type/update/id/$v[cat_id]")}' title="编辑">编辑</a> |
+      <a href='{:U("/GoodsType/delete/id/$v[cat_id]")}' onclick="if(!confirm('确实要移除吗?')){return false;};" title="移除">移除</a>
+    </td>
+  </tr>
+  </foreach>
+      <tr>
+      <td align="right" nowrap="true" colspan="6">
+            <!-- $Id: page.htm 14216 2008-03-10 02:27:21Z testyang $ -->
+            <div id="turn-page">
+        总计  <span id="totalRecords">9</span>
+        个记录分为 <span id="totalPages">1</span>
+        页当前第 <span id="pageCurrent">1</span>
+        页，每页 <input type='text' size='3' id='pageSize' value="15" onkeypress="return listTable.changePageSize(event)" />
+        <span id="page-link">
+          <a href="javascript:listTable.gotoPageFirst()">第一页</a>
+          <a href="javascript:listTable.gotoPagePrev()">上一页</a>
+          <a href="javascript:listTable.gotoPageNext()">下一页</a>
+          <a href="javascript:listTable.gotoPageLast()">最末页</a>
+          <select id="gotoPage" onchange="listTable.gotoPage(this.value)">
+            <option value='1'>1</option>          </select>
+        </span>
+      </div>
+      </td>
+    </tr>
+  </table>
+
+</div>
+<!-- end goods type list -->
+</form>
+
+<script type="text/javascript" language="JavaScript">
+<!--
+  listTable.recordCount = 9;
+  listTable.pageCount = 1;
+
+    listTable.filter.record_count = '9';
+    listTable.filter.page_size = '15';
+    listTable.filter.page = '1';
+    listTable.filter.page_count = '1';
+    listTable.filter.start = '0';
+   
+  
+  onload = function()
+  {
+    // 开始检查订单
+    startCheckOrder();
+  }
+
+//-->
+</script>
+
+<include file='pagefooter'>
+</body>
+</html>

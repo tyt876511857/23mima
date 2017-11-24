@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>我的肥胖子报告-23密码</title>
+		<include file='css'>
+		<script type="text/javascript" src="__PUBLIC__/wap1/js/zepto.min.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/wap1/js/frozen.js"></script>
+		
+		<style>
+			table{border-collapse: separate !important;}
+			.fpline{background:#23c4f1;height:4px;width:100%}
+			.item-title{color:#23c4f1;display:block;font-size:1.5em;font-family: 微软雅黑;text-align:center;padding:0.5em;}
+			th{color:#23c4f1}
+			.ui-table td, .ui-table th{line-height:2}
+			.ui-row{margin:2em 0}
+		</style>
+		
+	</head>
+
+	<body >
+		<include file='header'>
+		
+		
+	
+	
+	<section class="ui-row ui-whitespace">
+		<div class="ui-border">
+			<div class="fpline"></div>
+			<span class='item-title'>检测结果</span>
+			<table class="ui-table ui-border-tb">
+				<thead>
+				<tr><th>基因</th><th>检测位点</th><th>基因型</th><th>风险系数</th></tr>
+				</thead>
+				<tbody>
+				<foreach name='fit1' item='v'>
+				<?php sort($v['jys']); ?>
+					<tr>
+						<td></td><td></td><td <?php if($v['jys'][0]['name']==$v['jy']){echo 'style="color:red"';} ?> ><?php echo $v['jys'][0]['name']; ?></td><td <?php if($v['jys'][0]['name']==$v['jy']){echo 'style="color:red"';} ?> ><?php echo $v['jys'][0]['sum']; ?></td>
+					</tr>
+					<tr>
+						<td>{$v.title_c}</td><td>{$v.SNP}</td><td <?php if($v['jys'][1]['name']==$v['jy']){echo 'style="color:red"';} ?> ><?php echo $v['jys'][1]['name']; ?></td><td <?php if($v['jys'][1]['name']==$v['jy']){echo 'style="color:red"';} ?> ><?php echo $v['jys'][1]['sum']; ?></td>
+					</tr>
+					<tr>
+						<td></td><td></td><td <?php if($v['jys'][2]['name']==$v['jy']){echo 'style="color:red"';} ?> ><?php echo $v['jys'][2]['name']; ?></td><td <?php if($v['jys'][2]['name']==$v['jy']){echo 'style="color:red"';} ?> ><?php echo $v['jys'][2]['sum']; ?></td>
+					</tr>
+				</foreach>
+				</tbody>
+			</table>
+			
+		</div>
+	</section>
+	
+	
+	</body>
+	
+
+</html>

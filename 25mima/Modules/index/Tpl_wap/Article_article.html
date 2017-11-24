@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>{$field.title}</title>
+<meta name="Keywords" content="{$field.keywords}">
+<meta name="Description" content="{$field.description}">
+<include file='css'>
+</head>
+<body class="list_news">
+<include file='header'>
+<div id="wrapper">
+<myad type='wap_type_banner'>
+<div class="banner"><img src="[field:litpic /]" alt=""></div>
+</myad>
+<div class="news_title">
+  <h3>{$field.postname}</h3>
+  <span>来源：23密码 {:date('Y-m-d',$field["add_time"])}</span>
+</div>
+<div class="cont">{$field.content}</div>
+<div class="news_bottom">
+<myad type='wap_news'>
+<a href="[field:url /]">
+    <img src="[field:litpic /]" alt="">
+    <p>[field:content /]</p>
+    <span>了解更多</span>
+</a>
+</myad>
+</div>
+<include file='footer'>
+</div>
+</body></html>

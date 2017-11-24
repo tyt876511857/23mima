@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>管理员帐号</title>
+<include file='css'>
+</head>
+<body id="right_bj">
+<div class="right_box">
+  <div class="title"><p>管理员帐号</p><a href="{:U('/Rbac/add')}">添加管理员</a></div>
+  <table class="table" border="1" align="center">
+    <tr>
+      <td width="5%">登录ID</td>
+      <td width="10%">笔名</td>
+      <td width="10%">级别</td>
+      <td width="20%">登陆情况</td>
+      <td width="5%">管理项</td>
+    </tr>
+    <foreach name='list' item='v'>
+      <tr>
+        <td>{$v.userid}</td>
+        <td>{$v.uname}</td>
+        <td>{$v.name}</td>
+        <td align="center" bgcolor="#FFFFFF">登录时间：{:date('y-m-d H:i:s',$v['logintime'])}　登录IP：{$v.loginip}</td>
+        <td>
+          <a href='{:U("/Rbac/update/id/$v[id]")}' title="编辑">
+            <img src="__SKIN__/images/icon_edit.gif" border="0" height="16" width="16" />
+          </a>&nbsp;
+          <a href='{:U("/Rbac/delete/id/$v[id]")}' onclick="if(!confirm('您确定要删除此管理员吗？')){return false;};" title="移除">
+            <img src="__SKIN__/images/icon_drop.gif" border="0" height="16" width="16" />
+          </a>
+        </td>
+      </tr>
+    </foreach>
+  </table>
+</div>
+</body>
+</html>

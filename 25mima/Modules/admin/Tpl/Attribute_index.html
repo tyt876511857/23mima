@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>属性列表</title>
+<include file='css'>
+</head>
+<body id="right_bj">
+<div class="right_box">
+  <div class="title"><p>属性列表</p><a href='{:U("/Attribute/add/cid/$id")}'>添加属性</a></div>
+  <table class="table" border="1" align="center">
+    <tr>
+      <td width="5%">编号</td>
+      <td width="10%">属性名称</td>
+      <td width="10%">商品类型</td>
+      <td width="10%">属性值的录入方式</td>
+      <td width="5%">可选值列表</td>
+      <td width="5%">排序</td>
+      <td width="5%">操作</td>
+    </tr>
+    <foreach name='list' item='v'>
+      <tr>
+        <td>{$v.attr_id}</td>
+        <td>{$v.attr_name}</td>
+        <td>{$v.typename}</td>
+        <td><if condition='$v["attr_input_type"]==0'>手工录入<else if condition='$v["attr_input_type"]==1'>从列表中选择<else>多行文本框</if></td>
+        <td>{$v.attr_values}</td>
+        <td>{$v.rank}</td>
+        <td>
+          <a href='{:U("Attribute/update/id/$v[attr_id]/cid/$id")}' title="编辑">
+            <img src="__SKIN__/images/icon_edit.gif" border="0" height="16" width="16">
+          </a>
+          <a href='{:U("/Attribute/delete/id/$v[attr_id]")}' onclick="if(!confirm('确实要移除吗?')){return false;};" title="移除">
+            <img src="__SKIN__/images/icon_drop.gif" border="0" height="16" width="16" />
+          </a>
+        </td>
+      </tr>
+    </foreach>
+  </table>
+</div>
+</body>
+</html>

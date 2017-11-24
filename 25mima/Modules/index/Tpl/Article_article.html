@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>{$field.title}</title>
+<meta name="Keywords" content="{$field.keywords}">
+<meta name="Description" content="{$field.description}">
+<include file='index:Index:css'>
+<link href="__PUBLIC__/gaiban/css/article.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<include file='index:Index:header'>
+	
+	<div class="w1000">
+		<div class="row list">
+			
+			<h3 class="title"><span>{$field.postname}</span></h3>
+			<p class="ly">{:date('Y-m-d',$field["add_time"])} 来源：23密码 </p>
+			<div class="content">
+				{$field.content}
+			</div>
+			
+		</div>
+	</div>
+<include file='index:Index:footer'>
+</body>
+
+
+
+</html>

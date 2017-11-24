@@ -1,0 +1,46 @@
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"> </script>
+<script>
+  wx.config({
+      debug: false,
+      appId: 'wxda2e66f036932f53',
+      timestamp: '<?php echo $time; ?>',
+      nonceStr: '4eef13a5523d5d2bc583c4824f354563',
+      signature: '<?php echo $signature; ?>',
+      jsApiList: [
+        'checkJsApi',
+        'onMenuShareTimeline',
+        'onMenuShareAppMessage',
+        'onMenuShareQQ',
+        'onMenuShareWeibo',
+        'hideMenuItems',
+        'showMenuItems',
+        'hideAllNonBaseMenuItem',
+        'showAllNonBaseMenuItem',
+        'translateVoice',
+        'startRecord',
+        'stopRecord',
+        'onRecordEnd',
+        'playVoice',
+        'pauseVoice',
+        'stopVoice',
+        'uploadVoice',
+        'downloadVoice',
+        'chooseImage',
+        'previewImage',
+        'uploadImage',
+        'downloadImage',
+        'getNetworkType',
+        'openLocation',
+        'getLocation',
+        'hideOptionMenu',
+        'showOptionMenu',
+        'closeWindow',
+        'scanQRCode',
+        'chooseWXPay',
+        'openProductSpecificView',
+        'addCard',
+        'chooseCard',
+        'openCard'
+      ]
+  });
+</script>

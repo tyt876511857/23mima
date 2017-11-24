@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ECSHOP 管理中心 - 新建商品类型 </title>
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<include file='css'>
+<script language="JavaScript">
+<!--
+// 这里把JS用到的所有语言都赋值到这里
+var process_request = "正在处理您的请求...";
+var todolist_caption = "记事本";
+var todolist_autosave = "自动保存";
+var todolist_save = "保存";
+var todolist_clear = "清除";
+var todolist_confirm_save = "是否将更改保存到记事本？";
+var todolist_confirm_clear = "是否清空内容？";
+var lang_enabled = "启用";
+var lang_remove = "移除";
+var attribute = "属性";
+var remove_confirm = "删除商品类型将会清除该类型下的所有属性。\
+您确定要删除选定的商品类型吗？";
+var type_name_empty = "商品类型名称不能为空！";
+//-->
+</script>
+</head>
+<body>
+
+<h1>
+<span class="action-span"><a href="goods_type.php?act=manage">商品类型列表</a></span>
+<span class="action-span1"><a href="index.php?act=main">ECSHOP 管理中心</a> </span><span id="search_id" class="action-span1"> - 新建商品类型 </span>
+<div style="clear:both"></div>
+</h1>
+<script type="text/javascript" src="__SKIN__/js/utils.js"></script><script type="text/javascript" src="__SKIN__/js/validator.js"></script>
+<div class="main-div">
+  <form action="{:U('/GoodsType/runadd')}" method="post" name="theForm" onsubmit="return validate();">
+    <table cellspacing="1" cellpadding="3" width="100%">
+      <tr>
+        <td class="label">商品类型名称:</td>
+        <td><input type="text" name="" value="{$field.typename}" size="40" />
+        <span class="require-field">*</span></td>
+      </tr>
+      <tr>
+        <td class="label">状态:</td>
+        <td><input type="radio" name="enabled" value="0" <if condition="!empty($field)&&$field['enabled']==0">checked</if> >&nbsp;禁用&nbsp;
+        <input type="radio" name="enabled" value="1" <if condition="empty($field)||$field['enabled']==1">checked</if> >&nbsp;启用&nbsp;</td>
+      </tr>
+      <tr>
+        <td class="label"><a href="javascript:showNotice('noticeAttrGroups');" title="点击此处查看提示信息"><img src="__SKIN__/images/notice.gif" width="16" height="16" border="0" alt="点击此处查看提示信息"></a> 属性分组:</td>
+        <td>
+          <textarea name="attr_group" rows="5" cols="40">{$field.attr_group}</textarea><br />
+          <span class="notice-span" style="display:block"  id="noticeAttrGroups">每行一个商品属性组。排序也将按照自然顺序排序。</span>
+        </td>
+      </tr>
+      <tr align="center">
+        <td colspan="2">
+          <input type="hidden" name="cat_id" value="{$field.cat_id}" />
+          <input type="submit" value=" 确定 " class="button" />
+          <input type="reset" value=" 重置 " class="button" />
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
+
+<script type="text/javascript">
+<!--
+
+onload = function() {
+  document.forms['theForm'].elements['typename'].focus();
+  startCheckOrder();
+}
+
+function validate()
+{
+  var validator = new Validator('theForm');
+  validator.required('typename', type_name_empty);
+
+  return validator.passed();
+}
+  
+//-->
+</script>
+
+<include file='pagefooter'>
+</body>
+</html>

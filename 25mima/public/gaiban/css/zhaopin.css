@@ -1,0 +1,12 @@
+body{background:#fff;}
+.list{overflow:auto}
+.list li{float:left;padding: 60px 0;width: 33.33%;text-align: center;}
+.list li h3{font-size:16px;color:#505050}
+.list li a{display: block;width: 100px;margin: 10px auto;text-align: center;background: #1eb9ee;border-radius: 15px;color: #505050;}
+
+.dialog{position:fixed;top:0;height:0;width:100%;height:100%;display:none}
+.dialog .dialog_bg{background:rgba(0, 0, 0, 0.5);width:100%;height:100%;}
+.dialog .dialog_cont{position: absolute;top: 20px;left: 0;right: 0;background: #fff;width: 60%;margin: 0 auto;border: 4px solid #1eb9ee;padding: 30px;height: 80%;overflow: auto;}
+.dialog .dialog_cont h3{font-size:24px;text-align:center}
+.dialog .dialog_cont p{margin-top:30px;}
+.dialog .close_dialog{display: block;width: 100px;margin: 10px auto;text-align: center;background: #f2b600;color: #fff;border-radius: 10px;}

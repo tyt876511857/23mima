@@ -1,0 +1,77 @@
+/*
+ * @description: 参考文献弹窗 组件样式
+ * @author: Bird.An
+ * @update: Bird.An (2016-05-13)
+ * @require: None
+ */
+
+.md-literature {
+	float: right;
+	color: #61adc7;
+	font-size: 14px;
+	line-height: 20px;
+	cursor: pointer;
+}
+.md-literature-icon {
+	display: inline-block;
+	margin: -2px 5px 0 0;
+	width: 20px;
+	height: 20px;
+	background: url(/res/desktop/img/docIco.png);
+	vertical-align: middle;
+}
+
+/*-------------- 弹窗 ---------------*/
+.md-literature-pop {
+	display:none;
+}
+.md-literature-pop-title {
+  position: relative;
+  padding: 25px 40px 20px;
+  border-bottom: 2px solid #e7e7e7;
+}
+.md-literature-pop-titleA {
+	color: #333;
+  line-height: 16px;
+  font-weight: bold;
+  font-size: 16px;
+}
+.md-literature-pop-main {
+  position: relative;
+  padding: 30px 40px;
+	height: 299px;
+  background-color: #fff;
+  border-radius: 4px;
+  zoom: 1;
+  overflow-y: scroll;
+}
+.md-literature-pop-compare {
+	width: 100%;
+	text-align: center;
+}
+.md-literature-pop-compare td {
+	padding: 10px 20px 9px;
+	height: 14px; 
+	border: 1px solid #d7e0ea;
+}
+.md-literature-pop-compare thead td {
+	font-weight: bold;
+	font-size: 16px;
+	line-height: 16px;
+}
+.md-literature-pop-compare tbody td {
+	font-size: 14px;
+	line-height: 14px;
+}
+.md-literature-pop-compare tbody tr a {
+	color: #2096b9;
+}
+
+/*------------- 弹窗插件指定id -----------------*/
+#md-literature-pop-overlay {
+	background-color: #000;
+}
+#md-literature-pop-container {
+	width: 835px;
+	height: 425px;
+}

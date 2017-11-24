@@ -1,0 +1,51 @@
+body {width:100%;font-size:12px arial '黑体';margin:0;padding:0;color:#333;}
+a{color:#000;text-decoration:none;cursor:pointer;}
+a:hover {color:#555; text-decoration:none;}
+ul,ol,dl{overflow:hidden;list-style:none}
+li{list-style:none}
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {font-size:12px;margin:0;padding:0;font-weight:normal;}
+table {border-collapse:collapse;border-spacing:0;}
+fieldset, img {border:0;}
+input, textarea, select {font-family:inherit;font-size:inherit;font-weight:inherit;}
+/*在ie下重定义*/
+input, textarea, select {*font-size:100%;}
+
+.w1200{width:1200px;margin:0 auto 0;}
+
+.background{background:#ddd}
+.user_left{width:218px;float:left;border:solid 1px;float:left;margin:10px 0 120px 0;}
+.user_right{width:960px;float:right;margin-top:10px;}
+.user_left a{font-size:14px;text-indent:20px;display:block;line-height:30px;}
+.user_left li{border-bottom:dashed 1px;}
+.user_title{border-bottom:3px solid #a7c4db;margin-bottom:20px;font-size: 26px;padding-bottom:10px;}
+/*收货地址页面*/
+#site #address #buttom{width:98px;height:20px;margin:0 0 0 94px;border:none;}
+.user_right{min-height:80%;}
+.user_right #alladdress li{line-height:32px;display:block;width:100%;clear:both;border-bottom:solid 1px #f2f2f2;}
+.user_right #alladdress li:first-child{background:#f2f2f2;display:block;width:100%;}
+.user_right #alladdress li span{display:block;float:left;text-align:center;}
+.user_right #alladdress li span.name{width:50px;}
+.user_right #alladdress li span.phone{width:100px;}
+.user_right #alladdress li span.sheng{width:50px;}
+.user_right #alladdress li span.shi{width:50px;}
+.user_right #alladdress li span.xian{width:50px;}
+.user_right #alladdress li span.site{width:240px;}
+.user_right #alladdress li>input{display:none;}
+.user_right #alladdress li span.encoding{width:70px;}
+.user_right #alladdress li span.chaozuo{width:110px;}
+.user_right #alladdress li span.chaozuo a{padding:0 4px;}
+.user_right #alladdress+a{font-size:12px;color:#333;padding:4px;margin:10px 0 0 0;display:block;}
+.user_right #address p{line-height:24px;display:block;float:left;width:100%;}
+.user_right #address p span{display:block;float:left;width:100px;}
+.user_right #address input.site{width:280px;display:block;}
+.user_right .Favorite_list a{float:left;display:block;width:160px;}
+.user_right .Favorite_list a img{width:100%;}
+.user_right .Favorite_list a p{text-align:center;padding:10px 0;}
+.user_right .indent_list{border:solid 1px #ddd;margin-bottom:4px;}
+.user_right .indent_list h3{background:#eaf8ff;line-height:40px;font-weight:bolder;text-indent:1em;}
+.user_right .indent_list div{margin:4px 0;width:100%;float:left;}
+.user_right .indent_list div a{line-height:40px;display:block;height:85px;vertical-align:top;width:315px;margin:0 10px;float:left;}
+.user_right .indent_list div a img{float:left;height:100%;margin:0 8px 0 0;max-width:259px;}
+.user_right .indent_list div p,.user_right .indent_list div span{display:block;float:left;line-height:85px;width:90px;}
+.user_right .indent_list input{border:0;background:none;cursor:pointer;}
+.border,.border li{border-color:#dddddd;}

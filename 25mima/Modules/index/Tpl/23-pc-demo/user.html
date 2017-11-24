@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>个人中心</title>
+    <meta name="Keywords" content="" />
+    <meta name="Description" content="" />
+
+    <link href="css/base.css" rel="stylesheet" type="text/css" />
+
+    <link href="css/user.css" rel="stylesheet" type="text/css" />
+
+    <script language="javascript" src="js/jquery-1.8.3.min.js"></script>
+
+
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="js/PIE_IE678.js"></script>
+	</script>
+    <![endif]-->
+    <!--[if gt IE 8]>
+	<script type="text/javascript" src="js/PIE_IE9.js"></script>
+ <![endif]-->
+
+
+</head>
+
+<body>
+    <div class="top">
+        <div class="w1000">
+            <a href="#">绑定</a>
+            <span></span>
+            <a href="#">登录</a>
+        </div>
+    </div>
+    <div class="header">
+
+        <div class="w1000 nav">
+            <div class="logo left">
+                <a href="#">
+                    <img src="images/logo.png" />
+                </a>
+            </div>
+            <a href="#" class="right" id="buy_btn">
+				购买
+			</a>
+            <ul class="right">
+                <li><a class="active" href="#">首页</a></li>
+                <li><a href="#">产品</a></li>
+                <li><a href="#">优势</a></li>
+                <li><a href="#">动态</a></li>
+                <li><a href="#">合作</a></li>
+
+            </ul>
+
+        </div>
+    </div>
+    <!-- 广告图 -->
+    <div class="User_ad">
+        <img src="images/person_banner.jpg" width="100%" />
+        <div class="User_ad_th">
+            <h2>个人中心</h2>
+            <span>Personal Center</span>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $('.User_th').on('click', 'li', function () {
+                var a = $(this).index();
+                $(this).addClass('active').siblings().removeClass('active');
+                $('.User_con').children().eq(a).removeClass('hide').siblings().addClass('hide');
+            });
+            $('.checkType').click(function () {
+                $(this).next().toggleClass('hide');
+                $(this).parent().parent().siblings().find('.checkType').next().addClass('hide');
+            });
+
+            //
+            var CheckTimer;
+            $('.checkType_con').hover(function () {
+                clearTimeout(CheckTimer);
+                $(this).removeClass('hide');
+            }, function () {
+                var _this = $(this);
+                clearTimeout(CheckTimer);
+                setTimeout(function () {
+                    _this.addClass('hide');
+                }, 500);
+
+            });
+
+        })
+    </script>
+    <div class="User_bg">
+        <div class="w1000">
+            <div class="User">
+                <ul class="User_th">
+                    <li class="active">个人账户</li>
+                    <li>我的订单</li>
+                    <li>采样盒</li>
+                </ul>
+                <div class="User_con">
+                    <div class="U_c_cell">
+                        <div class="UserAccount">
+                            <div class="U_a_th">账户余额：<span>￥0.00</span></div>
+                            <div class="U_a_con">
+                                <div>我的优惠券
+                                    <input type="submit" value="立即使用" class="UsingBtn" />
+                                </div>
+                                <div>
+                                    <input type="text" name="" class="addText" placeholder="请输入优惠码" />
+                                    <input type="button" value="添加" class="addBtn" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="U_c_cell hide">
+                        <div class="UserOrder">
+                            <h3>我的购物记录</h3>
+                            <table>
+                                <tr>
+                                    <th>订单编号</th>
+                                    <th>产品名称</th>
+                                    <th>数量</th>
+                                    <th>总价</th>
+                                    <th>下单时间</th>
+                                    <th>收货地址</th>
+                                    <th>操作</th>
+                                </tr>
+                                <tr>
+                                    <td colspan="7" class="hide">
+                                        <div class="UserOrder_info">
+                                            <p>您还没有订单，请先去购买合适型号的商品吧！</p>
+                                            <a href="javascript:;">去购买</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="10%">2123541852</td>
+                                    <td width="10%">小天才基因</td>
+                                    <td width="10%">1</td>
+                                    <td width="15%">999</td>
+                                    <td width="20%">2016-07-08 18:46:54</td>
+                                    <td width="20%">浙江省杭州市滨江区滨兴路599号江南九鼎大厦</td>
+                                    <td width="15%">
+                                        <a href="javascript:;">系统关闭</a> | <a href="javascript:;" class="checkType">查看状态</a>
+                                        <div class="checkType_con hide">
+                                            <h4>状态列表</h4>
+                                            <ul>
+                                                <li>
+                                                    <span class="left">2016.04.05 16:35:78</span>
+                                                    <span class="right">订单提交</span>
+                                                </li>
+                                                <li>
+                                                    <span class="left">2016.04.05 16:35:78</span>
+                                                    <span class="right">系统关闭</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="10%">2123541852</td>
+                                    <td width="10%">小天才基因</td>
+                                    <td width="10%">1</td>
+                                    <td width="15%">999</td>
+                                    <td width="20%">2016-07-08 18:46:54</td>
+                                    <td width="20%">浙江省杭州市滨江区滨兴路599号江南九鼎大厦</td>
+                                    <td width="15%">
+                                        <a href="javascript:;">系统关闭</a> | <a href="javascript:;" class="checkType">查看状态</a>
+                                        <div class="checkType_con hide">
+                                            <h4>状态列表</h4>
+                                            <ul>
+                                                <li>
+                                                    <span class="left">2016.04.05 16:35:78</span>
+                                                    <span class="right">订单提交</span>
+                                                </li>
+                                                <li>
+                                                    <span class="left">2016.04.05 16:35:78</span>
+                                                    <span class="right">系统关闭</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </div>
+                    <div class="U_c_cell hide">
+                        <div class="box">
+                            <ul>
+                                <li>
+                                    <div class="box_cell">
+                                        <a href="checkBox.html">
+                                            <div class="box_cell_pic"></div>
+                                            <h4>宝宝宝宝</h4>
+                                            <p>生日：2011.05.03</p>
+                                            <p>采集器编码：1315336895</p>
+                                            <span>已出报告（2016.04.05）</span>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="box_cell">
+                                        <a href="javascript:;">
+                                            <div class="box_cell_pic"></div>
+                                            <h4>宝宝宝宝</h4>
+                                            <p>生日：2011.05.03</p>
+                                            <p>采集器编码：1315336895</p>
+                                            <span>已出报告（2016.04.05）</span>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="box_cell">
+                                        <a href="javascript:;">
+                                            <div class="box_cell_pic"></div>
+                                            <h4>宝宝宝宝</h4>
+                                            <p>生日：2011.05.03</p>
+                                            <p>采集器编码：1315336895</p>
+                                            <span>已出报告（2016.04.05）</span>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="box_cell">
+                                        <a href="javascript:;">
+                                            <div class="box_cell_pic"></div>
+                                            <h4>宝宝宝宝</h4>
+                                            <p>生日：2011.05.03</p>
+                                            <p>采集器编码：1315336895</p>
+                                            <span>已出报告（2016.04.05）</span>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div style="clear:both"></div>
+                            <div class="box_info hide">
+                                <p>采样盒您可以把您的家人的信息绑定在同一个登录账户中.</p>
+                                <a href="javascript:;" class="addBox">绑定采样盒</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <div class="w1000">
+            <div class="cont">
+                <div class="left">
+                    <ul>
+                        <li>
+                            <a class="title" href="#">关于我们</a>
+                            <a href="#">品牌故事</a>
+                            <a href="#">动态</a>
+                            <a href="#">人才招聘</a>
+                            <a href="#">合作</a>
+                        </li>
+                        <li>
+                            <a class="title" href="#">产品信息</a>
+                            <a href="#">产品</a>
+                            <a href="#">检测流程</a>
+                            <a href="#">采样方法</a>
+                            <a href="#">示例报告</a>
+                        </li>
+                        <li>
+                            <a class="title" href="#">个人中心</a>
+                            <a href="#">登录</a>
+                            <a href="#">我的采样盒</a>
+                            <a href="#">购买</a>
+
+                        </li>
+                    </ul>
+
+                </div>
+                <span class="left"></span>
+                <div class="right">
+                    <img src="images/footer.png" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="footer_copy">
+        <div class="w1000">
+            <div class="cont">© 2005 - 2016 东莞市永盛通信科技有限公司 版权所有 粤ICP备08130115号-1 联系方式：4001-666</div>
+
+        </div>
+    </div>
+</body>
+
+
+</html>

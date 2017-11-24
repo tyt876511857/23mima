@@ -1,0 +1,44 @@
+
+<!-- $Id: category_list.htm 17019 2010-01-29 10:10:34Z liuhui $ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>管理中心 - 商品分类 </title>
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<include file='css'>
+</head>
+<body>
+
+<h1>
+<span class="action-span"><a href="{:U('/Verify_diy/add')}">添加验证码</a></span>
+<span class="action-span1"><a href="index.php?act=main">管理中心</a> </span><span id="search_id" class="action-span1"> - 商品分类 </span>
+<div style="clear:both"></div>
+</h1>
+<script type="text/javascript" src="__SKIN__/js/utils.js"></script><script type="text/javascript" src="__SKIN__/js/listtable.js"></script>
+<form method="post" action="" name="listForm">
+<!-- start ad position list -->
+<div class="list-div" id="listDiv">
+
+<table width="100%" cellspacing="1" cellpadding="2" id="list-table">
+  <tr>
+    <th>id</th>
+    <th>验证码</th>
+    <th>操作</th>
+  </tr>
+  <foreach name='list' item='v'>
+    <tr align="center" class="0">
+    <td>{$v.id}</td>
+    <td align="left" class="first-cell" >
+        <span>{$v.verify}</span>
+    </td>
+    <td><a href='{:U("/Verify_diy/delete/id/$v[id]")}' onclick="if(!confirm('确实要删除吗?')){return false;};" title="移除">移除</a></td>
+  </tr>
+  </foreach>
+  </table>
+</div>
+</form>
+
+<include file='pagefooter'>
+</body>
+</html>

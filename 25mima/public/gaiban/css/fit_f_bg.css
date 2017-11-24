@@ -1,0 +1,22 @@
+.topnav{overflow:auto;padding:10px 0;}
+.overflow{overflow:auto;}
+
+h3.titlec1{font-size:30px;color:#808080;font-weight:normal;width:224px;}
+.jiedu>p{padding:15px;width:854px;line-height:24px;}
+h3.titlec2{font-size:30px;color:#808080;font-weight:normal;width:560px;}
+.right .cont1{margin-top:50px;}
+
+table{width:830px;text-align:center;border-top:4px solid #d2d2d2}
+table tr{color:#515151;height:50px}
+table tr th,table tr td{border-bottom:1px solid #c9c9c9;}
+.ck{width:200px;padding:10px 455px;float:left;}
+.ck a{margin:0 10px;}
+.advice{border-top:4px solid #d2d2d2;border-bottom:4px solid #d2d2d2}
+h3.titlec3{font-size:30px;color:#808080;font-weight:normal;width:360px;}
+.advice{padding:15px;width:720px;}
+.ckwx{    float: left;
+    width: 100%;
+    text-align: right;}
+.topimg{position:relative}
+.topimg p{text-align:center;font-size:36px;position: absolute;top: 32%;left: 0;right: 0;}
+.topimg p>font{font-size:60px;}

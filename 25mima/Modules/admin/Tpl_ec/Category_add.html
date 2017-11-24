@@ -1,0 +1,248 @@
+
+<!-- $Id: category_info.htm 16752 2009-10-20 09:59:38Z wangleisvn $ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ECSHOP 管理中心 - 添加分类 </title>
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<include file='css'>
+<script language="JavaScript">
+<!--
+// 这里把JS用到的所有语言都赋值到这里
+var process_request = "正在处理您的请求...";
+var todolist_caption = "记事本";
+var todolist_autosave = "自动保存";
+var todolist_save = "保存";
+var todolist_clear = "清除";
+var todolist_confirm_save = "是否将更改保存到记事本？";
+var todolist_confirm_clear = "是否清空内容？";
+var catname_empty = "分类名称不能为空!";
+var unit_empyt = "数量单位不能为空!";
+var is_leafcat = "您选定的分类是一个末级分类。\r\n新分类的上级分类不能是一个末级分类";
+var not_leafcat = "您选定的分类不是一个末级分类。\r\n商品的分类转移只能在末级分类之间才可以操作。";
+var filter_attr_not_repeated = "筛选属性不可重复";
+var filter_attr_not_selected = "请选择筛选属性";
+//-->
+</script>
+</head>
+<body>
+
+<h1>
+<span class="action-span"><a href="{:U('/Category/index')}">商品分类</a></span>
+<span class="action-span1"><a href="{:U('/Index/index')}">ECSHOP 管理中心</a> </span><span id="search_id" class="action-span1"> - 添加分类 </span>
+<div style="clear:both"></div>
+</h1>
+<!-- start add new category form -->
+<div class="main-div">
+  <form action="{:U('Category/runAdd')}" method="post" name="theForm" enctype="multipart/form-data" onsubmit="return validate()">
+  <table width="100%" id="general-table">
+      <tr>
+        <td class="label">分类名称:</td>
+        <td>
+          <input type='text' name='typename' maxlength="20" value='{$field.typename}' size='27' /> <font color="red">*</font>
+        </td>
+      </tr>
+      <tr>
+        <td class="label">上级分类:</td>
+        <td>
+          <select name="pid">
+            <option value="0">顶级分类</option>
+            <foreach name='cate' item='v'>
+                <option value="{$v.id}" <if condition='!empty($field) && $v["id"]==$field["pid"]'>selected='ture'</if>>{$v.typename}</option>
+                <foreach name='v.child' item='j'>
+                    <option value="{$j.id}" >&nbsp;&nbsp;{$j.typename}</option>
+                </foreach>
+            </foreach>     
+          </select>
+        </td>
+      </tr>
+
+      <tr id="unit">
+        <td class="label">数量单位:</td>
+        <td>
+          <input type="text" name='unit' value='' size="12" />
+        </td>
+      </tr>
+      <tr>
+        <td class="label">排序:</td>
+        <td>
+          <input type="text" name='rank'  value="50" size="15" />
+        </td>
+      </tr>
+
+      <tr>
+        <td class="label">是否显示:</td>
+        <td>
+          <input type="radio" name="is_show" value="1"  <if condition='empty($field)||$field["is_show"]==1'>checked="true"</if>/> 是
+          <input type="radio" name="is_show" value="0"  <if condition='!empty($field)&&$field["is_show"]==0'>checked="true"</if>/> 否        </td>
+      </tr>
+      <tr>
+        <td class="label">是否显示在导航栏:</td>
+        <td>
+          <input type="radio" name="show_in_nav" value="1" <if condition='!empty($field["show_in_nav"])==1'>checked="true"</if> /> 是          
+          <input type="radio" name="show_in_nav" value="0" <if condition='!empty($field["show_in_nav"])!=1'>checked="true"</if> /> 否        </td>
+      </tr>
+      <tr>
+        <td class="label"><a href="javascript:showNotice('noticeFilterAttr');" title="点击此处查看提示信息"><img src="__SKIN__/images/notice.gif" width="16" height="16" border="0" alt="您可以为每一个商品分类指定一个样式表文件。例如文件存放在 themes 目录下则输入：themes/style.css"></a>筛选属性:</td>
+        <td>
+          <script type="text/javascript">
+          var arr = new Array();
+          var sel_filter_attr = "请选择筛选属性";
+                    <foreach name='goods_type' item='v'>
+                      arr[{$v.cat_id}] = new Array();
+                        <foreach name="v.attr" key='k' item='j'>
+                        arr[{$v.cat_id}][{$k}] = ["{$j.attr_name}",{$j.attr_id}];
+                        </foreach>
+                    </foreach>
+                    
+                                    
+          function changeCat(obj)
+          {
+            var key = obj.value;
+            var sel = window.ActiveXObject ? obj.parentNode.childNodes[4] : obj.parentNode.childNodes[5];
+            sel.length = 0;
+            sel.options[0] = new Option(sel_filter_attr, 0);
+            if (arr[key] == undefined)
+            {
+              return;
+            }
+            for (var i= 0; i < arr[key].length ;i++ )
+            {
+              sel.options[i+1] = new Option(arr[key][i][0], arr[key][i][1]);
+            }
+
+
+          }
+
+          </script>
+
+         
+          <table width="100%" id="tbody-attr" align="center">
+                        <tr>
+              <td>   
+                   <a href="javascript:;" onclick="addFilterAttr(this)">[+]</a> 
+                   <select onChange="changeCat(this)"><option value="0">请选择商品类型</option>
+                   <foreach name='goods_type' item='v'>
+                   <option value='{$v.cat_id}'>{$v.typename}</option>
+                   </foreach>
+                   </select>&nbsp;&nbsp;
+                   <select name="filter_attr[]"><option value="0">请选择筛选属性</option></select><br />                   
+              </td>
+            </tr> 
+                       
+                      </table>
+
+          <span class="notice-span" style="display:block"  id="noticeFilterAttr">筛选属性可在前分类页面筛选商品</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="label"><a href="javascript:showNotice('noticeGrade');" title="点击此处查看提示信息"><img src="__SKIN__/images/notice.gif" width="16" height="16" border="0" alt="您可以为每一个商品分类指定一个样式表文件。例如文件存放在 themes 目录下则输入：themes/style.css"></a>价格区间个数:</td>
+        <td>
+          <input type="text" name="grade" value="<if noempty='$field['grade']'>{$field.grade}<else>0</if>" size="40" /> <br />
+          <span class="notice-span" style="display:block"  id="noticeGrade">该选项表示该分类下商品最低价与最高价之间的划分的等级个数，填0表示不做分级，最多不能超过10个。</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="label"><a href="javascript:showNotice('noticeGoodsSN');" title="点击此处查看提示信息"><img src="__SKIN__/images/notice.gif" width="16" height="16" border="0" alt="您可以为每一个商品分类指定一个样式表文件。例如文件存放在 themes 目录下则输入：themes/style.css"></a>分类的样式表文件:</td>
+        <td>
+          <input type="text" name="style" value="{$field.style}" size="40" /> <br />
+          <span class="notice-span" style="display:block"  id="noticeGoodsSN">您可以为每一个商品分类指定一个样式表文件。例如文件存放在 themes 目录下则输入：themes/style.css</span>
+        </td>
+      </tr>
+      <tr>
+        <td class="label">关键字:</td>
+        <td><input type="text" name="keywords" value='{$field.keywords}' size="50">
+        </td>
+      </tr>
+
+      <tr>
+        <td class="label">分类描述:</td>
+        <td>
+          <textarea name='description' rows="6" cols="48">{$field.description}</textarea>
+        </td>
+      </tr>
+      </table>
+      <div class="button-div">
+        <input type="submit" value=" 确定 " />
+        <input type="reset" value=" 重置 " />
+      </div>
+    <input type="hidden" name="id" value="{$field.id}" />
+  </form>
+</div>
+<script type="text/javascript" src="__SKIN__/js/utils.js"></script><script type="text/javascript" src="__SKIN__/js/validator.js"></script>
+<script language="JavaScript">
+<!--
+document.forms['theForm'].elements['typename'].focus();
+/**
+ * 检查表单输入的数据
+ */
+function validate()
+{
+  validator = new Validator("theForm");
+  validator.required("typename",      catname_empty);
+  if (parseInt(document.forms['theForm'].elements['grade'].value) >10 || parseInt(document.forms['theForm'].elements['grade'].value) < 0)
+  {
+    validator.addErrorMsg('价格分级数量只能是0-10之内的整数');
+  }
+  return validator.passed();
+}
+onload = function()
+{
+  // 开始检查订单
+  startCheckOrder();
+}
+
+/**
+ * 新增一个筛选属性
+ */
+function addFilterAttr(obj)
+{
+  var src = obj.parentNode.parentNode;
+  var tbl = document.getElementById('tbody-attr');
+
+  var validator  = new Validator('theForm');
+  var filterAttr = document.getElementsByName("filter_attr[]");
+
+  if (filterAttr[filterAttr.length-1].selectedIndex == 0)
+  {
+    validator.addErrorMsg(filter_attr_not_selected);
+  }
+  
+  for (i = 0; i < filterAttr.length; i++)
+  {
+    for (j = i + 1; j <filterAttr.length; j++)
+    {
+      if (filterAttr.item(i).value == filterAttr.item(j).value)
+      {
+        validator.addErrorMsg(filter_attr_not_repeated);
+      } 
+    } 
+  }
+
+  if (!validator.passed())
+  {
+    return false;
+  }
+
+  var row  = tbl.insertRow(tbl.rows.length);
+  var cell = row.insertCell(-1);
+  cell.innerHTML = src.cells[0].innerHTML.replace(/(.*)(addFilterAttr)(.*)(\[)(\+)/i, "$1removeFilterAttr$3$4-");
+  filterAttr[filterAttr.length-1].selectedIndex = 0;
+}
+
+/**
+ * 删除一个筛选属性
+ */
+function removeFilterAttr(obj)
+{
+  var row = rowindex(obj.parentNode.parentNode);
+  var tbl = document.getElementById('tbody-attr');
+
+  tbl.deleteRow(row);
+}
+//-->
+</script>
+<include file='pagefooter'>
+</body>
+</html>

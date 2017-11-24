@@ -1,0 +1,253 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>首页</title>
+<meta name="Keywords" content="" />
+<meta name="Description" content="" />
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<link href="css/base.css" rel="stylesheet" type="text/css" />
+
+<link href="css/jyy_a_bg.css" rel="stylesheet" type="text/css" />
+
+<script language="javascript" src="js/jquery-1.8.3.min.js"></script>
+
+<script type="text/javascript" src="js/highcharts.js"></script>
+<script type="text/javascript" src="js/highcharts-more.js"></script>
+<!--[if lt IE 9]>
+    <script type="text/javascript" src="js/PIE_IE678.js"></script>
+	</script>
+    <![endif]-->
+<!--[if gt IE 8]>
+	<script type="text/javascript" src="js/PIE_IE9.js"></script>
+ <![endif]-->
+
+
+</head>
+<body>
+	<div class="top">
+		<div class="w1000">
+			<a href="#">绑定</a>
+			<span></span>
+			<a href="#">登录</a>
+		</div>
+	</div>
+	<div class="header">
+		
+		<div class="w1000 nav">
+			<div class="logo left">
+				<a href="#">
+					<img src="images/logo.png" />
+				</a>
+			</div>
+			<a href="#" class="right" id="buy_btn">
+				购买
+			</a>
+			<ul class="right">
+				<li><a class="active" href="#">首页</a></li>
+				<li><a href="#">产品</a></li>
+				<li><a href="#">优势</a></li>
+				<li><a href="#">动态</a></li>
+				<li><a href="#">合作</a></li>
+				
+			</ul>
+			
+		</div>
+	</div>
+	<div class="w1000 topnav">
+		
+			<div class="left"><a href="#">我的报告</a>｜<span>报告概览</span></div>
+			<div class="right">
+				<select><option>宝宝的报告</option></select>
+			</div>
+		
+	</div>
+	<div class="w1000">
+		<div class="row" style="margin-bottom:0;">
+			<span class="">您的宝贝</span>
+			<h3><span>小</span><span>天</span><span>才</span><span>基</span><span>因</span></h3>
+			<span class="">检测结果</span>
+			<div class="tab">
+				<div id="container" style="width:800px;height:800px;margin:0 auto;"></div>
+				<script>
+					$(function() {
+						$('#container').highcharts({
+							chart: {
+								polar: true,
+								backgroundColor: {
+									linearGradient: [0, 300, 300, 400],
+									stops: [
+										[0, '#849cc8'],
+										[1, '#849cc8'],
+										[1, '#849cc8']
+									]
+								},
+							},
+							pane: {
+								size: '80%',
+								background: [ {
+												backgroundColor: '#eeefef',
+												borderWidth: 0,
+												outerRadius: '100%'
+											}]
+							},
+							title: {
+								text: null
+							},
+							tooltip: {
+								enabled: false
+							},
+							legend: {
+								enabled: false
+							},
+							credits: {
+								enabled: false
+							},
+							xAxis: {
+
+								categories: [
+								'领导决策力',
+								'运动特长',
+								'创造力',
+								'专注力',
+								'逻辑思维能力',
+								'绘画特长',
+								'音乐特长'
+								],
+								tickmarkPlacement: 'on',
+								lineWidth: 0,
+								labels: {
+									style: {
+										color: '#7f7f80',
+										fontSize: '24px'
+									}
+								}
+							},
+							yAxis: {
+								categories: ["", "", "", "", "", "", "", ""],
+								tickmarkPlacement: 'on',
+								lineWidth: 0
+							},
+							plotOptions: {
+								series: {
+									color: '#849cc8',
+									lineWidth: 0,
+
+								}
+							},
+							series: [{
+								type: 'area',
+								name: 'Area',
+
+								data: [														
+								5,
+								5,
+								4,
+								4,
+								4,
+								4,
+								4,
+								]
+							}]
+						});
+					});
+				</script>
+			</div>
+			
+		</div>
+	</div>
+	<img src="images/xtc.jpg" width="100%" />
+	
+		<div class="w1000 overflow">
+			<div class="row">
+				<a class="item" href="#">
+					<img src="images/icon (2).png" class="left" width="200px"/>
+					<div class="left">
+						<p class="title">运动特长</p>
+						<span><img src="images/tal_star.png" /><img src="images/tal_star.png" /><img src="images/tal_star.png" /><img src="images/tal_star.png" /><img src="images/tal_star.png" /></span>
+						<p class="desc">运动能力优秀</p>
+					</div>
+				</a>
+				<a class="item" href="#">
+					<img src="images/icon (2).png" class="left" width="200px"/>
+					<div class="left">
+						<p class="title">运动特长</p>
+						<span><img src="images/tal_star.png" /><img src="images/tal_star.png" /><img src="images/tal_star.png" /><img src="images/tal_star.png" /><img src="images/tal_star.png" /></span>
+						<p class="desc">运动能力优秀</p>
+					</div>
+				</a>
+				<a class="item" href="#">
+					<img src="images/icon (2).png" class="left" width="200px"/>
+					<div class="left">
+						<p class="title">运动特长</p>
+						<span><img src="images/tal_star.png" /><img src="images/tal_star.png" /><img src="images/tal_star.png" /><img src="images/tal_star.png" /><img src="images/tal_star.png" /></span>
+						<p class="desc">运动能力优秀</p>
+					</div>
+				</a>
+				<a class="item" href="#">
+					<img src="images/icon (2).png" class="left" width="200px"/>
+					<div class="left">
+						<p class="title">运动特长</p>
+						<span><img src="images/tal_star.png" /><img src="images/tal_star.png" /><img src="images/tal_star.png" /><img src="images/tal_star.png" /><img src="images/tal_star.png" /></span>
+						<p class="desc">运动能力优秀</p>
+					</div>
+				</a>
+				<a class="item" href="#">
+					<img src="images/icon (2).png" class="left" width="200px"/>
+					<div class="left">
+						<p class="title">运动特长</p>
+						<span><img src="images/tal_star.png" /><img src="images/tal_star.png" /><img src="images/tal_star.png" /><img src="images/tal_star.png" /><img src="images/tal_star.png" /></span>
+						<p class="desc">运动能力优秀</p>
+					</div>
+				</a>
+			</div>
+		</div>
+	
+	
+	
+	<div class="footer">
+		<div class="w1000">
+			<div class="cont">
+				<div class="left">
+					<ul>
+						<li>
+							<a class="title" href="#">关于我们</a>
+							<a href="#">品牌故事</a>
+							<a href="#">动态</a>
+							<a href="#">人才招聘</a>
+							<a href="#">合作</a>
+						</li>
+						<li>
+							<a class="title" href="#">产品信息</a>
+							<a href="#">产品</a>     
+							<a href="#">检测流程</a>
+							<a href="#">采样方法</a>
+							<a href="#">示例报告</a>
+						</li>
+						<li>
+							<a class="title" href="#">个人中心</a>
+							<a href="#">登录</a>
+							<a href="#">我的采样盒</a>
+							<a href="#">购买</a>
+							
+						</li>
+					</ul>
+					
+				</div>
+				<span class="left"></span>
+				<div class="right">
+					<img src="images/footer.png" />
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<div class="footer_copy">
+		<div class="w1000">
+			<div class="cont">? 2005 - 2016 东莞市永盛通信科技有限公司 版权所有 粤ICP备08130115号-1 联系方式：4001-666</div>
+			
+		</div>
+	</div>
+</body>
+<script src="js/fit_a.js"></script>
+</html>

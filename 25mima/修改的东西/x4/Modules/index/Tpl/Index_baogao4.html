@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>基因检测结果-美容基因 </title>
+<meta name="Description" content="" />
+<include file='index:Index:css'>
+<link href="__PUBLIC__/gaiban/css/jyy_a_bg.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/gaiban/css/fit_a_bg.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__PUBLIC__/js/echarts.js"></script>
+<!-- <script type="text/javascript" src="__PUBLIC__/gaiban/js/highcharts.js"></script>
+<script type="text/javascript" src="__PUBLIC__/gaiban/js/highcharts-more.js"></script> -->
+<style>
+.w1000{width:100%; page-break-inside:avoid;}
+.topnav li{ line-height40px; height:40px; list-style:none;}
+.topnav li b{ font-size:16px; width:100px; float:left; text-align:right}
+</style>
+</head>
+<body>
+	<div class="w1000 topnav">
+		<img src='http://23mima.com/uploads/meirong_bg/1.jpg' width='100%'>
+	</div>
+	<div class="w1000 topnav" style='background:#fff'>
+
+		<img src='http://23mima.com/uploads/meirong_bg/021.jpg' width='100%'>
+		<ul style=' width:400px; margin:0 auto;'>
+			<li><b>姓名：</b><?php echo $field['tuoye']['name'];?></li>
+			<li><b>性别：</b><?php echo $field['tuoye']['rcvSex']?'男':'女';?></li>
+			<li><b>年龄：</b><?php echo $field['tuoye']['birthtime'];?></li>
+			<li><b>联系电话：</b><?php echo $field['tuoye']['tel'];?></li>
+			<li><b>联系地址：</b><?php echo $field['tuoye']['adress'];?></li>
+			<li><b>绑定日期：</b><?php echo date("Y-m-d H:i",$field['tuoye']['time0']);?></li>
+			<li><b>报告日期：</b><?php echo date("Y-m-d H:i",$field['tuoye']['time5']);?></li>
+			<li><b>样品编号：</b><?php echo $field['tuoye']['identifier'];?></li>
+		</ul>
+	</div>
+	<div class="w1000 topnav">
+		<img src='http://23mima.com/uploads/meirong_bg/3.jpg' width='100%'>
+	</div>
+	<div class="w1000 topnav">
+		<img src='http://23mima.com/uploads/meirong_bg/4.jpg' width='100%'>
+	</div>
+	<div class="w1000 topnav">
+		<img src='http://23mima.com/uploads/meirong_bg/5.jpg' width='100%'>
+	</div>
+	<div class="w1000 topnav">
+		<img src='http://23mima.com/uploads/meirong_bg/061.jpg' width='100%'>
+		<div class="row" style="margin-bottom:0;">
+			<div class="tab">			
+				<div id="container" style="width:800px;height:800px;margin:0 auto;"></div>
+				<script>
+				 var myChart = echarts.init(document.getElementById('container'));
+					option = {
+						
+						    radar: [
+						       
+						        {
+						            indicator: [
+						            <?php if (!empty($this->zheye)) {
+						            	foreach ($this->zheye as $key=>$value) {
+						            		foreach($value as $vname) {
+						            			echo '{text:\''.$vname['name'].'\',max:100,\'color\':\'#000\'},';
+						            		}
+						            	}
+
+						            ?>
+						            <?php }?>
+						            ],
+						            radius: 200
+						        }
+						    ],
+						    series: [
+						        {
+						            name: '成绩单',
+						            type: 'radar',
+						            radarIndex: 0,
+						            data: [
+						                {
+						                    value: [
+						             <?php if (!empty($this->zheye)) {
+						            	foreach ($this->zheye as $key=>$value) {
+						            		foreach($value as $vname) {
+						            			echo $vname['fenshu'].',';
+						            		}
+						            	}
+
+						            ?>
+						            <?php }?>
+						 
+
+						                    ],
+						                    name: '李四',
+						                     lineStyle: {
+						                        normal: {
+						                            color:"#b097c1"
+						                        }
+						                    },
+						                    itemStyle : {
+						                         normal : {
+						                            color:'#b097c1'
+						                        }
+						                    },
+						                    areaStyle: {
+						                        normal: {
+						                            opacity: 0.7,
+						                            color: new echarts.graphic.RadialGradient(0.5, 0.5, 1, [
+						                                {
+						                                    color: '#c6b6d2',
+						                                    offset: 0
+						                                },
+						                                {
+						                                    color: '#c6b6d2',
+						                                    offset: 1
+						                                }
+						                            ])
+						                        }
+						                    }
+						                }
+						            ]
+						        }
+						    ]
+						}
+						myChart.setOption(option);
+				</script>
+			</div>
+			
+		</div>
+		</div>
+
+
+		<div style="text-align: center;font-size: 34px;color: #b097c1;">
+			您的DNA年龄得分
+			<p style="text-align: center;font-size: 50px;color: #b097c1;margin-bottom: 20px;">60</p>
+			<div  style="border-radius: 100px;width: 500px;height: 30px;background-color: #ccc;position: relative;left: 32%;"> 
+				<div style="border-radius: 100px;width: 200px;height: 30px;background-color: #b097c1;">
+				
+				</div>
+				<span style="position: absolute;left: 0%;">0</span>
+				<span style="position: absolute;left: 23%;">25</span>
+				<span style="position: absolute;left: 48%;">50</span>
+				<span style="position: absolute;left: 73%;">75</span>
+				<span style="position: absolute;left: 95%;">100</span>
+			</div>
+			
+		</div>
+		
+	</div>
+	<p style="margin: 80px auto;font-size: 19px;width: 825px;line-height: 42px;color: #3f3b3a;">
+		我们通过分析从您口腔里收集的细胞DNA样本来检测您皮肤的遗传健康状态，主要通过以上9个方面来检测您皮肤的遗传健康状态。我们将通过计算您的DNA变化的数量和位置（或是独特基因标记）以及其影响正常细胞功能的程度来对您肌肤的遗传健康进行打分。详细的检测项目将会在分报告中一一展现。
+	</p>
+
+
+	<div style="width: 100%;">
+		<div class="cont1" style="width:1060px;margin:0 auto;padding-top: 40px;background: url(__PUBLIC__/gaiban/images/bg8.jpg);background-position: 100% 0%; background-size:485px 630px;background-repeat:no-repeat;" >
+			<p style="font-size: 30px;margin: 40px 0;"> 抗紫外线过敏能力：<span style="color: #a196d6;font-size: 30px;">强</span></p>
+			<svg height="350" version="1.1" width="250" xmlns="http://www.w3.org/2000/svg">
+				<circle cx="125" cy="125" r="100" stroke="#ccc"stroke-width="20" fill="#fff"/>
+				<path class="ring" stroke-linecap="round" rate="<?php echo 86;?>" fill="none" x="125" y="125" r="100" stroke="#a196d6"  stroke-width="24" />
+				<text fill="<?php if(1){echo '#3f3b3a';}else{echo '#c9c9c9';} ?>">
+					<tspan x='55' y='150' style="font-size:72px">86</tspan>
+					<tspan x='145' y='145' style="font-size:36px">%</tspan>
+					<tspan x='40' y='280' style="font-size:20px;">您的分数: 86%</tspan>
+				</text>
+			</svg>
+			<svg height="350" version="1.1" width="250" style="margin-left:50px" xmlns="http://www.w3.org/2000/svg">
+				<circle cx="125" cy="125" r="100" stroke="#ccc"stroke-width="20" fill="#fff"/>
+				<path class="ring" stroke-linecap="round" rate="<?php echo 10;?>" fill="none" x="125" y="125" r="100" stroke="#f7a0bc"  stroke-width="24" />
+				<text fill="<?php if(1){echo '#3f3b3a';}else{echo '#c9c9c9';} ?>">
+					<tspan x='55' y='150' style="font-size:72px">10</tspan>
+					<tspan x='145' y='145' style="font-size:36px">%</tspan>
+					<tspan x='40' y='280' style="font-size:19px;">人口中的中等程度: 10%</tspan>
+				</text>
+			</svg>
+
+			<p style="font-size: 16px;width: 780px;line-height: 30px;color: #3f3b3a;">
+				紫外线过敏是日光作用于人体所引起的异常光变态性反应，人体中只要有少量的光感物质，经紫外线照射即会发生反应，表现为面、颈、前臂、身侧、手背等易暴露部位出现红斑、丘疹、风团或水疱样皮疹，经日光照射后，皮损明显加重，瘙痒感加剧。
+			</p>
+
+		</div>
+
+	</div>
+	
+</body>
+
+<script src="__PUBLIC__/gaiban/js/fit_a.js"></script>
+</html>

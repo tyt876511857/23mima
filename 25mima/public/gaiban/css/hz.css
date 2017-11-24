@@ -1,0 +1,42 @@
+.desc{overflow:auto;margin:70px 0}
+
+.desc a{float:left;width:175px;height:320px;margin:0 51px;}
+.desc a span{color: #b5b5b5;font-size: 72px;position: relative;text-align: center;display: block;padding-top:20px}
+.desc a span hr{margin: 0 auto;height: 3px;background: #b5b5b5;position: absolute;bottom: 14px;left: 0;width: 55px;right: 0;}
+.desc a h3.font1{color:#ac70b9}
+.desc a h3.font2{color:#24d4de}
+.desc a h3.font3{color:#c8b44f}
+.desc a h3.font4{color:#ee8437}
+.desc a h3{font-size:16px;text-align:center;padding-top:20px}
+.desc a p{color:#3c494e;font-size:12px;padding:0 30px;text-align:center;}
+
+.zsrx{color:#fff;font-size:30px;text-align:right;padding:10px 0;}
+
+.titlec{text-align:center;color:#505050;font-size:42px;margin:60px 0;}
+.main .cont1>img{width:549px;float:left}
+.main .cont1>p{width:380px;float:left;padding:114px 90px;font-size:24px;color:#505050;}
+.main .cont2>img{width:561px;float:right}
+.main .cont2>p{width:369px;float:right;padding:100px 90px;font-size:24px;color:#505050;}
+.main .cont3>img{width:549px;float:left}
+.main .cont3>p{width:380px;float:left;padding:96px 90px;font-size:24px;color:#505050;}
+
+.title_m{margin-top:100px;}
+ul.country li{float:left;width:274px;position:relative;background:#fff;margin:60px 48px;}
+ul.country li p{padding:20px;margin-top:40px;height:170px;}
+.icon{position:absolute;width:80px;height:90px;background-size:100%;left:97px;top:-45px;}
+.icon1{background:url(../images/hz08.png) no-repeat;}
+.icon2{background:url(../images/hz09.png) no-repeat;}
+.icon3{background:url(../images/hz10.png) no-repeat;}
+.cricle{width:80px;height:80px;display:block;margin:20px auto;border-radius:45px;text-align:center;line-height:80px;color:#fff;}
+.text_m{margin:90px 0 20px 0;height:120px}
+.cricle1{border:3px solid #bc133e;background:#002665;}
+.cricle2{border:3px solid #d0142d;background:#01247e;}
+.cricle3{border:3px solid #e7e908;background:#e10211;}
+
+ul.text li{float:left;width:370px;margin-bottom:60px}
+ul.text li .cont1{height:196px;padding:25px;}
+ul.text li .cont2{height:196px;padding:25px;}
+ul.text li .cont1 h3{font-size:18px;color:#505050;text-align:center;margin:30px 0;}
+ul.text li .cont2 h3{font-size:18px;color:#505050;text-align:center;margin:30px 0;}
+ul.text li .cont1 p{font-size:12px;color:#505050;}
+ul.text li .cont2 p{font-size:12px;color:#505050;}

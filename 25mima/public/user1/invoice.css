@@ -1,0 +1,269 @@
+@charset "utf-8";
+/* @Author: @vijay   @DateTime: 2016-06-02 14:08:30   @Description: 发票重构 */
+.invoice-shade {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #2f2d2d;
+  opacity: 0.5;
+  z-index: 800;
+}
+.invoice-category-box {
+  padding-top: 20px;
+}
+.invoice-category-box > div{
+  position: relative;
+  float: left;
+  font-size: 14px;
+  color: #999;
+  height: 60px;
+  line-height: 60px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-right: 20px;
+  background-color: #fff;
+  cursor: pointer;
+}
+.invoice-normal-wrap {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  font-size: 16px;
+  width: 550px;
+  height: 280px;
+  margin-top: -140px;
+  margin-left: -275px;
+  z-index: 900;
+  background-color: #fff;
+}
+.invoice-comm-title {
+  font-size: 16px;
+  height: 56px;
+  line-height: 56px;
+  background-color: #f7f7f7;
+  padding-left: 30px;
+  margin-bottom: 20px;
+}
+.invoice-normal-fm {
+  margin-left: 90px;
+}
+.invoice-choose {
+  padding: 20px 0px;
+}
+.invoice-choose span{
+  display: inline-block;
+  width: 100px;
+  height: 36px;
+  text-align: center;
+  line-height: 36px;
+  margin-right: 10px;
+  margin-left: 10px;
+  background-color: #fff;
+  color: #000;
+  cursor: pointer;
+}
+.invoice-normal-company {
+  margin-left: 10px;
+  height: 36px;
+  line-height: 36px;
+  width: 222px;
+  text-indent: 1em;
+  background-color: #fff;
+  color: #000000;
+  border: 1px solid #dddddd;
+}
+.invoice-normal-btn {
+  padding-top: 20px;
+  padding-left: 82px;
+}
+.invoice-normal-btn input{
+  width: 70px;
+  height: 30px;
+  line-height: 30px;
+  cursor: pointer;
+}
+.invoice-normal-submit {
+  font-size: 16px;
+  color: #fff;
+  margin-right: 20px;
+  background-color: #3cb5ed;
+  border: none;
+}
+.invoice-normal-cancel {
+  color: #999;
+  background-color: #FFFFFF;
+  border: 1px solid #dddddd;
+}
+/*增值税发票*/
+.invoice-vat-wrap {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left: -310px;
+  margin-top: -270px;
+  width: 620px;
+  padding-bottom: 50px;
+  z-index: 900;
+  background-color: #ffffff;
+}
+.invoice-vat-step {
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  margin-top: 10px;
+  padding-left: 30px;
+  margin-left: 30px;
+  font-size: 12px;
+  border: 1px solid #dddddd;
+}
+.invoice-vat-step span {
+  padding-right: 50px;
+}
+.invoice-vat-step1:before {
+  content: '1';
+  display: inline-block;
+  font-size: 12px;
+  width: 17px;
+  height: 17px;
+  margin-right: 4px;
+  line-height: 17px;
+  text-align: center;
+  border-radius: 20px;
+  background-color: #cccccc;
+  color: #ffffff;
+}
+.invoice-vat-step2:before {
+  content: '2';
+  display: inline-block;
+  font-size: 12px;
+  width: 17px;
+  height: 17px;
+  margin-right: 4px;
+  line-height: 17px;
+  text-align: center;
+  border-radius: 20px;
+  background-color: #cccccc;
+  color: #ffffff;
+}
+.invoice-vat-step-current:before {
+  background-color: #3cb5ed;
+}
+.invoice-vat-fm {
+  font-size: 16px;
+  color: #333;
+  padding-left: 70px;
+  padding-top: 20px;
+}
+.invoice-vat-fm p {
+  padding-top: 10px;
+}
+.invoice-vat-fm input {
+  width: 240px;
+  height: 28px;
+  line-height: 28px;
+  border: 1px solid #ddd;
+}
+.invoice-vat-fm span {
+  display: inline-block;
+  width: 120px; 
+  padding: 10px 0px;
+  text-align: right;
+}
+.invoice-vat-btn {
+  padding-left: 120px;
+  padding-top: 20px;
+}
+.invoice-vat-btn input{
+  width: 70px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.invoice-vat-next, .invoice-vat-over{
+  background-color: #3cb5ed;
+  margin-right: 40px;
+  color: #fff;
+  outline: none;
+  border: none;
+}
+.invoice-vat-cancel {
+  color: #999;
+  margin-right: 5px;
+  background-color: #fff;
+  border: 1px solid #dddddd;
+}
+.invoice-vat-fm-step-two {
+  display: none;
+}
+.invoice-vat-fm-step-two select {
+  width: 90px;
+  height: 30px;
+  color: #333;
+  line-height: 30px;
+  margin-right: 10px;
+  border: 1px solid #ddd;
+}
+
+/*逻辑相关*/
+.invoice-company-box {
+  display: none;
+}
+.invoice-choose-uncurrent{
+  border: 1px solid #dddddd;
+}
+.invoice-choose-current{
+  position: relative;
+  border: 1px solid #3cb5ed;
+}
+.invoice-choose-current:after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 10px;
+  height: 10px;
+  background-image: url(/public/user1/invoice_2x.png);
+
+  background-size: cover;
+}
+.invoice-normal-error:after {
+  content: '× 请填写公司名称';
+  margin-left: 10px;
+  color: red;
+}
+.invoice-info-box {
+  display: none;
+  padding-left: 20px;
+}
+.invoice-info-box span {
+  display: inline-block;
+  max-width:200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: top;
+}
+.invoice-vat-pre {
+  color: #32a3d9;
+  cursor: pointer;
+}
+.inv-error-box {
+  position: relative;
+}
+.inv-selProvince + label {
+  position: absolute;
+  top: 48px;
+  left: 110px;
+}
+.inv-selCity + label {
+  position: absolute;
+  top: 48px;
+  left: 210px;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>{$field.title}</title>
+<meta name="Keywords" content="{$field.keywords}">
+<meta name="Description" content="{$field.description}">
+<include file='css'>
+</head>
+<body>
+<include file='header'>
+<div id="position">
+  <div class="position w1000">
+    <a href="/">首页</a> &gt; {$field.typename}
+  </div>
+</div>
+<div id="wasser">
+  <div id="wasser_show">
+      <myad type='wasser'>
+      <div><a><img src="[field:litpic /]"></a></div>
+      </myad>
+      <ul class="label">
+      <myad type='wasser'>
+      <li><img src="[field:litpic /]" /></li>
+      </myad>
+      </ul>
+  </div>
+</div>
+<include file='footer'>
+</body>
+</html>
+<script>
+  /*首页banner轮播图效果*/
+  var kin = $('#wasser_show');
+  var len = kin.children().length;
+  var label = $('.label');
+  label.children().mouseover(function(){
+    var i = $(this).index();
+    label.children('li').removeClass("intro").eq(i).addClass("intro");
+    kin.children('div').css('display','none').eq(i).css('display','block');
+  });
+  //间隔毫秒切换一次
+  var interval = 10000;
+  var start = setInterval("viwepager()",interval);
+  function viwepager(){
+    var i = $('.intro').index()+1;
+    i = i==len?0:i;
+    //console.log(i);
+    $(kin).find('li').eq(i).trigger("mouseover");
+  }
+  //移到图片上时暂停
+  kin.find('div').mouseover(function(){
+    clearInterval(start);//停止
+  });
+  kin.find('div').mouseout(function(){
+    start = setInterval("viwepager()",interval);
+  });
+  //图标设置在中间
+  var label_width = $('#wasser_show .label').width()/2;
+  $('#wasser_show .label').css('left',$(window).width()/2-label_width);
+</script>
+<style>
+</style>

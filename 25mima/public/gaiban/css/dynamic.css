@@ -1,0 +1,14 @@
+
+
+.list .title{color:#4a4a4a;font-size:28px;text-align:center;font-weight:normal;}
+.list .content{margin:20px 0;overflow:auto}
+.list .content a.first{float:left;width:100%;background:#fff;margin:0 0 27px 0;}
+.list .content a.left{margin-left:0;}
+.list .content a.right{margin-right:0;}
+.list .content a.first h4{font-size:24px;color:#149dd0;font-weight:normal;padding:20px 20px 5px 20px;}
+.list .content a.first span{color:#a3a3a3;display:inherit;font-size:14px;padding:0px 20px;}
+.list .content a{float:left;width:528px;background:#fff;margin:27px 27px;min-height:310px;}
+.list .content .cont{padding:20px;}
+.list .content a h4{font-size:24px;color:#149dd0;padding:20px 20px 5px 20px;}
+.list .content a p{color:#a3a3a3;line-height:25px;min-height:75px;}
+.list .content a span{color:#a3a3a3;display:inherit;font-size:14px;padding:0px 20px 20px 20px;}

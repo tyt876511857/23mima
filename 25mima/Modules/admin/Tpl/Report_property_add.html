@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>添加属性</title>
+<include file='css'>
+</head>
+<body id="right_bj">
+<div class="right_box">
+  <div class="title"><p>添加属性</p></div>
+  <form action="{:U('Report/property_runadd')}" method="post" enctype="multipart/form-data">
+  <table class="addtable" border="0" align="center">
+    <tr>
+      <td>所属基因</td>
+      <td>
+        <select name="cid">
+            <foreach name='list' item='v'>
+                <option value="{$v.id}" <if condition='$v["id"]==$_GET["cid"]'>selected='ture'</if>>{$v.name}</option>
+            </foreach>     
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>唯一识别码：</td>
+      <td><input name="title" type="text" value='{$field.title}'/>（请不要填写重复的标识）</td>
+    </tr>
+	<tr>
+      <td>名称：</td>
+      <td><input name="title_c" type="text" value='{$field.title_c}'/></td>
+    </tr>
+	<tr>
+      <td>SNP位点：</td>
+      <td><input name="SNP" type="text" value='{$field.SNP}'/></td>
+    </tr>
+	<tr>
+      <td>染色体位置：</td>
+      <td><input name="chr" type="text" value='{$field.chr}'/></td>
+    </tr>
+	<tr>
+      <td>说明：</td>
+      <td><textarea name="shuoming" cols="40" rows="8">{$field.shuoming}</textarea></td>
+    </tr>
+	<tr>
+      <td>基因位点图片：</td>
+      <td>
+        <input type='text' name='textfield' id='textfield' class='txt' value="{$field.litpic}"/> 
+        <input type='button' value='浏览...' /> 
+        <input type="file" name="litpic" class="file" onchange="document.getElementById('textfield').value=this.value" />
+      </td>
+    </tr>
+    <tr>
+      <td>中文名称：</td>
+      <td><input name="name" type="text" value='{$field.name}'/></td>
+    </tr>
+    <tr>
+      <td>描述：</td>
+      <td><textarea name="description" cols="40" rows="8">{$field.description}</textarea></td>
+    </tr>
+  </table>
+  <div class="button-div">
+      <input type="submit" value=" 确定 " />
+      <input type="reset" value=" 重置 " />
+      <input type="hidden" name="id" value="{$field.id}" />
+      <input type="hidden" name="code" value="{$GLOBALS.code}">
+  </div>
+  </form>
+</div>
+</body>
+</html>
+<style>
+  #image{max-width:80%;}
+</style>

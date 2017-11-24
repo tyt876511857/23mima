@@ -1,0 +1,439 @@
+ /*@Author: @vijay   @DateTime: 2016-04-26 17:00:06   @Description: ——————报告合并后示例报告导航栏 */*/
+
+/* 基本框架 */
+.comm-nav-box {
+  width: 100%;
+  background-color: #fff;
+}
+/* 登录模块 */
+.nav-user-box {
+  width: 100%;
+  height: 29px;
+  line-height: 30px;
+  font-size: 14px;
+  color: #666;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+}
+.nav-user-list {
+  height: 30px;
+}
+.nav-user-list > li{
+  position: relative;
+  display: inline-block;
+  float: left;
+  line-height: 30px;
+  padding: 0px 16px;
+}
+.nav-user-list-br:after {
+  position: absolute;
+  right: 0;
+  top: 10px;
+  content: '';
+  display: inline-block;
+  width: 1px;
+  height: 10px;
+  background-color: #E6EAEC; 
+}
+.nav-user-list li a{
+  display: inline-block;
+  font-size: 14px;
+  color: #666;
+}
+/* 个人中心下拉模块 */
+.personal-center-box {
+  position: relative;
+  width: 70px;
+  text-align: center;
+}
+.personal-center-main {
+  position: relative;
+  max-width: 60px;
+  padding-right: 18px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.personal-center-list {
+  position: absolute;
+  z-index: 300;
+  width: 100px;
+  top: 30px;
+  left: -1px;
+  height: 0;
+  overflow: hidden;
+  text-align: center;
+  background-color: #fff;
+  -webkit-transition: height, padding 0.3s;
+}
+.personal-center-box:hover .personal-center-list {
+  height: auto;
+  overflow: visible;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border: 1px solid #eee;
+  border-top: none;
+}
+.personal-center-list li {
+  position: relative;
+}
+.personal-center-list li a:hover {
+  color: #e7575f;
+}
+.personal-center-list li:hover {
+  background-color: #fafafa;
+}
+
+/*一级公共导航*/
+.global-box {
+  position: fixed;
+  -webkit-font-smoothing: subpixel-antialiased;
+  z-index: 200;
+  width: 100%;
+  left: 0;
+  top: 30px;
+}
+.global-bg {
+  width: 1000px;
+  height: 70px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.global-bg a {
+  position: relative;
+}
+.global-nav {
+  position: relative;
+  height: 70px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #d4dadd;
+}
+.company-logo {
+  display: inline-block;
+  width: 120px;
+  margin-top: 14px;
+}
+.global-nav-wrap {
+  position: relative;
+  margin-left: 65px;
+  color: #666;
+}
+.global-nav-wrap > li{
+  line-height: 70px;
+  position: relative;
+  float: left;
+}
+.global-nav-wrap > li a{
+  display: inline-block;
+  font-size: 16px;
+  color: #666;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.global-nav-wrap > li a:hover {
+  color: #e7575f;
+  background-color: #f8f8f8;
+}
+
+/*导航上的购买按钮*/
+.global-buy-btn {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 40px;
+  margin-top: 15px;
+  font-size: 16px;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  background-color: #e7575f;
+  border-radius: 4px;
+}
+.global-buy-btn:hover {
+  background-color: #f32e45;
+}
+
+/*优势导航*/
+.advantage-subnav {
+  display: none;
+  height: 50px;
+  line-height: 50px;
+  background-color: #fff;
+  border-top: 1px solid #e1e1e1;
+  border-bottom: 1px solid #e1e1e1;
+}
+.advantage-nav-list li{
+  float: left;
+}
+.advantage-nav-title {
+  font-size: 16px;
+  color: #333;
+}
+.advantage-nav-list a{
+  display: block;
+  padding-left: 25px;
+  padding-right: 25px;
+  font-size: 14px;
+  color: #666;
+}
+.advantage-nav-list a:hover {
+  color: #e7575f;
+  background-color: #f8f8f8;
+}
+/*关于我们二级导航*/
+.about-nav-wrap {
+  background-color: #fff;
+  display: none;
+  border-bottom: 1px solid #ddd;
+}
+.about-nav-box {
+  margin: 0 auto;
+  width: 570px;
+  height: 50px;
+}
+.about-nav-box li {
+  float: left;
+}
+.about-nav-box a {
+  color: #666;
+  display: block;
+  width: 95px;
+  line-height: 50px;
+  font-size: 14px;
+  text-align: center;
+}
+.about-nav-box a:hover {
+  background-color: #f8f8f8;
+  color: #e65760;
+}
+.about-nav-current {
+  background-color: #f8f8f8;
+  color: #e65760;
+}
+.nav-current {
+  color: #e7575f !important;
+  background-color: #f8f8f8;
+}
+
+/* @Author: @vijay   @DateTime: 2016-05-25 11:43:08   @Description: 报告导航 */
+
+.report-username-main {
+  position: relative;
+  display: inline-block;
+  max-width: 135px;
+  padding-right: 15px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+.report-selname-list {
+  position: absolute;
+  z-index: 300;
+  max-height: 303px;
+  top: 30px;
+  left: 0;
+  height: 0;
+  overflow: hidden;
+  text-align: left;
+  overflow: hidden;
+  background-color: #fff;
+  -webkit-transition: height, padding 0.2s;
+}
+.report-name-li {
+  height: 30px;
+  line-height: 30px;
+  font-size: 14px;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+.report-name-li:hover {
+  color: #e7575f;
+  background-color: #fafafa;
+}
+.report-username-box:hover .report-selname-list {
+  height: auto;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  visibility: visible;
+  overflow-y: auto;
+  border-left: 1px solid #eee;
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+/* 报告一级导航 */
+.report-nav-dtl-box {
+  position: relative;
+  float: left;
+  font-size: 16px;
+  color: #666;
+  line-height: 70px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+.report-nav-dtl-box:hover {
+  color: #e7575f;
+  background-color: #f8f8f8;
+}
+.report-nav-dtl-box a{
+  color: #666;
+}
+.report-nav-dtl-list {
+  position: absolute;
+  top: 70px;
+  left: 0px;
+  text-align: center;
+  height: 0;
+  overflow: hidden;
+  background-color: #f8f8f8;
+  -webkit-transition: all 0.1s;
+  transition: all 0.1s;
+  -webkit-transform-origin:center center;
+  transform-origin:center center;
+}
+.report-nav-dtl-list li {
+  position: relative;
+  height: 30px;
+  width: 92px;
+  line-height: 30px;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+.report-nav-dtl-list li a:hover {
+  color: #e7575f !important;
+}
+.report-nav-dtl-box:hover .report-nav-dtl-list {
+  height: auto;
+  overflow: visible;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.report-slide-menu:after {
+  position: absolute;
+  right: 10px;
+  top: 33px;
+  content: '';
+  display: inline-block;
+  border-top: 5px solid #666;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  transform: rotate(0deg);
+  -webkit-transform: rotate(0deg);
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.report-nav-dtl-box:hover .report-slide-menu:after {
+  -webkit-transform:rotate(180deg);
+  border-top: 5px solid #d9696a;
+}
+
+/*@Author: @vijay   @DateTime: 2016-05-05 11:10:22   @Description: 示例报告导航*/
+.example-bar {
+  font-size: 14px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: #fff;
+  background-color: #708595;
+}
+.example-bar-box {
+  width:1000px;
+  margin: auto;
+}
+.example-action-opt{
+  position: relative;
+  z-index: 300;
+  cursor: pointer;
+  float: right;
+  display: block;
+  width: 120px;
+  height: 30px;
+  line-height: 30px;
+  margin-top: 5px;
+  padding: 0;
+  border-radius: 4px;
+  background: rgba(255,255,255, 0.2);
+}
+.example-action-opt:hover > .example-report-list-wrap  {
+  height: auto;
+  visibility: visible;
+}
+.example-report-name {
+  display: block;
+  margin-left: 16px;
+  margin-right: 16px;
+  max-width: 70px;
+  overflow: hidden;
+  white-space:nowrap;
+  cursor: pointer;
+}
+.example-report-name:after {
+  content: '';
+  position: absolute;
+  top: 13px;
+  right: 10px;
+  display: inline-block;
+  border-top: 5px solid #fff;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+}
+.example-report-list-wrap {
+  position: absolute;
+  top: 30px;
+  left: 1px;
+  padding-top: 2px;
+  height: 0;
+  overflow: hidden;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 0px 0px 4px 4px;
+}
+.example-report-list {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  border-radius: 4px;
+  background-color: #fff;
+  border-radius: 4px;
+  right: 0;
+  color: #333;
+}
+.example-switch-sle {
+  display: block;
+  width: 118px;
+  font-size: 14px;
+  color: #333;
+}
+.example-switch-sle:hover {
+  background-color: #e6eaec;
+  color: #e7575f;
+}
+/* 三角符号以及动画 */
+.nav-triangle:after {
+  position: absolute;
+  right: 3px;
+  top: 13px;
+  content: '';
+  display: inline-block;
+  border-top: 5px solid #666;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  -webkit-transform: rotate(0deg);
+  -webkit-transition: all 0.2s;
+  -moz-transform-origin:center center;
+  -webkit-transform-origin:center center;
+  -ms-transform-origin:center center;
+  transform-origin:center center;
+}
+.nav-triangle-transform:hover .nav-triangle:after {
+  -webkit-transform:rotate(180deg);
+  border-top: 5px solid #d9696a;
+}

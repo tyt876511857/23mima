@@ -1,0 +1,22 @@
+.desc{overflow:auto;margin:70px 0}
+.desc a.first{margin-left:0;}
+.desc a.last{margin-right:0;}
+.desc a{float:left;width:250px;border:1px solid #b5b5b5;height:520px;margin:0 17px;}
+.desc a span{color: #b5b5b5;font-size: 72px;position: relative;text-align: center;display: block;padding-top:20px}
+.desc a span hr{margin: 0 auto;height: 3px;background: #b5b5b5;position: absolute;bottom: 14px;left: 0;width: 55px;right: 0;}
+.desc a h3{font-size:24px;color:#606060;text-align:center;padding-top:20px}
+.desc a p{color:#606060;padding:0 30px;text-align:center;}
+
+.main{}
+.main .cont{overflow:auto;}
+.main .cont1>img{float:left;width:548px;}
+.main .cont .bg{position:relative;width:540px;height:344px;background-size:100%;padding:10px}
+.main .cont1 .bg  h3{color:#484848;font-size:24px;border:1px solid #484848;width:110px;text-align:center;}
+.main .cont .bg  p{color:#666666;position:absolute;bottom:10px;line-height:24px;}
+.main .cont1 .bg1{float:right;background:url(../images/brand06.jpg) no-repeat;}
+.main .cont1 .bg2{float:right;background:url(../images/brand07-30.jpg) no-repeat;}
+
+.main .cont2>img{float:right;width:562px;}
+.main .cont2 .bg  h3{color:#484848;font-size:24px;border:1px solid #484848;width:110px;text-align:center;float:right}
+.main .cont2 .bg1{float:left;width:518px;height:344px;background:url(../images/brand06-23.jpg) no-repeat;background-size:100%;padding:15px}
+.main .cont2 .bg2{float:left;width:518px;height:344px;background:url(../images/brand08-33.jpg) no-repeat;background-size:100%;padding:15px}

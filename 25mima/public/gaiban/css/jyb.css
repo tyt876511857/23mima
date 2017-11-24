@@ -1,0 +1,8 @@
+.titlec{color:#676666;font-size:36px;text-align:center}
+.main{overflow:auto;}
+.main span{float:left;font-size:113px;color:#b9b5b5;}
+.main .text{float:left;width:462px;padding-top:36px;}
+.main .text h3{font-size:18px;color:#676666;line-height:36px;}
+.main .text p{color:#929292;line-height:36px;}
+.main .left-cont{float:left;width:532px;}
+.main .right-cont{float:right;width:532px;}

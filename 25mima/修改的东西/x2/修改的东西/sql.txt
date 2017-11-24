@@ -1,0 +1,15 @@
+alter table gs_bg_zheye add common int(10) not Null default 0 comment '该特长一般的人数';
+alter table gs_bg_zheye add good int(10) not Null default 0 comment '该特长良好的人数';
+alter table gs_bg_zheye add excellent int(10) not Null default 0 comment '该特长优秀的人数';
+
+alter table gs_bg_baogao add seg tinyint(1) not Null default 0 comment '是否已被统计到特长人数占比';
+
+CREATE TABLE `gs_fit_count` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`high` INT(11)  not Null default 0 comment '风险高的人数',
+	`common` INT(11) not Null default 0 comment '风险低的人数',
+	PRIMARY KEY (`id`)
+)
+COLLATE='gbk_chinese_ci'
+ENGINE=MyISAM
+;

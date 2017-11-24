@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title><?php if(isset($field['title'])){echo $field['title'];} ?></title>
+<meta name="Keywords" content="<?php if(isset($field['keywords'])){echo $field['keywords'];} ?>">
+<meta name="Description" content="<?php if(isset($field['description'])){echo $field['description'];} ?>">
+<?php $this->display('index:Index:css','lib') ?>
+<link href="/public/gaiban/css/technology.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<?php $this->display('index:Index:header','lib') ?>
+	<img src="/public/gaiban/images/jishu01.png" width="100%" />
+	<div class="w1000">
+		<div class="row jishu01">
+			<img src="/public/gaiban/images/jishu02.png" />
+			<div class="jcont">
+				<h3>程序化的管理系统</h3>
+				<p>用户在电脑端或手机端完成绑定以后，样本唯一编号和客户信息实现一一对应。实验室在样本检测过程中，对检测流程进行全程跟踪，并实时将检测状态通过手机短信和微信公众号的通知的方式发送给客户</p>
+			</div>
+		</div>
+	</div>
+	<div class="w1000">
+		<div class="row jishu02">
+			<img src="/public/gaiban/images/jishu03.png" />
+			<div class="jcont">
+				<h3>专业的实验操作</h3>
+				<p> 样本的基因组DNA的提取和上机测序由专业的分子生物学技术人员进行操作，设置合理的对照，全程记录和监控每一个实验，确保实验的准确性。</p>
+			</div>
+		</div>
+	</div>
+	<div class="w1000">
+		<div class="row jishu03">
+			<img src="/public/gaiban/images/jishu04.png" />
+			<div class="jcont">
+				<h3>专业的测序数据分析和处理</h3>
+				<p> 测序实验完成后，由专业的生物信息学人员对测序的数据进行分析和处理，分析结果再经过生物信息学专家的审核后才能进入后续的报告处理。</p>
+			</div>
+		</div>
+	</div>
+	<div class="w1000">
+		<div class="row jishu04">
+			<img src="/public/gaiban/images/jishu05.png" />
+			<div class="jcont">
+				<h3>先进的测序平台</h3>
+				<p> 23密码实验室为美国Illumina公司认证的基因测序实验室。23密码实验室拥有Illumina HiSeq2500、HiSeq3000、 HiSeq4000等高通量二代测序平台，准确率高达99.99%。</p>
+			</div>
+		</div>
+	</div>
+	<div class="w1000">
+		<div class="row">
+			<img src="/public/gaiban/images/jishu07.jpg" class="bottom_img1"/>
+			<img src="/public/gaiban/images/jishu06.png" class="bottom_img2"/>
+		</div>
+	</div>
+<?php $this->display('index:Index:footer','lib') ?>
+</body>
+<script>
+function dialog(id){
+	
+	$('.dialog').fadeIn();
+}
+
+$('.dialog').siblings().click(function(){
+	$('.dialog').fadeOut();
+})
+</script>
+</html>

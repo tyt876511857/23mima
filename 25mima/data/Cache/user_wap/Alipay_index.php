@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>订单支付</title>
+    <?php $this->display('css','lib') ?>
+  </head>
+
+  <!-- <body style="background: #FFFFFF;">
+    
+    <section class="ui-container">
+      <div style="width: 130px;height: 130px;margin: 0 auto;">
+        <img src="/public/wap1/images/pic3.png" alt="">
+      </div>
+      <div class="ui-row ui-whitespace" style="text-align: center; font-size: 0.5em;padding: 10px 0;">
+        <p style="color: #898989;margin-bottom: 10px;"><b style="font-weight: normal;">账户名</b>，您好。<br/> 您还没有购买或绑定23密码基因检测服务
+        </p>
+        <p style="color: #383637;">您可以通过一下方式查看相关数据</p>
+      </div>
+      <div class="ui-border-t ui-whitespace">
+        <a href="javascript:;"><button class="ui-btn-lg user_out"  style="background: #F8B62A;margin-bottom: 10px;">购买检测服务</button></a>
+        <a href="<?php echo U('Index/add') ?>"><button class="ui-btn-lg ui-btn-primary user_out">绑样本盒定</button></a>
+      </div>
+    </section>
+  </body> -->
+  <body style="background: #DCF3F9;">
+    <?php $this->display('header','lib') ?>
+    <section class="ui-container" style="margin-bottom: 40px;">
+      <div class="ui-row ui-whitespace">
+<!----><img src="" id="wxewm">
+      </div>
+    </section>
+  <?php if( empty($_SESSION['weixin']) ){?>
+    <div class="ui-footer ui-border-t ui-whitespace" style="padding: 10px 0;background: #FFFFFF;bottom:50px;">
+      <a href="/data/alipay.wap/alipayapi.php"><button class="ui-btn-lg ui-btn-primary user_out">支付宝支付</button></a>
+    </div>
+<?php } ?>
+    <div class="ui-footer ui-border-t ui-whitespace" style="padding: 10px 0;background: #FFFFFF;">
+      <a><button class="ui-btn-lg ui-btn-primary user_out" style="background:#00c800" id="wxsm">点击获取微信二维码</button></a>
+    </div>
+  </body>
+</html>
+<script>
+$("#wxsm").click(function(){
+  $.post("/data/WxpayAPI/example/native.php",
+  {
+    WIDout_trade_no:<?php if(isset($data['indent'])){echo $data['indent'];} ?>
+  },
+  function(data,status){
+    $('#wxewm').attr('src',data);
+    $('.zhifu').css('display','block');
+  });
+});
+
+function zhifu(){
+  $.post("<?php echo U('/Alipay/zhifu') ?>",
+  {
+    indent:<?php if(isset($data['indent'])){echo $data['indent'];} ?>
+  },
+  function(data,status){
+    if(data>0){
+       window.location.href="<?php echo U('Indent/index','user') ?>"; 
+    }
+  });
+}
+var interval = 5000;
+var start = setInterval("zhifu()",interval);
+</script>
+<style>
+.ui-container .ui-row{width:220px;margin:20px auto;}
+.ui-container .ui-row img{width:200px;display:block;}
+</style>

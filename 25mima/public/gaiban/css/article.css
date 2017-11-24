@@ -1,0 +1,7 @@
+body{background:#fff;}
+
+.list .title{text-align:center;margin-top:20px;}
+.list .title span{color:#343434;font-size:24px;font-weight:normal;border:1px solid #b5b5b5;padding:5px 10px;}
+.list .ly{color:#8c8a8a;text-align:center;margin:30px 0;}
+.list .content{margin:20px auto;padding:40px 0;width:730px;border-top:1px solid #e5e5e5;border-bottom:5px solid #e5e5e5;}
+.list .content>p{padding-bottom:30px;}

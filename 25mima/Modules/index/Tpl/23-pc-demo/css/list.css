@@ -1,0 +1,12 @@
+body{background:#fff;}
+
+.list .title{color:#4a4a4a;font-size:28px;text-align:center;font-weight:normal;}
+.list .content{margin:20px 0;overflow:auto}
+.list .content a{float:left;width:352px;border:1px solid #b0b0b0;}
+.list .content .cont{padding:35px;}
+.list .content a h3{font-size:24px;color:#333333;font-weight:normal;text-align:center;}
+.list .content a p{color:#929292;text-align:center;margin:20px 0;line-height:25px;}
+.list .content a span{color:#929292;text-align:center;display:inherit;font-size:28px;}
+a.first{margin:24px 10px 0 0;}
+a.second{margin:24px 14px 0 14px;}
+a.third{margin:24px  0 0 10px;}

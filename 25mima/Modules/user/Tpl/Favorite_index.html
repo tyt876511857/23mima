@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>管理中心</title>
+<meta http-equiv='Content-Type' content='text/html';charset='utf-8'>
+<include file='index:Index:css'>
+<include file='css'>
+</head>
+<body id="site">
+<include file='index:Index:header'>
+<div class="w1200">
+	<include file='left'>
+	<div class="user_right">
+        <p class="user_title">我的收藏</p>
+		<div class="Favorite_list">
+            <foreach name='list' item='v'>
+              <a href="{$v.url}" target="_blank" title="{$v.goods_name}">
+                <img src="{$v.goods_thumb}">
+                <p>{$v.goods_name}</p>
+              </a>
+            </foreach>
+        </div>
+	</div>
+</div>
+<include file='index:Index:footer'>
+</body>
+</html>

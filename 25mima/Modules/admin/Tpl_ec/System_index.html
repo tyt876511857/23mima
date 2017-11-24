@@ -1,0 +1,60 @@
+
+<!-- $Id: shop_config.htm 16865 2009-12-10 06:05:32Z sxc_shop $ -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ECSHOP 管理中心 - 商店设置 </title>
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<include file='css'>
+<script language="JavaScript">
+<!--
+// 这里把JS用到的所有语言都赋值到这里
+var process_request = "正在处理您的请求...";
+var todolist_caption = "记事本";
+var todolist_autosave = "自动保存";
+var todolist_save = "保存";
+var todolist_clear = "清除";
+var todolist_confirm_save = "是否将更改保存到记事本？";
+var todolist_confirm_clear = "是否清空内容？";
+var smtp_host_empty = "您没有填写邮件服务器地址!";
+var smtp_port_empty = "您没有填写服务器端口!";
+var reply_email_empty = "您没有填写邮件回复地址!";
+var test_email_empty = "您没有填写发送测试邮件的地址!";
+var email_address_same = "邮件回复地址与发送测试邮件的地址不能相同!";
+//-->
+</script>
+</head>
+<body>
+
+<h1>
+<span class="action-span1"><a href="index.php?act=main">ECSHOP 管理中心</a> </span><span id="search_id" class="action-span1"> - 商店设置 </span>
+<div style="clear:both"></div>
+</h1>
+<script type="text/javascript" src="__SKIN__/utils.js"></script><script type="text/javascript" src="__SKIN__/region.js"></script><div class="tab-div">
+  <!-- tab bar -->
+  <div id="tabbar-div">
+    <p><span class="tab-front" id="shop_info-tab">基本设置</span></p>
+  </div>
+  <!-- tab body -->
+  <div id="tabbody-div">
+    <form enctype="multipart/form-data" name="theForm" action="{:U('System/runsys')}" method="post">
+        <table width="90%" id="shop_info-table" >
+<foreach name='sys1' item='v'>
+<tr>
+<td class="label" valign="top">{$v.info}:</td>
+<td>{$v.str}</td>
+</tr>
+<tr>
+</foreach>
+          </table>
+    <div class="button-div">
+      <input name="submit" type="submit" value=" 确定 " class="button" />
+      <input name="reset" type="reset" value=" 重置 " class="button" />
+    </div>
+    </form>
+  </div>
+</div>
+<include file='pagefooter'>
+</body>
+</html>

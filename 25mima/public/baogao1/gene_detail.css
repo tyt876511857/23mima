@@ -1,0 +1,413 @@
+/*覆盖全局switch-wrapper样式*/
+.switch-wrapper {
+  margin-bottom: 0px;
+}
+.talg-fc-qred {
+  color: #f36d6d;
+}
+.talg-block{
+  display: block;
+}
+/* 报告基本信息  */
+.talg-overview-bg {
+  max-width: 1920px;
+  background-color: #95dfe8;
+  border-bottom: 4px solid #00b5c5;
+}
+.talg-overview-logo {
+  font-size: 0;
+  padding-top: 28px;
+  margin-left: 80px;
+  margin-right: 100px;
+}
+.talg-overview-logo img {
+  width: 233px;
+}
+.talg-overview-content {
+  background-color: #fff;
+  border-radius: 4px;
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+.talg-userinfo-logo {
+  width: 60px;
+  margin: 20px 20px 2px 20px;
+}
+.talg-user-info {
+  margin-top: 25px;
+  margin-right: 330px
+}
+.talg-user-name {
+  font-size: 18px;
+  letter-spacing: 3px;
+  margin-bottom: 5px;
+  color: #00b5c5;
+  font-weight: 600;
+}
+.talg-user-age {
+  font-size: 14px;
+  color: #00b5c5;
+  letter-spacing: 3px;
+}
+.talg-overview-data {
+  width: 503px;
+  text-align: center;
+}
+.talg-star-name {
+  font-size: 18px;
+  letter-spacing: 3px;
+  margin-bottom: 20px;
+  color: #00b5c5;
+  font-weight: 600;
+}
+.talg-star {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(tal_star.png);
+  background-size: 35px 35px;
+  -webkit-background-size: 35px 35px;
+  filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/res/desktop/img/reports/talent/tal_star.png',  sizingMethod='scale')
+
+}
+.talg-star-half {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(/res/desktop/img/reports/talent/tal_star_half.png);
+  background-size: 35px 35px;
+  -webkit-background-size: 35px 35px;
+  filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/res/desktop/img/reports/talent/tal_star_half.png',  sizingMethod='scale')
+}
+.talg-star-result {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+}
+.talg-star-half-result {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+}
+.talg-star-box {
+  margin-bottom: 20px;
+}
+.tallg-star-describe {
+  margin-bottom: 60px;
+}
+.tallg-star-describe {
+  font-size: 18px;
+  color: #00b5c5;
+  font-weight: 600;
+}
+/*报告详情*/
+.talg-detail-container {
+  width: 920px;
+  margin: 40px auto 50px;
+}
+.talg-detail-box {
+  border-top: 2px solid #00b5c5;
+  padding-top: 15px;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  box-shadow: 0px 2px 5px #e3e3e3;
+}
+.talg-literaturer {
+  margin-top: -30px;
+  margin-bottom: 30px;
+}
+.talg-detail-title {
+  font-size: 18px;
+  color: #00b5c5;
+  font-weight: 600;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eeeeee;
+}
+.talg-detail-title:before{
+  display: inline-block;
+  content: '';
+  width: 38px;
+  height: 38px;
+  background-repeat:no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-size: 38px 38px;
+  -webkit-background-size: 38px 38px;
+  margin-left: 40px;
+  margin-right: 20px;
+  vertical-align: middle;
+}
+.talg-detection:before{
+  background-image: url(/res/desktop/img/reports/talent/content.png);
+}
+.talg-heredity:before{
+  background-image: url(/res/desktop/img/reports/talent/heredity.png);
+}
+.talg-suggest:before{
+  background-image: url(/res/desktop/img/reports/talent/suggest.png);
+}
+.talg-detection-table {
+  width: 100%;
+  text-align: center;
+}
+.talg-detection-td {
+  width: 20%;
+  padding-top: 15px;
+  padding-bottom: 20px;
+}
+.talg-table-th {
+  font-size: 16px;
+  color: #00b5c5;
+}
+.talg-table-tb td{
+  padding-bottom: 20px;
+}
+.talg-num-box {
+  margin-top: 28px;
+  margin-bottom: 28px;
+}
+.talg-heredity-num {
+  width: 310px;
+  padding-left: 75px;
+  padding-right: 75px;
+}
+.talg-heredity-describe {
+  width: 379px;
+  padding: 10px 39.5px;
+  border-left: 1px solid #e3e3e3;
+  margin-top: 30px;
+}
+.talg-num-progress {
+  position: relative;
+  width: 300px;
+  height: 16px;
+  border: 1px solid #e3e3e3;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  margin-bottom: 35px;
+}
+.talg-progress-value {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 16px;
+  border-radius: 10px;
+  background-color: #f36d6d;
+}
+.talg-suggest-box {
+  display: none;
+  padding-bottom: 20px;
+}
+.talg-suggest-box span {
+  display: inline-block;
+}
+.talg-suggest-age {
+  float: left;
+  margin-top: 56px;
+  width: 240px;
+  color: #f36d6d;
+  text-align: center;
+}
+.talg-suggest-content {
+  float: left;
+  font-size: 14px;
+  color: #666;
+  line-height: 25px;
+  width: 635px;
+  padding-top: 30px;
+}
+.talg-switch-pre {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  margin-right: 25px;
+  font-size: 0;
+  background-color: #ef6f70;
+  border-radius: 15px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(/res/desktop/img/reports/talent/switch_pre.png);
+}
+.talg-switch-next {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background-color: #ef6f70;
+  border-radius: 15px;
+  vertical-align: middle;
+  font-size: 0;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(/res/desktop/img/reports/talent/switch_next.png);
+}
+.talg-switch-none {
+  background-color: #ddd;
+  pointer-events: none;
+}
+.tal-suggest-show {
+  display: block;
+}
+
+/*基因信息*/
+.talg-science-box {
+  float: left;
+  width: 200px;
+  margin-right: 42px;
+}
+.talg-science-string {
+  float: left;
+  font-size: 14px;
+  color: #666;
+  line-height: 28px;
+  width: 678px;
+  padding-top: 60px;
+}
+.talg-knowledge-box {
+  float: right;
+  width: 200px;
+  margin-left: 42px;
+}
+.talg-knowledge-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #00b5c5;
+  padding-top: 60px;
+  padding-bottom: 20px;
+}
+.talg-knowledge-string {
+  float: right;
+  font-size: 14px;
+  color: #666;
+  line-height: 28px;
+  width: 678px;
+  padding-top: 60px;
+  padding-bottom: 100px;
+}
+.talg-infologo-right img {
+  
+}
+.talg-infologo-left img {
+  width: 200px;
+}
+.talg-infologo-left {
+  width: 920px;
+  margin: auto;
+}
+.talg-information-bg {
+  max-width: 1920px;
+  background-color: #fafafa;
+  padding-bottom: 80px;
+}
+.talg-science-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #00b5c5;
+  margin-left: 152px;
+  padding-top: 60px;
+  padding-bottom: 20px;
+}
+.talg-infologo-right {
+  width: 920px;
+  margin: auto;
+}
+.talg-infologo-right p {
+  float: right;
+  width: 676px;
+  font-size: 14px;
+  color: #666;
+  line-height: 28px;
+}
+.talg-infologo-right a {
+  color: #666;
+}
+.talg-infologo-right a:hover {
+  text-decoration: underline;
+}
+.talg-ckwx {
+  width: 920px;
+}
+.talg-story-box {
+  width: 920px;
+  overflow: hidden;
+  margin: auto;
+  background-color: #eee;
+  border-radius: 35px;
+  box-shadow: 0px 5px 5px #d4d4d4;
+}
+.talg-story-lbox {
+  width: 880px;
+  margin: 10px 20px;
+  background-color: #fafafa;
+  border-radius: 35px;
+}
+.talg-story-logo {
+  width: 440px;
+  min-height: 480px;
+  float: left;
+  text-align: center;
+  background-color: #fafafa;
+  border-radius: 35px 0px 0px 35px;
+}
+.talg-story-content {
+  display: table;
+  font-size: 14px;
+  color: #666;
+  min-height: 280px;
+  line-height: 28px;
+  width: 364px;
+  padding: 100px 38px;
+  float: left;
+  background-color: #fff;
+  border-radius: 0px 35px 35px 0px;
+}
+.talg-content-sbox {
+  display: table-cell;
+  vertical-align: middle;
+}
+.talg-story-title {
+  position: relative;
+  width: 120px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 20px;
+  color: #fff;
+  margin-top: 28px;
+  margin-left: 5px;
+  text-align: center;
+  background-color: #00b5c5;
+}
+.talg-story-title:after {
+  position: absolute;
+  right: -15px;
+  top: 0;
+  content: '';
+  width: 0;
+  height: 0;
+  border-top: 20px solid #00b5c5;
+  border-right: 16px solid transparent;
+}
+.talg-story-title:before {
+  position: absolute;
+  right: -15px;
+  top: 20px;
+  content: '';
+  width: 0;
+  height: 0;
+  border-bottom: 20px solid #00b5c5;
+  border-right: 16px solid transparent;
+}
+.talg-story-subtitle {
+  font-size: 20px;
+  color: #666;
+  text-align: center;
+  margin-top:40px;
+  margin-bottom: 40px;
+}
+.talg-story-logo img {
+  width: 360px;
+}

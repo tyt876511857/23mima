@@ -1,0 +1,20 @@
+//文件什么用途
+
+//修改页取数据用getfield    //表名要改
+
+//  过滤$_GET[id]并判断用  $this->get_id($id='id');
+
+//验证数据安全
+$this->verify
+
+
+//后台列表页用this->list
+//内容修改页用this->field   
+//下拉栏目用this->cate
+
+//增加修改用runadd
+
+//增加修改查找有类方法 
+
+
+

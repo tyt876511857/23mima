@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>登录页面</title>
+    <meta name="Keywords" content="{$field.keywords}">
+    <meta name="Description" content="{$field.description}">
+    <include file='index:Index:css'>
+    <link href="__PUBLIC__/gaiban/css/login.css" rel="stylesheet" type="text/css" />
+    <script language="javascript" src="__PUBLIC__/gaiban/js/login.js"></script>
+</head>
+
+<body>
+<include file='index:Index:header'>
+    <!--
+    <script>
+        $(function () {
+            var arr = new Array();
+            //选项按钮
+            $('.login_mothed').on('click', 'span', function () {
+                arr = [];
+                $(this).addClass('active').siblings().removeClass('active');
+                $(this).children('input').attr('checked', 'checked');
+                $(this).siblings().children('input').removeAttr('checked');
+                var a = $(this).index();
+                $('.login_input').eq(a).removeClass('hide').siblings().addClass('hide');
+            });
+            ///
+            var Phone = /^1[3|4|5|8]\d{9}$/;
+            $('.login_input dl').on('blur', 'input[type=text],input[type=password]', function () {
+                var a = $(this).parents('dl').index();
+                var b = $(this).attr('name');
+                var _this = $(this);
+                switch (b) {
+                case "phone":
+                    if (Phone.test($(this).val())) {
+                        _this.parent().find('.login_info').addClass('hide');
+                        _this.removeClass('false');
+                        arr[a] = true;
+                    } else {
+                        _this.parent().find('.login_info').removeClass('hide');
+                        _this.addClass('false');
+                        arr[a] = false;
+                    }
+                    break;
+                default:
+                    if ($(this).val() != "" | undefined | null) {
+                        _this.parent().find('.login_info').addClass('hide');
+                        _this.removeClass('false');
+                        arr[a] = true;
+                    } else {
+                        _this.parent().find('.login_info').removeClass('hide');
+                        _this.addClass('false');
+                        arr[a] = false;
+                    }
+                    break;
+                };
+            });
+            //登录按钮
+            $('.login_btn').click(function (e) {
+                $(this).parents('.login_input').find('input[type=text],input[type=password]').blur();
+                console.log(arr);
+                if ($.inArray(false, arr) != -1) {
+                    e.preventDefault();
+                }
+            })
+
+
+
+            ///发送验证码
+            var tt = true,
+                Timer,
+                PhoneEx = /^1[3|4|5|8]\d{9}$/;
+            $('.login_phone').on('blur', function () {
+                var _this = $(this);
+                if (!PhoneEx.test($(this).val())) {
+                    $('.sendCode').removeClass('active');
+                    $('.sendCode').off('click');
+
+                } else {
+                    $('.sendCode').addClass('active');
+                    $('.sendCode').on('click', function () {
+                        if (!tt)
+                            return false;
+                        tt = false;
+                        var codeTime = 2
+                        clearInterval(Timer);
+                        var sed = $(this);
+                        Timer = setInterval(function () {
+                            codeTime--;
+                            if (codeTime < 0) {
+                                sed.html("重新发送验证码");
+                                tt = true;
+                            } else {
+                                sed.html(codeTime);
+                            }
+                        }, 1000);
+
+                    });
+                };
+            });
+            ////
+
+
+
+        })
+    </script>
+-->
+    <div class="w1000">
+        <div class="login">
+            
+                <div class="login_con">
+                    <div class="login_mothed">
+                        <span class="active"><i></i>手机动态登录<input type="radio" name="1" checked="checked"></span>
+                        <span><i></i>密码登录<input type="radio" name="1"></span>
+                    </div>
+                    <div class="left">
+                        <div class="login_th">
+                            <p>登录</p>
+                        </div>
+                    </div>
+                    <div class="left">
+                        
+                        <div class="login_input ">
+                        <form method="post" name="login" action="{:U('/Index/login','index')}" class="loginForm">
+                            <dl>
+                                <dt>手机号码</dt>
+                                <dd>
+                                    <input type="text" name="phone" maxlength="11" class="login_phone" />
+                                    <p class="login_info hide">手机号码错误</p>
+                                </dd>
+                            </dl>
+							<input type='hidden' name='parent_id' value='{$parent_id}' />
+                           
+                            <dl>
+                                <dt>短信验证码</dt>
+                                <dd>
+                                    <input type="text" name="yzm" maxlength="6" style="width:119px;"/>
+                                    <a href="javascript:;" onclick='yzm();' class="sendCode">发送验证码</a>
+                                    <p class="login_info hide">短信验证码错误</p>
+                                </dd>
+                            </dl>
+                            <div>
+                                <input type="submit" value="登录" name="submit" class="login_btn" />
+                            </div>
+                        </form>
+                        </div>
+                        
+                        
+                        <div class="login_input hide ">
+                        <form method="post" name="login" action="{:U('/Index/login_mima','index')}" class="loginForm">
+                            <dl>
+                                <dt>手机号码</dt>
+                                <dd>
+                                    <input type="text" name="username" maxlength="11" />
+                                    <p class="login_info hide">手机号码错误</p>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>密码</dt>
+                                <dd>
+                                    <input type="password" name="pwd" class="login_pass" />
+                                    <p class="login_info hide">密码错误</p>
+                                </dd>
+                            </dl>
+                            <div>
+                                <input type="submit" value="登录" name="submit" class="login_btn" />
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                    
+                    <div style="clear:both"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+<include file='index:Index:footer'>
+</body>
+</html>
+<script>
+      function yzm(){
+          var phone = $('[name=phone]').val();
+          if(phone.length!=11){
+            alert('手机号不正确！');
+          }else{
+            $.post('{:U("Index/yzm")}',{'phone':phone},
+            function(data,status){
+                alert(data);
+            });
+          }
+      }
+  </script>

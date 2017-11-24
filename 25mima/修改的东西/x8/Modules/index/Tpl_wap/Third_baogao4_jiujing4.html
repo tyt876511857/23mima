@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>基因检测结果-酒精代谢基因 </title>
+<include file='index:Index:css'>
+<link href="__PUBLIC__/gaiban/css/jyy_a_bg.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/gaiban/css/fit_a_bg.css" rel="stylesheet" type="text/css" />
+<!-- <script type="text/javascript" src="__PUBLIC__/js/echarts.js"></script> -->
+<!-- <script type="text/javascript" src="__PUBLIC__/gaiban/js/highcharts.js"></script>
+<script type="text/javascript" src="__PUBLIC__/gaiban/js/highcharts-more.js"></script> -->
+<style>
+.indenx{padding: 0px 18px;}
+p{text-align: justify;}
+.ml20{margin-left:0px; }
+.w1000{width:100%; page-break-inside:avoid;}
+table {
+    width: 100%;
+    text-align: center;
+    border-top: 4px solid #d2d2d2;
+}
+.tr th{
+	font-size: 13px;
+}
+.topnav li{ line-height40px; height:40px; list-style:none;}
+.topnav li b{ font-size:16px; width:100px; float:left; text-align:right}
+
+.cont{
+	width:100%;margin:0 auto;background: url(__PUBLIC__/gaiban/images/baogao/thirdbg4.jpg);background-position: 100% 0%; background-size:100%;background-repeat:no-repeat;position: relative;
+}
+.cont span{
+	color: #21acdc;font-size: 30px;
+}
+.dnap{
+	text-align: center;font-size: 34px;color: #b097c1;margin-top: 200px;
+}
+.zbgp{
+	margin: 80px auto;font-size: 19px;width: 100%;line-height: 42px;color: #3f3b3a;
+}
+.titlep{padding-top: 130px;text-align: center;font-size: 23px;}
+.leftdiv{
+	width: 98%;margin: 0 auto;
+}
+.commonp{
+	text-align: justify;line-height: 26px;margin-top: 40px;font-size: 16px;color: #3f3b3a;padding: 10px;
+}
+.commonp span,.lastp span,.applebgp span{
+	color: #21acdc;display: block;font-size: 23px;margin-bottom: 10px;
+}
+.lastp{
+	margin: 10px;padding: 10px;line-height: 26px;margin-top: 40px;font-size: 16px;color: #3f3b3a;background: #b7e8f3;
+}
+.rightdiv{
+	width: 100%;
+}
+.chantu{
+	border-radius: 100px;height: 20px;background-color: #ccc;position: relative;width: 80%;margin: 0 auto;
+}
+.chantu div{border-radius: 100px;width: <?php echo $this->fzheye['0']['fenshu1']*20;?>%;height: 20px;background: -webkit-gradient(linear, 0% 25%, 75% 100%, from(#21acdc), to(#81c4bf));}
+.chantu span{font-size: 16px;color: #000;line-height: 30px;}
+.yuan{display: inline-block;width: 8px;height: 8px;border-radius: 14px;background:#59A0C1;margin-bottom: 9px;margin-left: 6px;}
+.yuanh{display: inline-block;width: 8px;height: 8px;border-radius: 14px;background: #ccc;margin-bottom: 9px;
+ 	margin-left: 6px;}
+.ping{margin-top: 10px;}
+.ban{margin-left: 10px;}
+</style>
+</head>
+<body>
+<!--子报告开始  -->
+	<div class="w1000" >
+		<div class="cont">
+			<p class="titlep"> 酒精代谢基因检测：<span><?php echo $this->fzheye['0']['result'];?></span></p>
+			<div style="height: 500px;padding-top: 40px;">
+				<p style="text-align: center;font-size: 16px;color: #000;margin-bottom: 10px;">				您的检测得分：<?php echo $this->fzheye['0']['fenshu1'];?></p>
+				<p style="text-align: center;font-size: 16px;color: #f29600;margin-bottom: 10px;">				<?php echo $this->fzheye['0']['common'];?></p>
+				<div  class="chantu" > 
+					<div >
+					
+					</div>
+					<span style="position: absolute;left: 0%;">0</span>
+					<span style="position: absolute;left: 20%;">1</span>
+					<span style="position: absolute;left: 40%;">2</span>
+					<span style="position: absolute;left: 60%;">3</span>
+					<span style="position: absolute;left: 80%;">4</span>
+					<span style="position: absolute;left: 98%;">5</span>
+				</div>
+				<p style="margin-top: 70px;text-align: center;font-size: 16px;">您的酒量：<?php $p=$this->fzheye['0']['ping'];echo $p;?>瓶啤酒
+
+				</p>
+				<div class="ping">
+					<div style="margin: 0 auto;width: 242px;margin-bottom: 40px;">
+						<?php if($p>=1) {?>
+							<img src="__PUBLIC__/gaiban/images/baogao/p4.jpg" style="margin-left: 10px;">
+						<?php } elseif($p>0.1) {?>
+							<img src="__PUBLIC__/gaiban/images/baogao/p6.jpg" style="margin-left: 10px;">
+						<?php } else{ ?>
+							<img src="__PUBLIC__/gaiban/images/baogao/p5.jpg" style="margin-left: 10px;">
+						<?php }?>
+						<?php if ($p>1.1) {?>
+							<span class="yuan"></span>
+							<span class="yuan"></span>
+							<span class="yuan"></span>
+						<?php } else {?>
+							<span class="yuanh"></span>
+							<span class="yuanh"></span>
+							<span class="yuanh"></span>
+						<?php }?>
+
+						<?php if($p>=2) {?>
+							<img src="__PUBLIC__/gaiban/images/baogao/p4.jpg" style="margin-left: 10px;">
+						<?php } elseif($p>1.1) {?>
+							<img src="__PUBLIC__/gaiban/images/baogao/p6.jpg" style="margin-left: 10px;">
+						<?php } else{ ?>
+							<img src="__PUBLIC__/gaiban/images/baogao/p5.jpg" style="margin-left: 10px;">
+						<?php }?>
+
+						<?php if ($p>2) {?>
+							<span class="yuan"></span>
+							<span class="yuan"></span>
+							<span class="yuan"></span>
+						<?php } else {?>
+							<span class="yuanh"></span>
+							<span class="yuanh"></span>
+							<span class="yuanh"></span>
+						<?php }?>
+
+						<?php if($p>2.5) {?>
+							<img src="__PUBLIC__/gaiban/images/baogao/p4.jpg" style="margin-left: 10px;">
+						<?php } elseif($p>2) {?>
+							<img src="__PUBLIC__/gaiban/images/baogao/p6.jpg" style="margin-left: 10px;">
+						<?php } else{ ?>
+							<img src="__PUBLIC__/gaiban/images/baogao/p5.jpg" style="margin-left: 10px;">
+						<?php }?>
+					<div>
+				</div>
+			
+			</div>
+			<p style="font-size: 16px;margin:10px;padding:10px;line-height: 30px;color: #fff;height:360px;background: -webkit-gradient(linear, 0% 25%, 75% 100%, from(#21acdc), to(#81c4bf));"><b class="indenx" ></b>
+				<?php echo $this->fzheye['0']['fenxi'];?>
+			</p>
+
+		</div>
+
+
+		<div style="width:100%;margin:30px auto;">
+			<div class="leftdiv">
+				<table>
+					<thead>
+						<tr class="tr">
+							<th>检测基因</th><th>位点</th><th>基因型</th><th>基因能力</th><th>检测结果</th>
+						</tr>
+					</thead>
+					<tbody>
+					<?php foreach($this->fzheye['0']['CT'] as $key=>$vk) { ?>
+						<tr>
+							<td style="font-size: 12px;color: #3f3b3a;"><?php print_r($vk['4']);?></td>
+							<td style="font-size: 12px;color: #3f3b3a;"><?php print_r($key);?></td>
+							<td style="font-size: 12px;color: #3f3b3a;"><?php print_r($vk['1']);?></td>
+							<td style="font-size: 12px;color: #3f3b3a;"><?php if($key=='rs1229984'){echo '分解乙醇';}else{echo '分解乙醛';} ?></td>
+							<td style="font-size: 12px;color: #3f3b3a;"><p style="width: 100px;text-align: center;padding-left: 10px;"><?php print_r($vk['3']);?></p></td>
+						</tr>
+					<?php }?>				
+					</tbody>
+				</table>
+
+				<p class="commonp" >
+					<img src="__PUBLIC__/gaiban/images/baogao/thirdp4.jpg" width="100%">
+				</p>
+
+			</div>
+		</div>
+
+		<div class="rightdiv">
+			<p class="ml20 commonp">
+					<span >基因解释</span>
+					<b class="indenx"></b>一个人酒量的好坏，取决于其肝脏中的<a style="color: #f29600;">乙醇脱氢酶（ADH1B）</a>和<a style="color: #f29600;">乙醛脱氢酶（ALDH2）</a>的活性。酒精进入人体后，不到10%会以乙醇的形式由肺和肾排出，剩下的90%多都是在肝脏代谢的。代谢过程如下： 
+<br>1、酒精在体内乙醇脱氢酶的催化下变成乙醛； 
+<br>2、乙醛在体内乙醛脱氢酶的作用下变成乙酸; 
+<br>3、乙酸参与到体内的多个代谢途径中，最终变成二氧化碳和水并排出体外。
+<br><b class="indenx"></b>在这个过程中，乙醛脱氢酶最为关键，它使乙醛氧化为乙酸，并决定着酒精的代谢速度。每个人体内这两种酶的活性不同,决定了其对酒精的代谢能力和生理反应也各不相同。喝酒脸红是因为乙醛不能及时分解，乙醛使人体产生热效应，导致心跳频率加快，毛细血管扩张，而脸部毛细血管扩张是喝酒脸红的主要原因，同时乙醛还会刺激肠胃让人产生恶心反胃的行为。乙醛的毒性是乙醇的30倍左右，对许多组织和器官都有毒性，可能造成DNA损伤，导致组织细胞癌变，特别是可以对食道造成损伤，久而久之可能引发食道癌。乙醛对人体肝脏和胰脏功能的影响最为严重。<br><b class="indenx"></b>酒精代谢能力主要由遗传决定，有时也可被酒精诱导，经常喝酒促进酶活性增加，从而酒量增加。此外，酒精代谢能力还受种族、性别和体重等多个因素的影响。
+
+			</p>
+
+			<p class="lastp" >
+					<span >饮酒小故事</span>
+					<b class="indenx" ></b><?php echo $this->fzheye['0']['gushi'];?>
+
+			</p>
+
+			<p style="margin: 10px;padding: 10px;line-height: 26px;color: #3f3b3a;">
+				备注：<br><b class="indenx"></b>
+检测结果只针对本次送检样本，非临床诊断指标；检测结果仅包括检测范围内的位点多态性，不能反应您的全部风险。<br><b class="indenx"></b>
+由于个体差异以及其他一些不可控原因，可能出现假阳性或假阴性结果。<br><b class="indenx"></b>
+以上结论是根据此基因携带人群的平均水平得出的，相同基因型携带者之间的个人水平有可能与相应人群的平均水平有一定差异。
+			</p>
+		</div>
+		<div style="clear: both;"></div>
+	</div>
+	<!--子报告结束  -->		
+
+</body>
+
+<script src="__PUBLIC__/gaiban/js/fit_a.js"></script>
+</html>

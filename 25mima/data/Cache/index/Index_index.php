@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title><?php if(isset($field['title'])){echo $field['title'];} ?></title>
+<meta name="Keywords" content="<?php if(isset($field['keywords'])){echo $field['keywords'];} ?>">
+<meta name="Description" content="<?php if(isset($field['description'])){echo $field['description'];} ?>">
+<link href="/public/gaiban/css/index.css" rel="stylesheet" type="text/css" /><meta name="360-site-verification" content="1a83453f9542f6cd5c8cf1db5cfafd01" />
+<?php $this->display('index:Index:css','lib') ?>
+</head>
+<body>
+<?php $this->display('index:Index:header','lib') ?>
+
+	<!-- 广告图 -->
+	<div class="adv">
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<?php 
+$attr =<<<Eof
+type='banner'
+Eof;
+$c =<<<Eof
+
+				<div class="swiper-slide"><a href="[field:url /]"><img src="[field:litpic /]" alt="23密码" width="100%"/></a></div>
+				
+Eof;
+
+	$data = $this->taglib->_myad($attr,$c);eval($data);?>      
+			</div>
+			<!-- Add Pagination -->
+			
+			
+		</div>
+		<div class="pagination"></div>
+	</div>
+	<!-- 广告图 -->
+	<div class="w1000">
+		<div class="row whire">
+			<div class="left"><a href="#"><img src="/public/gaiban/images/img (7).jpg" alt="我们是谁" width="551px" /></a></div>
+			<div class="right whoami">
+				<div class="titleh3">我们是谁</div>
+				<span class="link"></span>
+				<p>我们专注于少年儿童的特长基因检测和少年儿童易感基因的检测，每个孩子都是天才，通过发现儿童的特长DNA，为我们的精准教育提供依据。 </p>
+			</div>
+		</div>
+	</div>
+
+	<div class="w1000">
+		<div class="row">
+			<div class="titleh3 t-centerh3">我们能为您做什么</div>
+			<div class="f-sort">
+				<a class="first"><img src="/public/gaiban/images/img (8).jpg" width="100%" alt="科学了解孩子" /><p>科学了解孩子</p><div class="description"><p>儿童的成长成材受遗传和环境共同作用的调节，通过基因测序可以更加了解孩子的遗传特征。</p></div></a>
+				<a><img src="/public/gaiban/images/img (1).jpg" width="100%" alt="因材施教" /><p>因材施教</p><div class="description"><p>一个人的成功诸多因素中，遗传因素占到了30%-60%。通过基因测序平台检测儿童认知能力相关的基因，了解孩子的遗传天赋，才能科学的因材施教，助力儿童成材。</p></div></a>
+				<a><img src="/public/gaiban/images/img (2).jpg" width="100%" alt="取长补短" /><p>取长补短</p><div class="description"><p>检测儿童的营养物质（维生素，微量元素等）吸收代谢基因和常见疾病的易感基因，了解孩子的营养代谢能力和免疫能力，科学制定儿童的个性化营养补充和疾病预防计划，助力儿童健康成长。</p></div></a>
+				<a class="last"><img src="/public/gaiban/images/img (3).jpg" width="100%" alt="一次测试终身受益" /><p>一次测试终身受益</p><div class="description"><p>对检测项目结合最新科研进展不断进行升级，不断丰富检测项目的基因数目和完善检测项目的遗传算法。对已完成的检测报告也会持续升级，惠及所有客户。</p></div></a>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row-img">
+		
+		<div class="w1000">
+			<img src="/public/gaiban/images/zbch5.png" alt="采样流程" class="zbch5" />
+		</div>
+	</div>
+	
+	<div class="w1000">
+		<div class="row" style="overflow:inherit;margin-bottom:0">
+			<div class="titleh3 t-centerh3">采样流程</div>
+			<div class="e-sort">
+				<a href="/news_5.html" class="first"><span>1</span><img src="/public/gaiban/images/1-01.jpg" width="100%" alt="扫瞄二维码直接进行采样盒绑定。" /><p>扫瞄二维码直接进行采样盒绑定。</p></a>
+				<a href="/news_5.html"><span>2</span><img src="/public/gaiban/images/2-01.jpg" width="100%" alt="打开医用消毒包装袋，取出采样拭子。注意请勿直接接触拭子头部。" /><p>打开医用消毒包装袋，取出采样拭子。注意请勿直接接触拭子头部。</p></a>
+				<a href="/news_5.html"><span>3</span><img src="/public/gaiban/images/3-01.jpg" width="100%" alt="将拭子伸入一侧口腔，紧靠脸颊内侧来回刮拭20次以上。刮拭过程中请不时旋转棉棒，保证拭子头部充分接触口腔黏膜。" /><p>将拭子伸入一侧口腔，紧靠脸颊内侧来回刮拭20次以上。刮拭过程中请不时旋转棉棒，保证拭子头部充分接触口腔黏膜。</p></a>
+				<a href="/news_5.html" class="last"><span>4</span><img src="/public/gaiban/images/4-01.jpg" alt="采样完毕后，拧开采样管，沿着拭子头部约2cm折缝处折断，使拭子头部落入采样管的DNA保存液中。" width="100%" /><p>采样完毕后，拧开采样管，沿着拭子头部约2cm折缝处折断，使拭子头部落入采样管的DNA保存液中。</p></a>
+				<a href="/news_5.html" class="first"><span>5</span><img src="/public/gaiban/images/5-01.jpg" alt="将采样管管盖旋紧。" width="100%" /><p>将采样管管盖旋紧。</p></a>
+				<a href="/news_5.html"><span>6</span><img src="/public/gaiban/images/6-01.jpg" width="100%" alt="请在另一侧口腔重复第2步－第5步，采集DNA于另一采样管中。" /><p>请在另一侧口腔重复第2步－第5步，采集DNA于另一采样管中。</p></a>
+				<a href="/news_5.html"><span>7</span><img src="/public/gaiban/images/7-01.jpg" width="100%" alt="将盖好的采样管放入包装盒中。" /><p>将盖好的采样管放入包装盒中。</p></a>
+				<a href="/news_5.html" class="last"><span>8</span><img src="/public/gaiban/images/8-01.jpg" alt="请将采样盒回寄到23密码。" width="100%" /><p>请将采样盒回寄到23密码。</p></a>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row-img2">
+		
+		<div class="w1000">
+			
+			<div class="s-sort">
+				<a href="/news_25.html"><img src="/public/gaiban/images/terms.png" width="100%" alt="我们的专家团队" /></a>
+				
+			</div>
+		</div>
+	</div>
+	
+	<div class="w1000">
+		<div class="row" style="margin-bottom:20px">
+			<a href="/category_1.html" class="ljgm">立即购买</a>
+			<p class="mfdh">免费咨询：400-109-2599</p>
+		</div>
+	</div>
+	
+	<div class="w1000">
+		<div class="row" style="margin-bottom:20px;background:#fff;padding:20px 0;">
+			<div class="titleh3 t-centerh3">动态知识</div>
+			<ul class="news">
+			<?php foreach ($news as $v){ ?>
+				<li><a href="/content_<?php if(isset($v['id'])){echo $v['id'];} ?>.html"><span class="title">●<?php if(isset($v['title'])){echo $v['title'];} ?></span><span class="time"><?php echo date('Y-m-d',$v['add_time']);?></span></a></li>
+			<?php } ?>
+			</ul>
+		</div>
+	</div>
+<?php $this->display('index:Index:footer','lib') ?>
+</body>
+<script language="javascript" src="/public/gaiban/js/base2.js"></script>
+<script>
+$('.header ul li:eq(0) a').addClass('active');
+</script>
+</html>

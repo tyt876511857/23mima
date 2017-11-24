@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title>购物车</title>
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/wap1/css/frozen.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/wap1/icon/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/wap1/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="__PUBLIC__/wap1/css/buy_car.css" />
+		<style type="text/css">
+		/*遮罩*/
+.mask{position: fixed;width: 100%;height: 100%;left: 0;top: 0;bottom: 0;background-color: rgba(0,0,0,0.8);z-index: 999;}
+
+
+
+/* 错误提示弹层 */
+.c-float-modePop {
+text-align: center;
+background-color: #FAFAFC;
+}
+.c-float-modePop .warnMsg {
+
+padding: 20px 10px 10px 10px;
+color: #fff
+}
+.c-float-modePop .doBtn {
+
+width: 100%;
+margin: 0 auto;
+}
+.c-float-modePop button {
+
+padding: 6px 9px 6px 9px;
+color: #949494;
+border: 0;
+}
+.c-float-shade {
+
+width: 100%;
+display: block;
+position: absolute;
+z-index: 99;
+background-color: #000;
+opacity: .5;
+top: 0;
+left: 0
+}
+.c-float-shade.hide {
+display: none
+}
+.c-float-popWrap {
+	width: 100%;
+	z-index: 9999;
+	position: fixed;
+	border-radius: 3px;
+    overflow: hidden;
+}
+.c-float-popWrap .c-float-modePop {
+	overflow: hidden;
+	border-radius: 6px;
+}
+.c-float-popWrap .c-float-modePop .warnMsg {
+    padding: 0.8em 0 0.8em;
+	font-size: 15px;
+	color: #333;
+}
+.c-float-popWrap .c-float-modePop .content {
+    padding: 0 20px;
+    font-size: 14px;
+    color: #888;
+    word-wrap: break-word;
+    word-break: break-all;
+	text-align: left;
+}
+.c-float-popWrap .c-float-modePop .doBtn {
+	width: 100%;
+	margin-top: 15px;
+	position: relative;
+}
+.c-float-popWrap .c-float-modePop .doBtn:after {
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 1px;
+    border-top: 1px solid #D5D5D6;
+    color: #D5D5D6;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+}
+.c-float-popWrap .c-float-modePop button {
+	background-color: #FAFAFC;
+	width: 50%;
+	height: 42px;
+	line-height: 42px;
+	color: #444;
+	font-size: 17px;
+	border: 0;
+	padding: 0;
+}
+.c-float-popWrap .c-float-modePop button.ok{
+	color: #0BB20C;
+}   
+.c-float-popWrap .c-float-modePop button.cancel{
+	position: relative;
+} 
+.c-float-popWrap .c-float-modePop button.cancel:after {
+    content: " ";
+    position: absolute;
+    right: -1px;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    border-left: 1px solid #D5D5D6;
+    color: #D5D5D6;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: scaleX(0.5);
+    transform: scaleX(0.5);
+}
+.c-float-popWrap.hide {
+
+display: none;
+-webkit-box-shadow: none
+}
+.c-float-popWrap.show {
+
+display: block;
+}
+
+.c-float-popWrap.msgMode .c-float-modePop .content, .c-float-popWrap.msgMode .c-float-modePop .doBtn {
+
+display: none
+}
+
+.c-float-popWrap.alertMode .c-float-modePop .doBtn .cancel {
+
+display: none
+}
+.c-float-popWrap.confirmMode .c-float-modePop .content, .c-float-popWrap.confirmMode .c-float-modePop .doBtn {
+
+display: block
+}
+
+.confirm_input{
+	border: 1px solid #D5D5D6;
+	padding: 10px;
+	width: 70%;
+}
+.weui_mask_transparent {
+    position: fixed;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+	background: rgba(0, 0, 0, 0.6);
+}
+.cx_mask_transparent{
+	position: fixed;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+	background: rgba(255, 255, 255, 0.1);
+}
+
+.web_toast{
+    position: fixed;
+	margin: 0 10px;
+    z-index: 9999;
+    display: none;
+    display: block;
+    padding: 10px;
+    color: #FFFFFF;
+    background: rgba(0, 0, 0, 0.7);
+    font-size: 1.4rem;
+    text-align: center;
+    border-radius: 4px;
+}
+
+		</style>
+		<script type="text/javascript" src="__PUBLIC__/wap1/js/jquery.js"></script>
+		<script type="text/javascript" src="__PUBLIC__/wap1/js/header.js"></script>
+		<script>
+			$(function() {
+				var T = true;
+				$('.move_goods').click(function() {
+					if (!T)
+						return false;
+					T = false;
+					$('.product_move').slideToggle(function() {
+						T = true;
+					});
+				});
+				var pNum;
+				/*$('.del').click(function() {
+					pNum = $(this).siblings('.product_num').val();
+					pNum--;
+					if (pNum <= 0) {
+						pNum = 0
+					};
+					$(this).siblings('.product_num').val(pNum);
+				});
+				$('.add').click(function() {
+					pNum = $(this).siblings('.product_num').val();
+					pNum++;
+					$(this).siblings('.product_num').val(pNum);
+				});*/
+
+				/*$('.buy_car').on('click', 'a', function() {
+					var a = 0;
+					var e = 0;
+					$('.buy_car').each(function(i, val) {
+						var b = $(this).find('input[type=text]').val();
+						var c = $(this).find('.b_c_d_price').children().html();
+						d = parseInt(c) * parseInt(b);
+						a = a + parseInt(b);
+						e = e + d;
+					});
+					$('.p_num').html(a);
+					$('.total_price').html("￥" + e);
+				});*/
+
+			});
+		</script>
+	</head>
+
+	<body style="background: #F1F3F2;">
+		<include file='header'>
+		<section class="ui-container">
+			<form id="formmit" action="{:U('Third/runmima')}" method="post" onsubmit='return run();'>
+				<ul class="ui-row ui-whitespace buy_car">
+					<foreach name='shopping' item='v'>
+					<li class="ui-row-flex">
+						<div class="ui-col ui-col-2">
+							<img src="{$v.goods_thumb}" alt="" width="100%" />
+						</div>
+						<div class="ui-col ui-col-2 b_c_detial">
+							<h1>{$v.goods_name}</h1>
+							<p class="ui-txt-info">{$v.description}</p>
+							<p class="b_c_d_price" style="text-decoration: line-through;color:#736969;">￥<b>{$v.shop_price}</b></p>
+						</div>
+					</li>
+					<li class="ui-row-flex">
+						<div class="ui-col ui-col-2"><span>激活数量：</span></div>
+						<div class="ui-col ui-col-2 but_num">
+							<span><a class="del">-</a><input disabled="disabled" type="text" name="dnumber[]" value="{$v.number}" class="product_num"/><input  type="hidden" name="number[]" value="{$v.number}" class="product_num"/><a  class="add">+</a></span>
+						</div>
+						<script>
+							var price = {$v.shop_price};
+						</script>
+					</li>
+					<input type="hidden" name='goods_id[]' value="{$v.goods_id}">
+          			<input type="hidden" name='unit_price[]' value="{$v.shop_price}">
+					</foreach>
+					<!-- <li class="ui-row-flex">
+						<div class="ui-col ui-col-2"><span>选购更多检测服务：</span></div>
+						<div class="ui-col ui-col-2" style="text-align: right;line-height: 1.5em;"><b class="iconfont move_goods" style="color:#58585A ;font-size: 1.5em;">&#xe662;</b></div>
+					</li> -->
+				</ul>
+				<div class="ui-row ui-whitespace product_move" style="background:#00B8EE;padding: 10px 0;display: none;">
+					<ul class="ui-row ui-whitespace buy_car">
+						<foreach name='goodslist' key='k' item='v'>
+						<if condition='$k==0'>
+						<li class="ui-row-flex">
+							<div class="ui-col ui-col-2">
+								<img src="{$v.goods_thumb}" alt="" width="100%" />
+							</div>
+							<div class="ui-col ui-col-2 b_c_detial">
+								<h1>{$v.goods_name}</h1>
+								<p class="ui-txt-info">{$v.description}</p>
+								<p class="b_c_d_price" >￥<b>{$v.shop_price}</b></p>
+							</div>
+						</li>
+						<li class="ui-row-flex">
+							<div class="ui-col ui-col-2"><span>购买数量：</span></div>
+							<div class="ui-col ui-col-2 but_num">
+								<span><a href="javascript:;" class="del">-</a><input type="text" name="number[]"  value="0" class="product_num"/><a href="javascript:;" class="add">+</a></span>
+							</div>
+						</li>
+						<input type="hidden" name='goods_id[]' value="{$v.goods_id}">
+          				<input type="hidden" name='unit_price[]' value="{$v.shop_price}">
+          				</if>
+						</foreach>
+					</ul>
+				</div>
+				<div class="ui-row ui-whitespace" style="margin: 10px 0;">
+					总数量：<span class="p_num">1</span>
+				</div>
+				<div class="ui-row ui-whitespace" style="margin: 10px 0;">
+					收货信息：
+				</div>
+				<div class="ui-row ui-whitespace">
+					<div class="ui-form ui-border-t">
+						<div class="ui-form-item ui-border-b">
+							<label>收件人：</label>
+							<input type="text" name="dname" disabled="disabled" value="<?php echo $_SESSION['thirdusername'];?>" >
+							<input type="hidden" name="name" value="<?php echo $_SESSION['thirdusername'];?>" >
+						</div>
+						<div class="ui-form-item ui-border-b">
+							<label> 电话 ：</label>
+							<input type="text" name="dmobile" disabled="disabled" value="<?php echo $_SESSION[C('APP_INDEX_NAME').'_userid']?>">
+							<input type="hidden" name="mobile" value="<?php echo $_SESSION[C('APP_INDEX_NAME').'_userid']?>">
+						</div>
+						<div class="ui-form-item ui-border-b">
+							<label> 地区 ：</label>
+						  <script type="text/javascript" src="__PUBLIC__/user/GlobalProvinces_main.js"></script>
+				          <script type="text/javascript" src="__PUBLIC__/user/GlobalProvinces_extend.js"></script>
+				          <script type="text/javascript" src="__PUBLIC__/user/initLocation.js"></script>
+				          <script type="text/javascript" src="__PUBLIC__/user/initLocation1.js"></script>
+							<div style="padding-left:60px;">
+								<select class="form-control input-sm" id="sheng" name="province"></select>
+							    <select class="form-control input-sm" id="shi" name="city"></select>
+							    <select class="form-control input-sm" id="xian" name="country"></select>
+							    <select id="xiang" name="address1[street]" ></select>
+							    <script>initLocation({sheng_val:sheng,shi_val:shi,xian_val:xian});</script>
+							</div>
+						</div>
+						<style>.ui-form-item select{width:30%;}</style>
+						<div class="ui-form-item ui-form-item-textarea ui-border-b">
+							<label>详细地址：</label>
+							<textarea placeholder="请附加年龄(注:邮寄选择到付)" name="address"></textarea>
+						</div>
+					</div>
+				</div>
+				<!-- <div class="ui-row ui-whitespace" style="margin: 10px 0;">
+					发票信息：
+				</div> -->
+				<!--<div class="ui-row-flex ui-whitespace">
+							<div class="ui-col ui-col"><label for="by"><input id="by" name='fp' type="radio" checked value='0'/>不需要</label></div>
+							<div class="ui-col ui-col"><label for="pt"><input id="pt" name='fp' type="radio"  value='1'/>普通发票</label></div>
+							<div class="ui-col ui-col"><label for="zz"><input id="zz" name='fp' type="radio"  value='2'/>增值税发票</label></div>
+						</div>-->
+						<div class="ui-row ui-whitespace">
+						<div class="ui-form ui-border-t">
+
+							<!-- <div class="ui-form-item ui-form-item-radio">
+								
+								<label class="ui-radio ui-form-item-radio" for="radio">
+									<input type="radio" name="fapiao" checked value="0">
+								</label>
+								<p>不需要</p>
+							</div>
+							<div class="ui-form-item ui-form-item-radio">
+								
+								<label class="ui-radio" for="radio">
+									<input type="radio" name="fapiao" id="fp_danwei" value="1">
+								</label>
+								<p>普通发票</p>
+							</div>
+							<div class="ui-form-item ui-form-item-radio">
+								
+								<label class="ui-radio" for="radio">
+									<input type="radio" name="fapiao" value="3">
+								</label>
+								<p>增值税发票</p>
+							</div> -->
+						
+						</div>
+						</div>
+						<div class="ui-row ui-whitespace fapiao">
+						</div>
+						<div class="ui-row ui-whitespace fapiao" style="display:none">
+							<div class="ui-form ui-border-t">
+								<div class="ui-form-item">
+									<label>发票抬头：</label>
+									
+								</div>
+								<div class="ui-form-item ui-form-item-radio">
+									
+									<label class="ui-radio" for="radio1">
+										<input type="radio" name="radio1" value="0" checked>
+									</label>
+									<p>个人</p>
+								</div>
+								<div class="ui-form-item ui-form-item-radio">
+									
+									<label class="ui-radio" for="radio1">
+										<input type="radio" name="radio1" value="1">
+									</label>
+									<p>单位</p>
+								</div>
+								<div class="ui-form-item ui-border-b" id="dwmc" style="display:none">
+									<label>
+										单位名称
+									</label>
+									<input type="text" name='companyName'  placeholder="单位名称">
+								</div>
+							</div>
+						</div>
+						<div class="ui-row ui-whitespace fapiao">
+						</div>
+						<div class="ui-row ui-whitespace fapiao" style="display:none">
+							<div class="ui-form ui-border-t">
+								<div class="ui-form-item ui-border-b" >
+									<label>
+										单位名称
+									</label>
+									<input type="text" name='vat_companyName' placeholder="单位名称">
+									
+								</div>
+								<div class="ui-form-item ui-border-b" >
+									<label>
+										纳税人识别码
+									</label>
+									<input type="text" name='vat_code' placeholder="纳税人识别码">
+									
+								</div>
+								<div class="ui-form-item ui-border-b" >
+									<label>
+										注册地址
+									</label>
+									<input type="text" name='vat_address' placeholder="注册地址">
+									
+								</div>
+								<div class="ui-form-item ui-border-b" >
+									<label>
+										注册电话
+									</label>
+									<input type="text" name='vat_tel' placeholder="注册电话">
+									
+								</div>
+								<div class="ui-form-item ui-border-b" >
+									<label>
+										开户银行
+									</label>
+									<input type="text" name='vat_bank' placeholder="开户银行">
+									
+								</div>
+								<div class="ui-form-item ui-border-b" >
+									<label>
+										银行账户
+									</label>
+									<input type="text" name='vat_bank_num' placeholder="银行账户">
+									
+								</div>
+								<div class="ui-form-item ui-border-b" >
+									<label>
+										收票人姓名
+									</label>
+									<input type="text" name='vat_name' placeholder="收票人姓名">
+									
+								</div>
+								<div class="ui-form-item ui-border-b" >
+									<label>
+										收票人手机
+									</label>
+									<input type="text" name='vat_message_tel' placeholder="收票人手机">
+									
+								</div>
+								
+								<div class="ui-form-item ui-border-b">
+									<label>收票人省份</label>
+									<div class="ui-select-group">
+										<select class="inv-selProvince" name="vat_province" id="sheng1"></select>
+							            <select class="inv-selCity" name="vat_city" id="shi1"></select>
+							            <select class="inv-selCity" name="vat_country" id="xian1"></select>
+							            <select id="xiang1" name="address1[street]" ></select>
+									</div>
+									<script>initLocation1({sheng_val:sheng1,shi_val:shi1,xian_val:xian1});</script>
+								</div>
+								<div class="ui-form-item ui-border-b" >
+									<label>
+										详细地址
+									</label>
+									<input type="text" name='vat_receive_address' placeholder="详细地址">
+									
+								</div>
+							</div>
+						</div>
+				<!-- <div class="ui-row ui-whitespace" style="margin: 10px 0;">
+					优惠码：
+				</div>
+				
+				<div class="ui-row ui-whitespace" style="margin: 10px 0 56px 0;">
+				<div class="ui-form ui-border-t">
+					<div class="ui-form-item ui-border-b" >
+							<input type="text" name='card' placeholder="优惠码">
+					</div>
+					 
+					
+				</div>
+				</div> -->
+				
+				<div class="ui-footer ui-footer-stable ui-btn-group ui-border-t ui-row-flex ">
+					<div class="ui-col ui-col-4 ui-whitespace total_price">￥0<span style="text-decoration: line-through;margin-left:20px;color:#736969;"><script>document.write(price+'￥');</script></span></div>
+					<a class="ui-col ui-btn-lg" onclick="dopost();return false;" style="width: 60px;background: #00B8EE;color: #FFFADF;">立即激活</a>
+				</div>
+			</form>
+		</section>
+		
+	</body>
+
+</html>
+  <script>
+  function dopost() {
+  	var ajaxCallUrl = '{:U('Third/runmima')}';
+  	run();
+  	$.ajax({
+        cache: true,
+        type: "POST",
+        url:ajaxCallUrl,
+        data:$('#formmit').serialize(),// 你的formid
+        async: false,
+        error: function(request) {
+            alert("Connection error");
+            var url = 'https://m.ly.com/itravel/order/ordercenter';
+  			window.location.href = url;
+        },
+        success: function(data) {
+            showalert(data);
+        }
+    });
+
+  }
+
+/** mobile web toast、alert、confirm提示框
+ * 2016.05.25  ghb 
+ * toast使用方式：
+ *      webToast("屌丝逆袭了","bottom",1000);
+ *      webToast("出任SEO","bottom");
+ *      webToast("赢取白富美",1000);
+ *      webToast("走向人生巅峰");
+ *
+ * alert、confirm使用方式：
+ *      popTipShow.alert('弹窗标题',['知道了'],function(e){//do something})
+ *      popTipShow.confirm('弹窗标题','自定义弹窗内容，居左对齐显示，告知需要确认的信息等',['确 定','取 消'],function(e){//do something})
+ */
+
+
+
+function compareVersion(v1, v2) {
+    v1 = v1.toString().split(".");
+    v2 = v2.toString().split(".");
+    for (var i = 0; i < v1.length || i < v2.length; i++) {
+        var n1 = parseInt(v1[i], 10),
+            n2 = parseInt(v2[i], 10);
+        if (window.isNaN(n1)) {
+            n1 = 0
+        }
+        if (window.isNaN(n2)) {
+            n2 = 0
+        }
+        if (n1 < n2) {
+            return -1
+        } else {
+            if (n1 > n2) {
+                return 1
+            }
+        }
+    }
+    return 0
+}
+
+function callback(func, result) {
+    var ua = navigator.userAgent,
+        isAndroid = (/Android/i).test(ua),
+        osVersion = ua.match(/(?:OS|Android)[\/\s](\d+[._]\d+(?:[._]\d+)?)/i)
+
+    if (isAndroid && compareVersion(osVersion, "2.4.0") < 0) {
+        setTimeout(function() {
+            func && func(result)
+        }, 1)
+    } else {
+        func && func(result)
+    }
+}
+
+(function(e) {
+    if (void 0 == window.define) {
+        var d = {},
+            h = d.exports = {};
+        e(null, h, d);
+        window.popTipShow = window.notification = d.exports
+    } else define(e)
+})(function(require, exports, module) {
+    function e(a) {
+        this._options = d.extend({
+            mode: "msg",
+            text: "\u7f51\u9875\u63d0\u793a",
+            useTap: !1
+        }, a || {});
+        this._init()
+    }
+    var d = $,
+        h = d(window),
+        c = d('<div class="c-float-popWrap msgMode hide">'+
+				   '<div class="weui_mask_transparent"></div>'+
+				   '<div class="c-float-modePop">'+
+					   '<div class="warnMsg"></div>'+
+					   '<div class="content"></div>'+
+					   '<div class="doBtn">'+
+					   '<button class="cancel">\u53d6\u6d88</button>'+
+					   '<button class="ok">\u786e\u5b9a</button>'+
+					   '</div>'+
+				   '</div>'+
+			   '</div>'),
+		//c = d('<div class="error-tips hide"><p class="warnMsg"></p></div>'),
+		m = c.find(".warnMsg"),
+        n = c.find(".content"),
+        o = c.find(".doBtn .ok"),
+        p = c.find(".doBtn .cancel"),
+        j = !1,
+        f;
+    d.extend(e.prototype, {
+        _init: function() {
+            var a = this,
+                b = a._options,
+                g = b.mode,
+                k = b.text,
+                e = b.content,
+                f = b.callback,
+                l = b.background,
+                t = b.btns,
+                b = b.useTap ? "tap" : "click",
+                i = c.attr("class"),
+                i = i.replace(/(msg|alert|confirm)Mode/i, g + "Mode");
+            c.attr("class", i);
+            l && c.css("background", l);
+            k && m.html(k);
+            e && n.html(e);
+            t && o.html(t[0]);
+            t && p.html(t[1]);
+			
+			if("alert"==g){//解决一个按钮时的宽度
+				o.css("width", "100%");
+			}else{
+				o.css("width", "");
+			}
+			
+            o.off(b).on(b, function(b) {
+                f.call(a, b, !0);
+            });
+            p.off(b).on(b, function(b) {
+                f.call(a, b, !1)
+            });
+            j || (j = !0, d("body").append(c), h.on("resize",
+                function() {
+                    setTimeout(function() {
+                        a._pos()
+                    }, 500)
+                }))
+        },
+        _pos: function() {
+            var a = document,
+                b = a.documentElement,
+                g = a.body,
+                e, d, f;
+            this.isHide() || (a = g.scrollTop, g = g.scrollLeft, e = b.clientWidth, b = b.clientHeight, d = c.width(), f = c.height(), c.css({
+                top: a + (b - f) / 2,
+                left: g + (e - d) / 2
+            }))
+        },
+        isShow: function() {
+            return c.hasClass("show")
+        },
+        isHide: function() {
+            return c.hasClass("hide")
+        },
+        _cbShow: function() {
+            var a = this._options.onShow;
+            c.css("opacity", "1").addClass("show");
+            a && a.call(this)
+        },
+        show: function() {
+            var a = this;
+            f && (clearTimeout(f), f = void 0);
+            a.isShow() ? a._cbShow() : (c.css("opacity", "0").removeClass("hide"), a._pos(), setTimeout(function() {
+                a._cbShow()
+            }, 300), setTimeout(function() {
+                c.animate({
+                    opacity: "1"
+                }, 300, "linear")
+            }, 1))
+        },
+        _cbHide: function() {
+            var a = this._options.onHide;
+            c.css("opacity", "0").addClass("hide");
+            a && a.call(this)
+        },
+        hide: function() {
+            var a = this;
+            a.isHide() ? a._cbHide() : (c.css("opacity", "1").removeClass("show"), setTimeout(function() {
+                a._cbHide()
+            }, 300), setTimeout(function() {
+                c.animate({
+                    opacity: "0"
+                }, 300, "linear")
+            }, 1))
+        },
+        flash: function(a) {
+            var b = this;
+            opt = b._options;
+            opt.onShow = function() {
+                f = setTimeout(function() {
+                    f && b.hide()
+                }, a)
+            };
+            b.show()
+        }
+    });
+    module.exports = new function() {
+        this.simple = function(a, b, c) {
+            2 == arguments.length && "number" == typeof arguments[1] && (c = arguments[1], b = void 0);
+            var d = new e({
+                mode: "msg",
+                text: a,
+                background: b
+            });
+            d.flash(c || 2E3);
+            return d
+        };
+        this.msg = function(a, b) {
+            var d = new e({
+                mode: "msg",
+                text: a
+            });
+			d.show();
+            return d
+        };
+        this.alert = function(a, s, b, c) {
+            var d = new e({
+                mode: "alert",
+                text: a,
+				content: s,
+				btns:b,
+                callback: c
+            });
+			d.show();
+            return d
+        };
+        this.confirm = function(a, b, c, f) {
+            var d = new e({
+                mode: "confirm",
+                text: a,
+                content: b,
+                btns:c,
+                callback: f
+            });
+            d.show();
+            return d
+        };
+        this.pop = function(a) {
+            return new e(a)
+        }
+    }
+});
+
+
+/** mobile web toast提示框
+ * 使用方式：
+ *      webToast("屌丝逆袭了","bottom",1000);
+ *      webToast("出任SEO","bottom");
+ *      webToast("赢取白富美",1000);
+ *      webToast("走向人生巅峰");
+ */
+function webToast() {
+  //默认设置
+  var dcfg={
+      msg:"提示信息",
+      postion:"top",//展示位置，可能值：bottom,top,middle,默认top：是因为在mobile web环境下，输入法在底部会遮挡toast提示框
+      time:3000,//展示时间
+    };
+  //*********************以下为参数处理******************
+  var len = arguments.length;
+  var arg0 =arguments[0];
+  if(arguments.length>0){
+    dcfg.msg =arguments[0];
+    dcfg.msg=arg0;
+     
+    var arg1 =arguments[1];
+    var regx = /(bottom|top|middle)/i;
+    var numRegx = /[1-9]\d*/;
+    if(regx.test(arg1)){
+      dcfg.postion=arg1;
+    }else if(numRegx.test(arg1)){
+      dcfg.time=arg1;
+    }
+     
+    var arg2 =arguments[2];
+    var numRegx = /[1-9]\d*/;
+    if(numRegx.test(arg2)){
+      dcfg.time=arg2;
+    }
+  }
+//*********************以上为参数处理******************
+var ret = "<div class='web_toast'><div class='cx_mask_transparent'></div>" + dcfg.msg + "</div>";
+  if ($(".web_toast").length <= 0) {
+    $("body").append(ret);
+  } else {//如果页面有web_toast 先清除之前的样式
+	  $(".web_toast").css("left","");
+	 
+	  ret = "<div class='cx_mask_transparent'></div>" + dcfg.msg;
+    $(".web_toast").html(ret);
+  }
+  var w = $(".web_toast").width(),ww = $(window).width();
+  $(".web_toast").fadeIn();
+  $(".web_toast").css("left",(ww-w)/2-20);
+  if("bottom"==dcfg.postion){
+    $(".web_toast").css("bottom",50);
+    $(".web_toast").css("top","");//这里为什么要置空，自己琢磨，我就不告诉
+  }else if("top"==dcfg.postion){
+    $(".web_toast").css("bottom","");
+    $(".web_toast").css("top",50);
+  }else if("middle"==dcfg.postion){
+	$(".web_toast").css("bottom","");
+	$(".web_toast").css("top","");
+    var h = $(".web_toast").height(),hh = $(window).height();
+    $(".web_toast").css("bottom",(hh-h)/2-20);
+  }
+  setTimeout(function() {	
+    $(".web_toast").fadeOut();	
+  }, dcfg.time);
+}
+
+  function run(){
+    var name = $('[name=name]').val();
+    var mobile = $('[name=mobile]').val();
+    var country = $('[name=country]').val();
+    var address = $('[name=address]').val();
+    var fapiao = $('[name=fapiao]:checked').val();
+    if(name==''){
+      alert('请填写姓名！');
+      return false;
+    }
+    if(mobile=='' || mobile.length!='11'){
+      alert('请填写手机号！');
+      return false;
+    }
+    if(country==''){
+      alert('请选择地区！');
+      return false;
+    }
+    if(address==''){
+      alert('请填写地址！');
+      return false;
+    }
+
+    if(fapiao == 2){
+    	var conpanyname = $('[name=companyName]').val();
+    	if(conpanyname == ''){
+    		alert('请填写单位名称');
+    		return false;
+    	}
+    }else if(fapiao == 3){
+    	var r1 = $('[name=vat_companyName]').val();
+        var r2 = $('[name=vat_code]').val();
+        var r3 = $('[name=vat_address]').val();
+        var r4 = $('[name=vat_tel]').val();
+        var r5 = $('[name=vat_bank]').val();
+        var r6 = $('[name=vat_bank_num]').val();
+        if(r1=='' || r2=='' || r3=='' || r4=='' || r5=='' || r6==''){
+          alert('请完整填写公司信息！');
+          return false;
+        }
+        var r1 = $('[name=vat_name]').val();
+        var r2 = $('[name=vat_message_tel]').val();
+        var r3 = $('[name=vat_country]').val();
+        var r4 = $('[name=vat_receive_address]').val();
+        if(r1=='' || r2=='' || r3=='' || r4==''){
+          alert('请完整填写收票人信息！');
+          return false;
+        }
+    }
+  }
+  
+   $('[name=fapiao]').click(function(){
+	var index=$(this).val();
+	$('#fp_danwei').val(1);
+	$('[name="radio1"]').eq(0).prop("checked",true);
+	$('.fapiao').eq(index).fadeIn();
+	$('.fapiao').eq(index).siblings('.fapiao').fadeOut();
+
+  });
+ 
+  $('[name=radio1]').click(function(){
+	if($(this).val()==1){
+		$('#dwmc').fadeIn();
+		$('#fp_danwei').val(2);
+	}else{
+		$('#dwmc').fadeOut();
+		$('#fp_danwei').val(1);
+	}
+  });
+
+  function showalert(url) {
+  	if (url == undefined) {
+  		var url = 'https://m.ly.com/itravel/order/ordercenter';
+  	}
+  	var content = '<p>您的权益激活后，工作人员会在两个工作日内给你邮寄基因检测采样盒；<br><br>收到采样盒后，请仔细阅读采样说明书进行采样，并按提示回寄采样盒(用户选择到付)，地址详见说明书；<br><br>收到您的采样盒后，约10个工作日内出具检测报告，请在臻旅会员个人中心基因检测项中查看电子检测报告；<br><br>如有任何疑问，请致电400-109-2599。</p>';
+		popTipShow.alert('基因检测流程及注意事项：',content, ['确定'],
+		function(e){
+		  //callback 处理按钮事件		  
+		  var button = $(e.target).attr('class');
+		  if(button == 'ok'){
+			//按下确定按钮执行的操作
+			//todo ....
+			this.hide();
+			window.location.href = url;
+		  }	
+		}
+	);
+  }
+  </script>

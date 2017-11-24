@@ -1,0 +1,15 @@
+a{
+					width:100px;
+					margin:10px auto;
+					line-height:30px;
+					border:1px solid red;
+					color:red;
+					text-align:center;
+					 /* Webkit 支持 */ 
+					-webkit-border-radius:4px;
+					/* Mozilla 支持 */
+					-moz-border-radius:4px;
+					behavior:url('css/PIE.htc');					
+					border-radius:4px;
+					border-radius: 10px 8px 6px 4px;
+			}

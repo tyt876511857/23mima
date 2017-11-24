@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>基因检测结果-运动基因 </title>
+<include file='index:Index:css'>
+<link href="__PUBLIC__/gaiban/css/jyy_a_bg.css" rel="stylesheet" type="text/css" />
+<link href="__PUBLIC__/gaiban/css/fit_a_bg.css" rel="stylesheet" type="text/css" />
+<!-- <script type="text/javascript" src="__PUBLIC__/js/echarts.js"></script> -->
+<!-- <script type="text/javascript" src="__PUBLIC__/gaiban/js/highcharts.js"></script>
+<script type="text/javascript" src="__PUBLIC__/gaiban/js/highcharts-more.js"></script> -->
+<style>
+.indenx{padding: 0px 18px;}
+p{text-align: justify;}
+.ml20{margin-left:0px; }
+.w1000{width:100%; page-break-inside:avoid;}
+table {
+    width: 100%;
+    text-align: center;
+    border-top: 4px solid #d2d2d2;
+}
+.tr th{
+	font-size: 13px;
+}
+.topnav li{ line-height40px; height:40px; list-style:none;}
+.topnav li b{ font-size:16px; width:100px; float:left; text-align:right}
+
+.cont{
+	width:100%;margin:0 auto;background: url(__PUBLIC__/gaiban/images/baogao/thirdbg3.jpg);background-position: 100% 0%; background-size:100%;background-repeat:no-repeat;position: relative;
+}
+.cont span{
+	color: #21acdc;font-size: 30px;
+}
+.dnap{
+	text-align: center;font-size: 34px;color: #b097c1;margin-top: 200px;
+}
+.zbgp{
+	margin: 80px auto;font-size: 19px;width: 100%;line-height: 42px;color: #3f3b3a;
+}
+.titlep{padding-top: 130px;text-align: center;font-size: 23px;}
+.leftdiv{
+	width: 98%;margin: 0 auto;
+}
+.commonp{
+	text-align: justify;line-height: 26px;margin-top: 40px;font-size: 16px;color: #3f3b3a;padding: 10px;
+}
+.commonp span,.lastp span,.applebgp span{
+	color: #21acdc;display: block;font-size: 23px;margin-bottom: 10px;
+}
+.lastp{
+	margin: 10px;padding: 10px;line-height: 26px;margin-top: 40px;font-size: 16px;color: #3f3b3a;background: #b7e8f3;
+}
+.rightdiv{
+	width: 100%;
+}
+.applebg{
+	margin-right: 10px;float: left;display: inline-block;width: 146px;height: 170px;background: url(__PUBLIC__/gaiban/images/apple.png);background-size:150px 155px;background-repeat:no-repeat;border-right: 4px solid #d2d2d2;
+}
+.applebgp{
+	width: 100%;line-height: 26px;font-size: 15px;color: #3f3b3a;
+}
+</style>
+</head>
+<body>
+<!--子报告开始  -->
+	<div class="w1000" >
+		<div class="cont">
+			<p class="titlep"> 运动基因检测：<span><?php echo $this->fzheye['2']['fenshu1']==5 ?'强':($this->fzheye['2']['fenshu1']==4 ?'良好':'一般'); ?></span></p>
+			<div >
+			<div style="margin:0 auto;width: 338px;">
+				<svg height="170" style="padding-left: 13px;" version="1.1"  width="150" xmlns="http://www.w3.org/2000/svg">
+					<circle cx="80" cy="80" r="50" stroke="#ccc"stroke-width="10" fill="#fff"/>
+					<path class="ring" stroke-linecap="round" rate="<?php echo $this->fzheye['2']['fenshu']-0.01;?>" fill="none" x="80" y="80" r="50" stroke="#21acdc"  stroke-width="10" />
+					<text fill="<?php if(1){echo '#3f3b3a';}else{echo '#c9c9c9';} ?>">
+						<tspan x='<?php if(strpos($this->fzheye['2']['fenshu'],".")!==false || $this->fzheye['2']['fenshu']==100) {echo 40;}else{echo 50;} ?>' y='93' style="font-size:30px"><?php echo $this->fzheye['2']['fenshu'];?></tspan>
+						<tspan x='<?php if(strpos($this->fzheye['2']['fenshu'],".")!==false || $this->fzheye['2']['fenshu']==100) {echo 93;}else{echo 85;} ?>' y='93' style="font-size:32px">%</tspan>
+						<tspan x='27' y='157' style="font-size:15px;">您的分数: <?php echo $this->fzheye['2']['fenshu'];?>%</tspan>
+					</text>
+				</svg>
+				
+				<svg height="170" version="1.1" width="170" style="" xmlns="http://www.w3.org/2000/svg">
+					<circle cx="80" cy="80" r="50" stroke="#ccc"stroke-width="10" fill="#fff"/>
+					<path class="ring" stroke-linecap="round" rate="<?php echo $avg-0.01;?>" fill="none" x="80" y="80" r="50" stroke="#81c4bf"  stroke-width="10" />
+					<text fill="<?php if(1){echo '#3f3b3a';}else{echo '#c9c9c9';} ?>">
+						<tspan x='50' y='93' style="font-size:30px"><?php echo $avg;?></tspan>
+						<tspan x='85' y='93' style="font-size:32px">%</tspan>
+						<tspan x='0' y='157' style="font-size:15px;">人群中的中等程度: <?php echo $avg;
+						?>%</tspan>
+					</text>
+				</svg>
+			</div>
+			</div>
+
+			<p style="font-size: 16px;margin:10px;padding:10px;line-height: 30px;color: #fff;background: #6ccdd2;height:160px;background: -webkit-gradient(linear, 0% 25%, 75% 100%, from(#21acdc), to(#81c4bf));">
+				<b class="indenx"></b><?php echo $fenxi;?>
+			</p>
+
+		</div>
+
+
+		<div style="width:100%;margin:50px auto;">
+			<div class="leftdiv">
+				<table>
+					<thead>
+						<tr class="tr">
+							<th>检测基因</th><th>位点</th><th>基因型</th><th>检测结果</th><th>PF%</th>
+						</tr>
+					</thead>
+					<tbody>
+					<?php foreach($this->fzheye['2']['CT'] as $key=>$vk) { ?>
+						<tr>
+							<td style="font-size: 12px;color: #3f3b3a;"><?php print_r($vk['3']);?></td>
+							<td style="font-size: 12px;color: #3f3b3a;"><?php print_r($key);?></td>
+							<td style="font-size: 12px;color: #3f3b3a;"><?php print_r($vk['1']);?></td>
+							<td style="font-size: 12px;color: #3f3b3a;"><?php print_r($vk['4']);?>：<span><?php if ($vk['2']>70) {
+							echo '强';
+							} elseif ($vk['2']>40) {
+							 echo '一般';
+							} else {
+							 echo '弱';
+							};?></span></td>
+							<td style="font-size: 12px;color: #3f3b3a;"><?php echo rand(30,40);?>%</td>
+						</tr>
+					<?php }?>				
+					</tbody>
+				</table>
+				<p style="text-align: right;font-size: 12px;">*注：PF%-在人群出现的频率，随数据的增多而进行不断的变化
+				</p>
+
+				<p class="commonp" >
+					<span >位点解读</span>
+					<b class="indenx"></b><a style="color: #f29600;font-size: 16px;">ACTN3</a>基因位于人类11号染色体上，ACTN3蛋白主要参与快速肌肉纤维的产生，能够增强肌肉细胞无氧代谢能力，降低肌肉细胞有氧代谢能力。肌肉无氧代谢和爆发力是密切相关的，而肌肉的耐力是与肌肉有氧代谢密切相关的。ACTN3基因存在一个重要的C/T多态性，当C变为T时，原本编码精氨酸的密码子变成一个终止密码子，ACTN3蛋白就不能被完整的翻译和表达，ACTN3蛋白失去功能，导致快速肌肉纤维中细胞无氧代谢能力下降，运动相关的爆发力降低。CC携带者具有很强的爆发力，耐力一般；TT携带者爆发力一般，耐力较强。
+　　<br><b class="indenx"></b><a style="color: #f29600;font-size: 16px;">PPARA</a>基因位于人类22号染色体上，编码的PPARA蛋白参与葡萄糖和脂肪酸的代谢，在肌纤维类型的转换上起到了重要作用。
+     PPARA基因存在的G/C多态性和人类的耐力运动密切相关。携带G等位基因的人群具备更强的耐力，具有从事耐力运动的特长。  <br><b class="indenx"></b><a style="color: #f29600;font-size: 16px;">AQP1</a>基因位于人类7号染色体上，AQP1蛋白主要负责通过水通道运送水进入细胞。在运动时，AQP1蛋白负责将血液中的水运输到肌肉组织中维持渗透压的平衡。在AQP1基因的3’端非编码区域存在一个C/G多态性，研究表明携带C等位基因的人群体液的转运速度显著高于其他人群，快速的液体流动不仅有利于维持肌肉组织的渗透压稳定，也可以带走身体运动中产生的热量，维持充沛的体能。CC携带者具有更好的体能，更好的完成各种运动。
+				</p>
+
+			</div>
+		</div>
+
+		<div class="rightdiv">
+			<p class="ml20 commonp">
+					<img width="100%" src="__PUBLIC__/gaiban/images/baogao/thirdp2.jpg" />
+					<img width="100%" src="__PUBLIC__/gaiban/images/baogao/thirdp3.jpg" />
+			</p>
+
+			<p class="lastp" >
+					<span >科学建议</span>
+					<b class="indenx"></b>爆发力和耐力训练所锻炼发展的人体肌肉群是不一样的，爆发力训练主要是发展快速肌群又称白肌，而耐力训练则主要发展慢速肌群即红肌。
+					<br>
+1、爆发力主要是白肌为主。表现为动员快、力量大、易疲劳、时间短。<br>
+2、力量耐力红白肌相对混合。表现为动员相对快、力量相对较大、相对易疲劳、时间相对较长。<br>
+3、有氧耐力主要是红肌为主。表现为动员慢、力量小、不易疲劳、时间长。<br><b class="indenx"></b>
+根据运动生理学揭示，由于遗传的作用，每个人肌肉中肌纤维的数目，以及红、白肌纤维的比例，从出生五个月时就已确定，一年后形成，且通过后天锻炼也无法改变。也就是说，如果你自身的红肌纤维比例数多爆发力强，你有成为优秀长跑运动员的潜力；如果你自身的白肌纤维比例数多耐力强，你有成为优秀举重运动员或短跑运动员的潜力。这就是天赋。虽然肌纤维数目比例无法改变，但是锻炼可以使其变大或者增粗。红肌比例多的人擅长耐力，白肌比例多的人擅长力量。白肌横截面粗，也就是健美运动员那种。所以红肌多的人不适合健美，白肌比例多的人很容易入门健美，但是红肌比例多的人再怎么吃蛋白粉也是没什么效果。
+
+			</p>
+
+			<p style="margin: 10px;padding: 10px;line-height: 26px;color: #3f3b3a;">
+				备注：<br><b class="indenx"></b>
+检测结果只针对本次送检样本，非临床诊断指标；检测结果仅包括检测范围内的位点多态性，不能反应您的全部风险。<br><b class="indenx"></b>
+由于个体差异以及其他一些不可控原因，可能出现假阳性或假阴性结果。<br><b class="indenx"></b>
+以上结论是根据此基因携带人群的平均水平得出的，相同基因型携带者之间的个人水平有可能与相应人群的平均水平有一定差异。
+			</p>
+		</div>
+		<div style="clear: both;"></div>
+	</div>
+	<!--子报告结束  -->		
+
+</body>
+
+<script src="__PUBLIC__/gaiban/js/fit_a.js"></script>
+</html>

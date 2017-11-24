@@ -1,0 +1,49 @@
+<!-- <div id="footer" style="clear:both;">
+
+  <div class="footernav-c">联系我们</div>
+  <div class="footernav-d" id="lxwm">
+    <p>地址：杭州市滨江区滨兴路599号九鼎实业8楼</p>
+    <p>联系电话<a href="tel:4001092599">400-109-2599</a></p>
+    <p>邮箱：23mima@23mima.com</p>   
+  </div>
+  <div class="footernav-c">关于23密码</div>
+  <div class="footernav-d" id="gymm">
+    <p>23密码专注于0-9岁儿童的特长基因检测和0-9岁儿童易感基因的检测，孩子是每个家庭的希望，是国家的未来，每个孩子都是天才，流水线式的教育埋没了孩子的天性，通过发现儿童的特长DNA，为我们的精准教育提供依据；</p>
+      <p>我们的愿景：发现儿童特长基因，揭秘儿童健康基因，走进23密码，讲述中国人的成长故事，解读中国人的智慧密码，为孩子塑造一个传奇未来！</p>    
+  </div>
+  <div class="footernav-c">关注23密码</div>
+  <div class="footernav-d" id="ewm">
+    <p><span>23密码服务号</span><span>23密码订阅号</span></p>
+  </div>
+  
+
+
+<div class="footer_fixed">
+  <a href="/" class="fi1">首页</a>
+  <a href="/category_1.html" class="fi2">产品中心</a>
+  <a href="/news_6.html" class="fi3">检测流程</a>
+  <a href="/news_5.html" class="fi4">采样方法</a>
+  <a href="{:U('Index/wap_index','user')}" class="fi5">个人中心</a>
+</div>  -->
+<div style="margin-bottom: 85px;clear:both;width:100%">
+</div>
+<footer class="ui-footer ui-footer-stable ui-border-t" style="height: 80px;background: rgba(255,255,255,.9);">
+      <ul class="ui-tiled">
+        <li>
+          <a href="/"><div class="iconfont" style="font-size: 2em">&#xe62b;</div><i>首页</i></a>
+        </li>
+        <li>
+          <a href="/category_1.html"><div class="iconfont" style="font-size: 2em">&#xe626;</div><i>产品中心</i></a>
+        </li>
+        <li>
+          <a href="/index/Index/baogao"><div class="iconfont" style="font-size: 2em">&#xe625;</div><i>示例报告</i></a>
+        </li>
+        <li>
+          <a href="/news_3.html"><div class="iconfont" style="font-size: 2em">&#xe63f;</div><i>联系我们</i></a>
+        </li>
+      </ul>
+</footer>
+<!-- <div class="float_left">
+  <a href=""></a>
+  <a href=""></a>
+</div> -->

@@ -1,0 +1,1 @@
+alter table gs_bg_fenshu add secdes varchar(255) not null default '' comment '生物学功能';

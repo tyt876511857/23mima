@@ -1,0 +1,7 @@
+.left_cont{float:left}
+.left_cont>img{padding:120px 150px 0 150px; }
+.left_cont>h3{font-size:18px;color:#575757;text-align:center}
+.left_cont>h3>span{font-size:30px;}
+.left_cont>p>span{color:#ffa200}
+.left_cont>p{color:#777;font-size:12px;width: 280px;margin: 0 auto;line-height: 30px;}
+.right_cont{float:right}

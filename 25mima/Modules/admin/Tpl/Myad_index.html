@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>广告管理</title>
+<include file='css'>
+</head>
+<body id="right_bj">
+<div class="right_box">
+  <div class="title"><p>广告管理</p><a href="{:U('/Myad/add')}">添加新广告</a></div>
+  <table class="table" border="1" align="center">
+    <tr>
+      <td width="5%">编号</td>
+      <td width="10%">调用代码</td>
+      <td width="10%">广告名称</td>
+      <td width="10%">广告说明</td>
+      <td width="5%">是否开启</td>
+      <td width="5%">排序</td>
+      <td width="10%">操作</td>
+    </tr>
+    <foreach name='data' item='v'>
+      <tr>
+        <td>{$v.id}</td>
+        <td>{$v.type}</td>
+        <td>{$v.title}</td>
+        <td>{$v.description}</td>
+        <td><img src="<if condition='$v['switch']'>__SKIN__/images/yes.gif<else>__SKIN__/images/no.gif</if>" /></td>
+        <td>{$v.rank}</td>
+        <td>
+          <a href='{:U("Myad/update/id/$v[id]")}' title="编辑">
+            <img src="__SKIN__/images/icon_edit.gif" border="0" height="16" width="16" />
+          </a>
+          <a href='{:U("/Myad/delete/id/$v[id]")}' onclick="listTable.remove(1, '您确认要删除这条记录吗?')" title="移除">
+            <img src="__SKIN__/images/icon_drop.gif" border="0" height="16" width="16" />
+          </a>
+        </td>
+      </tr>
+    </foreach>
+  </table>
+  <ul id="page">{$showpage}</ul>
+</div>
+</body>
+</html>

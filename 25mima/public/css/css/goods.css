@@ -1,0 +1,41 @@
+h3.gtitle{font-size:24px;color:#23c4f1;font-weight:normal;}
+h3.ctitle{font-size:30px;color:8b8b8b;font-weight:normal;}
+p.desc{font-size:15px;color:#737373;text-align:center}
+p.selled{font-size:15px;color:#737373;text-align:center;margin:45px 0;}
+span.price{font-size:24px;color:#f8b11b}
+.whoami{width:439px;padding:60px}
+h3.title{font-size:36px;color:#23c4f1;font-weight:normal;}
+h3.jtitle{font-size:42px;color:#23c4f1;font-weight:normal;}
+h3.title_w{font-size:36px;color:#fff;font-weight:normal;}
+h3.t-center{text-align:center}
+.whoami .link{background:#23c4f1;height:2px;width:34px;display:block;margin:34px 0;}
+.whoami p{color:#979797;font-size:20px;}
+
+.f-sort{margin-top:30px;}
+.f-sort a.first{margin-left:0;}
+.f-sort a.last{margin-right:0;}
+.f-sort a{width:264px;margin:0 7px;float:left;background:#fff;border:1px solid #cdcdcd}
+.f-sort a p{text-align:center;font-size:24px;line-height:124px}
+.f-sort>p{float:left;text-align:right;padding:0 0 0 110px;line-height:30px;font-size:14px;}
+.f-sort>img{float:right;}
+
+.j-sort{margin-top:30px;}
+.j-sort a:hover{background:#eeeeee}
+.j-sort a{width:239px;padding:10px;margin:9px 9px;float:left;background:#fff;}
+.j-sort a p{text-align:center;font-size:24px;color:#7f7f80}
+
+.s-sort a{width:718px;padding:20px;margin:15px auto;display:block;border:1px solid #b5b5b5;background:#fff;overflow:auto;}
+.s-sort a>span.s-01{background-position:-5px -5px;}
+.s-sort a>span.s-02{background-position:-5px -182px;}
+.s-sort a>span.s-03{background-position:-5px -354px;}
+.s-sort a>span.s-04{background-position:-5px -517px;}
+.s-sort a p.l-cont{font-size:24px;color:#262626;line-height:110px;padding:0 10px;float:left;width:250px;border-right:1px solid #cdcdcd;}
+.s-sort a p.r-cont{font-size:14px;color:#9f9d9a;line-height:35px;padding:0 10px;float:left;width:317px;}
+
+.s-sort a>span{width:110px;height:110px;background:url(../images/jctb.png) no-repeat;float:left}
+h3.dtitle{font-size:60px;color:#fff;font-weight:normal;text-align:center;}
+.dialog{width:60%;padding:20px;background:#7d7d7d;position:fixed;top:10%;left:0;right:0;margin:0 auto;z-index:9;display:none}
+.dialog .cont{border:1px solid #fff;color:#fff;padding:90px 75px}
+.dialog .cont p{font-size:18px;color:#fff;margin-top:10px;}
+a.ljgm{border-radius:10px;width:256px;height:52px;background:#23c4f1;color:#fff;text-align:center;line-height:52px;font-size:28px;display:block;margin:0 auto;}
+a.gdcp{display:block;width:72px;text-align:center;font-size:18px;margin:45px auto 0 auto;color:#707271;}

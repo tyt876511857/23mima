@@ -1,0 +1,484 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title>{$field.title}</title>
+<meta name="Keywords" content="{$field.keywords}">
+<meta name="Description" content="{$field.description}">
+<include file='css'>
+<link href="__PUBLIC__/css/meiquan.css" rel="stylesheet" type="text/css">
+<base target="_blank" />
+</head>
+<body>
+<include file='header'>
+<include file='header-meishe'>
+<div class="meiquan">
+  <div class="w1000">
+    <!--banner开始-->
+    <div id="banner">
+      <myad type='mq_banner'>
+      <div><a href="[field:url /]" target="_blank" style="background-image:url([field:litpic /]);"></a></div>
+      </myad>
+    </div>
+    <!--banner结束-->
+    <div class="top border bg-fff">
+      <div class="left border">
+        <a id="top-img" href=""><img src=""></a>
+        <span onclick='move("left","demo","distance2")' class='l_move'></span>
+        <div id="demo"><ul>
+		<arclist typeid='13' limit='6' is_news='1' type='3'>
+        <li><img data="[field:url /]" src="[field:litpic /]" /></li>
+		</arclist>
+        </ul></div>
+        <span onclick='move("right","demo","distance2")'></span>
+      </div>
+      <div class="right">
+        <arclist typeid='14' limit='3' is_news='1'>
+        <li class="r_li[field:i /]"><a href="[field:url /]" title="[field:title /]">[field:title /]</a></li>
+        </arclist>
+        <arclist typeid='15' limit='3' is_news='1'>
+        <li class="r_li[field:i /]"><a href="[field:url /]" title="[field:title /]">[field:title /]</a></li>
+        </arclist>
+        <arclist typeid='16' limit='3' is_news='1'>
+        <li class="r_li[field:i /]"><a href="[field:url /]" title="[field:title /]">[field:title /]</a></li>
+        </arclist>
+        <arclist typeid='34' limit='3' is_news='1'>
+        <li class="r_li[field:i /]"><a href="[field:url /]" title="[field:title /]">[field:title /]</a></li>
+        </arclist>
+        <arclist typeid='21' limit='3' is_news='1'>
+        <li class="r_li[field:i /]"><a href="[field:url /]" title="[field:title /]">[field:title /]</a></li>
+        </arclist>
+        <arclist typeid='23' limit='3' is_news='1'>
+        <li class="r_li[field:i /]"><a href="[field:url /]" title="[field:title /]">[field:title /]</a></li>
+        </arclist>
+        <arclist typeid='13' limit='1' is_news='1' type='1'>
+        <a href="[field:url /]"><img src="[field:litpic /]" alt="" width="302" height="250"></a>
+        </arclist>
+      </div>
+    </div>
+    <!--top结束-->
+    <div class="hot border bg-fff">
+      <div class="title">
+        <p><span>热门推选</span>Popular recommend </p>
+        <p><span>热门视频</span>Hot Video</p>
+      </div>
+      <div class="left">
+        <div class="hot-left-news">
+          <arclist typeid='14' limit='1' is_news='1' type='1'>
+          <a href="[field:url /]"><img src="[field:litpic /]" alt=""></a>
+          <span><a href="[field:typeurl /]">[field:typename /]</a></span>
+          <h3><a href="[field:url /]">[field:title /]</a></h3>
+          <p>[field:info /]<a href="[field:url /]">[详细]</a></p>
+          </arclist>
+          <arclist typeid='14' limit='1,2' is_news='1' type='1'>
+          <li><a href="[field:url /]">[field:title /]</a></li>
+          </arclist>
+        </div>
+
+        <div class="hot-left-news">
+          <arclist typeid='15' limit='1' is_news='1' type='1'>
+          <a href="[field:url /]"><img src="[field:litpic /]" alt=""></a>
+          <span><a href="[field:typeurl /]">[field:typename /]</a></span>
+          <h3><a href="[field:url /]">[field:title /]</a></h3>
+          <p>[field:info /]<a href="[field:url /]">[详细]</a></p>
+          </arclist>
+          <arclist typeid='15' limit='1,2' is_news='1' type='1'>
+          <li><a href="[field:url /]">[field:title /]</a></li>
+          </arclist>
+        </div>
+
+        <div class="hot-left-news">
+          <arclist typeid='16' limit='1' is_news='1' type='1'>
+          <a href="[field:url /]"><img src="[field:litpic /]" alt=""></a>
+          <span><a href="[field:typeurl /]">[field:typename /]</a></span>
+          <h3><a href="[field:url /]">[field:title /]</a></h3>
+          <p>[field:info /]<a href="[field:url /]">[详细]</a></p>
+          </arclist>
+          <arclist typeid='16' limit='1,2' is_news='1' type='1'>
+          <li><a href="[field:url /]">[field:title /]</a></li>
+          </arclist>
+        </div>
+
+        <div class="hot-left-news">
+          <arclist typeid='34' limit='1' is_news='1' type='1'>
+          <a href="[field:url /]"><img src="[field:litpic /]" alt=""></a>
+          <span><a href="[field:typeurl /]">[field:typename /]</a></span>
+          <h3><a href="[field:url /]">[field:title /]</a></h3>
+          <p>[field:info /]<a href="[field:url /]">[详细]</a></p>
+          </arclist>
+          <arclist typeid='34' limit='1,2' is_news='1' type='1'>
+          <li><a href="[field:url /]">[field:title /]</a></li>
+          </arclist>
+        </div>
+      </div>
+
+      <div class="right">
+        <embed src="http://player.youku.com/player.php/sid/XMTMwNjQ5ODQ3Mg==/v.swf" allowFullScreen="true" quality="high" width="297" height="175" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+        <arclist typeid='0' limit='2'>
+        <a href="[field:url /]">
+          <img src="[field:goods_thumb /]" alt="[field:goods_name /]">
+          <p>【[field:typename /]】<br />[field:goods_name /]<br />参考价格<span>[field:shop_price /]</span></p>
+          <span>免费试用</span>
+        </a>
+        </arclist>
+        <arclist typeid='13' limit='1,1' is_news='1' type='1'>
+        <a href="[field:url /]" class="img"><img src="[field:litpic /]"></a>
+        </arclist>
+      </div>
+    </div>
+    <!--hot结束-->
+    <div class="heavy border bg-fff">
+      <div class="title">
+        <p><span>热门推选</span>Popular recommend </p>
+      </div>
+      <span onclick='move("left","demo1","distance1")' class='l_move'></span>
+      <div id="demo1">
+      <ul>
+        <type typeid='13' type='news'><a href="[field:url /]"><li><img src="[field:litpic /]" />[field:typename /]</li></a></type>
+      </ul>
+      </div>
+      <span onclick='move("right","demo1","distance1")'></span>
+    </div>
+    <!--重磅栏目结束-->
+    <div class="fashion border bg-fff">
+      <p class="fashion-p">时尚资讯</p>
+      <ul id="fashion-ul">
+        <li onmousemove="nTabs(this,0)" class="li2">美妆美发</li>
+        <li onmousemove="nTabs(this,1)">美容塑身</li>
+        <li onmousemove="nTabs(this,2)">搭配饰品</li>
+        <li onmousemove="nTabs(this,3)">时尚美妈</li>
+        <li onmousemove="nTabs(this,4)">摄影志趣</li>
+        <li onmousemove="nTabs(this,5)">阳光男仕</li>
+      </ul>
+      <div class="title">
+        <p><span>&nbsp;</span>热点</p>
+        <p><span>&nbsp;</span>特别策划</p>
+      </div>
+      <!--美妆美发-->
+      <div class="fashion_box" id="fashion-ul0" style="display:block;">
+        <div class="left">
+          <arclist typeid='14' limit='0,1' is_news='1' type='1'>
+          <a href="[field:url /]"><img src="[field:litpic /]" alt=""></a>
+          </arclist>
+          <arclist typeid='14' limit='1,3' is_news='1'>
+          <li><a href="[field:url /]">[field:title /]</a></li>
+          </arclist>
+        </div>
+        <div class="center">
+          <arclist typeid='14' limit='0,1' is_news='1' type='4'>
+          <a href="[field:url /]"><img src="[field:litpic /]" alt=""></a>
+          </arclist>
+          <ul>
+            <arclist typeid='14' limit='4,4' is_news='1'>
+            <li><a href="[field:url /]">[field:title /]</a></li>
+            </arclist>
+          </ul>
+        </div>
+        <div class="right">
+          <arclist typeid='14' limit='8,1' is_news='1'>
+          <a href="[field:url /]" class="fashion-top"><span>[field:title /]</span><p>[field:info /]</p></a>
+          </arclist>
+          <arclist typeid='14' limit='1,4' is_news='1' type='4'>
+          <a class="fashion-news" href="[field:url /]">
+            <img src="[field:litpic /]">
+            <span>[field:title /]</span>
+            <p>[field:info /]</p>
+          </a>
+          </arclist>
+        </div>
+      </div>
+      <!--美容塑身-->
+      <div class="fashion_box" id="fashion-ul1">
+        <div class="left">
+          <arclist typeid='15' limit='0,1' is_news='1' type='1'>
+          <a href="[field:url /]"><img src="[field:litpic /]" alt=""></a>
+          </arclist>
+          <arclist typeid='15' limit='1,3' is_news='1'>
+          <li><a href="[field:url /]">[field:title /]</a></li>
+          </arclist>
+        </div>
+        <div class="center">
+          <arclist typeid='15' limit='0,1' is_news='1' type='4'>
+          <a href="[field:url /]"><img src="[field:litpic /]" alt=""></a>
+          </arclist>
+          <ul>
+            <arclist typeid='15' limit='4,4' is_news='1'>
+            <li><a href="[field:url /]">[field:title /]</a></li>
+            </arclist>
+          </ul>
+        </div>
+        <div class="right">
+          <arclist typeid='15' limit='8,1' is_news='1'>
+          <a href="[field:url /]" class="fashion-top"><span>[field:title /]</span><p>[field:info /]</p></a>
+          </arclist>
+          <arclist typeid='15' limit='1,4' is_news='1' type='4'>
+          <a class="fashion-news" href="[field:url /]">
+            <img src="[field:litpic /]">
+            <span>[field:title /]</span>
+            <p>[field:info /]</p>
+          </a>
+          </arclist>
+        </div>
+      </div>
+      <!--搭配饰品-->
+      <div class="fashion_box" id="fashion-ul2">
+        <div class="left">
+          <arclist typeid='16' limit='0,1' is_news='1' type='1'>
+          <a href="[field:url /]"><img src="[field:litpic /]" alt=""></a>
+          </arclist>
+          <arclist typeid='16' limit='1,3' is_news='1'>
+          <li><a href="[field:url /]">[field:title /]</a></li>
+          </arclist>
+        </div>
+        <div class="center">
+          <arclist typeid='16' limit='0,1' is_news='1' type='4'>
+          <a href="[field:url /]"><img src="[field:litpic /]" alt=""></a>
+          </arclist>
+          <ul>
+            <arclist typeid='16' limit='4,4' is_news='1'>
+            <li><a href="[field:url /]">[field:title /]</a></li>
+            </arclist>
+          </ul>
+        </div>
+        <div class="right">
+          <arclist typeid='16' limit='8,1' is_news='1'>
+          <a href="[field:url /]" class="fashion-top"><span>[field:title /]</span><p>[field:info /]</p></a>
+          </arclist>
+          <arclist typeid='16' limit='1,4' is_news='1' type='4'>
+          <a class="fashion-news" href="[field:url /]">
+            <img src="[field:litpic /]">
+            <span>[field:title /]</span>
+            <p>[field:info /]</p>
+          </a>
+          </arclist>
+        </div>
+      </div>
+      <!--时尚美妈-->
+      <div class="fashion_box" id="fashion-ul3">
+        <div class="left">
+          <arclist typeid='34' limit='0,1' is_news='1' type='1'>
+          <a href="[field:url /]"><img src="[field:litpic /]" alt=""></a>
+          </arclist>
+          <arclist typeid='34' limit='1,3' is_news='1'>
+          <li><a href="[field:url /]">[field:title /]</a></li>
+          </arclist>
+        </div>
+        <div class="center">
+          <arclist typeid='34' limit='0,1' is_news='1' type='4'>
+          <a href="[field:url /]"><img src="[field:litpic /]" alt=""></a>
+          </arclist>
+          <ul>
+            <arclist typeid='34' limit='4,4' is_news='1'>
+            <li><a href="[field:url /]">[field:title /]</a></li>
+            </arclist>
+          </ul>
+        </div>
+        <div class="right">
+          <arclist typeid='34' limit='8,1' is_news='1'>
+          <a href="[field:url /]" class="fashion-top"><span>[field:title /]</span><p>[field:info /]</p></a>
+          </arclist>
+          <arclist typeid='34' limit='1,4' is_news='1' type='4'>
+          <a class="fashion-news" href="[field:url /]">
+            <img src="[field:litpic /]">
+            <span>[field:title /]</span>
+            <p>[field:info /]</p>
+          </a>
+          </arclist>
+        </div>
+      </div>
+      <!--摄影志趣-->
+      <div class="fashion_box" id="fashion-ul4">
+        <div class="left">
+          <arclist typeid='21' limit='0,1' is_news='1' type='1'>
+          <a href="[field:url /]"><img src="[field:litpic /]" alt=""></a>
+          </arclist>
+          <arclist typeid='21' limit='1,3' is_news='1'>
+          <li><a href="[field:url /]">[field:title /]</a></li>
+          </arclist>
+        </div>
+        <div class="center">
+          <arclist typeid='21' limit='0,1' is_news='1' type='4'>
+          <a href="[field:url /]"><img src="[field:litpic /]" alt=""></a>
+          </arclist>
+          <ul>
+            <arclist typeid='21' limit='4,4' is_news='1'>
+            <li><a href="[field:url /]">[field:title /]</a></li>
+            </arclist>
+          </ul>
+        </div>
+        <div class="right">
+          <arclist typeid='21' limit='8,1' is_news='1'>
+          <a href="[field:url /]" class="fashion-top"><span>[field:title /]</span><p>[field:info /]</p></a>
+          </arclist>
+          <arclist typeid='21' limit='1,4' is_news='1' type='4'>
+          <a class="fashion-news" href="[field:url /]">
+            <img src="[field:litpic /]">
+            <span>[field:title /]</span>
+            <p>[field:info /]</p>
+          </a>
+          </arclist>
+        </div>
+      </div>
+      <!--阳光男仕-->
+      <div class="fashion_box" id="fashion-ul5">
+        <div class="left">
+          <arclist typeid='23' limit='0,1' is_news='1' type='1'>
+          <a href="[field:url /]"><img src="[field:litpic /]" alt=""></a>
+          </arclist>
+          <arclist typeid='23' limit='1,3' is_news='1'>
+          <li><a href="[field:url /]">[field:title /]</a></li>
+          </arclist>
+        </div>
+        <div class="center">
+          <arclist typeid='23' limit='0,1' is_news='1' type='4'>
+          <a href="[field:url /]"><img src="[field:litpic /]" alt=""></a>
+          </arclist>
+          <ul>
+            <arclist typeid='23' limit='4,4' is_news='1'>
+            <li><a href="[field:url /]">[field:title /]</a></li>
+            </arclist>
+          </ul>
+        </div>
+        <div class="right">
+          <arclist typeid='23' limit='8,1' is_news='1'>
+          <a href="[field:url /]" class="fashion-top"><span>[field:title /]</span><p>[field:info /]</p></a>
+          </arclist>
+          <arclist typeid='23' limit='1,4' is_news='1' type='4'>
+          <a class="fashion-news" href="[field:url /]">
+            <img src="[field:litpic /]">
+            <span>[field:title /]</span>
+            <p>[field:info /]</p>
+          </a>
+          </arclist>
+        </div>
+      </div>
+    <!--阳光男仕-->
+    </div>
+  </div>
+  <!--图片集-->
+	<div class="lady_focus_photo" id="auto_focus_head">
+        <div class="scroll_bd">
+            <div class="scroll_in_cnt clearfix">
+                <div class="fh_panel fh_panel3 clearfix" _idx="2">
+                    <ul>
+                        <arclist limit='4,4'>
+                        <li>
+                            <a href="http://fashion.163.com/photoview/25A20026/84552.html" class="photo">
+                                <img src="http://img1.cache.netease.com/lady/2015/8/5/2015080511245348a1e.jpg" alt="金甫美氧气美女童颜无敌">
+                            </a>
+                            <a href="http://fashion.163.com/photoview/25A20026/84552.html" class="overlay"></a>
+                            <h2>
+                                <a href="http://fashion.163.com/photoview/25A20026/84552.html" title="金甫美氧气美女童颜无敌">
+                                    金甫美氧气美女童颜无敌
+                                </a>
+                            </h2>
+                        </li>
+                        </arclist>
+                    </ul>
+                </div>
+                <div class="fh_panel fh_panel1 clearfix" _idx="0">
+                    <ul>
+                        <arclist limit='0,4'>
+                        <li>
+                            <a href="http://fashion.163.com/photoview/25A20026/84552.html" class="photo">
+                                <img src="http://img2.cache.netease.com/lady/2015/7/30/201507300946179f5e5.jpg" alt="金甫美氧气美女童颜无敌">
+                            </a>
+                            <a href="http://fashion.163.com/photoview/25A20026/84552.html" class="overlay"></a>
+                            <h2>
+                                <a href="http://fashion.163.com/photoview/25A20026/84552.html" title="金甫美氧气美女童颜无敌">
+                                    金甫美氧气美女童颜无敌
+                                </a>
+                            </h2>
+                        </li>
+                        </arclist>
+                    </ul>
+                </div>
+                <div class="fh_panel fh_panel2 clearfix" _idx="1">
+                    <ul>
+                        <arclist limit='8,4'>
+                        <li>
+                            <a href="http://fashion.163.com/photoview/25A20026/84552.html" class="photo">
+                                <img src="http://img1.cache.netease.com/lady/2015/8/10/2015081011550626668.jpg" alt="金甫美氧气美女童颜无敌">
+                            </a>
+                            <a href="http://fashion.163.com/photoview/25A20026/84552.html" class="overlay"></a>
+                            <h2>
+                                <a href="http://fashion.163.com/photoview/25A20026/84552.html" title="金甫美氧气美女童颜无敌">
+                                    金甫美氧气美女童颜无敌
+                                </a>
+                            </h2>
+                        </li>
+                        </arclist>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="fh_layer l_fh_layer">&nbsp;</div>
+        <div class="fh_layer r_fh_layer">&nbsp;</div>
+        <a class="scroll_btn scroll_prev" onclick="litpic_move('left')">&lt;</a>     
+        <a class="scroll_btn scroll_next" onclick="litpic_move('right')">&gt;</a> 
+	</div>
+    <div class="lady_focus_ctrls" id="lady_focus_ctrls">
+        <span class="current" _index="0" onclick='anniu_move(0)'>1</span>
+        <span class="" _index="1" onclick='anniu_move(1)'>2</span>
+        <span class="" _index="2" onclick='anniu_move(2)'>3</span>
+    </div>
+    
+</div>
+<include file='footer'>
+<script src="__PUBLIC__/js/meiquan.js"></script>
+<script>
+$('.scroll_in_cnt').css('margin-left',-(970-($(window).width()-970)/2));
+$('.fh_panel3').css('left',0);
+$('.fh_panel1').css('left',970);
+$('.fh_panel2').css('left',970+970);
+function litpic_move(direction){
+  $('.scroll_prev').attr('onclick','');
+  $('.scroll_next').attr('onclick','');
+  $('.fh_panel').each(function(){
+    div_left = parseInt($(this).css('left'));
+    if(direction=='left'){
+      if(div_left==1940){
+        $(this).css('z-index','3');
+        $(this).stop().animate({left:0});
+        $('#lady_focus_ctrls span').removeClass('current');
+        var eq = $(this).attr('_idx') == 2?0:parseInt($(this).attr('_idx'))+1;
+        $('#lady_focus_ctrls span:eq('+eq+')').addClass('current');
+      }else{
+        $(this).css('z-index','4');
+        $(this).stop().animate({left:'+=970'});
+      }
+    }else{
+      if(div_left==0){
+        $(this).css('z-index','3');
+        $(this).stop(true,true).animate({left:970*2});
+        $('#lady_focus_ctrls span').removeClass('current');
+        var eq = $(this).attr('_idx') == 0?2:parseInt($(this).attr('_idx'))-1;
+        $('#lady_focus_ctrls span:eq('+eq+')').addClass('current');
+      }else{
+        $(this).css('z-index','4');
+        $(this).stop(true,true).animate({left:'-=970'});
+      }
+    }
+  })
+  $('.scroll_prev').attr('onclick','litpic_move("left")');
+  $('.scroll_next').attr('onclick','litpic_move("right")');
+}
+//通过按键切换
+function anniu_move(i){
+  var j = 0;
+  $('#lady_focus_ctrls span').each(function(k){
+    if($(this).hasClass('current')){
+      j = k;
+      return true;
+    }
+  })
+  if( (i>j && i-j==1 )|| j-i==2){
+    litpic_move("right");
+  }else if( (i<j && j-i==1) || i-j==2){
+    litpic_move("left");
+  }
+}
+</script>
+</body>
+</html>

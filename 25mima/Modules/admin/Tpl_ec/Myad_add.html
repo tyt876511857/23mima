@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ECSHOP 管理中心 - 添加广告位 </title>
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<include file='css'>
+<script language="JavaScript">
+<!--
+// 这里把JS用到的所有语言都赋值到这里
+var process_request = "正在处理您的请求...";
+var todolist_caption = "记事本";
+var todolist_autosave = "自动保存";
+var todolist_save = "保存";
+var todolist_clear = "清除";
+var todolist_confirm_save = "是否将更改保存到记事本？";
+var todolist_confirm_clear = "是否清空内容？";
+var posit_name_empty = "广告位名称不能为空!";
+var ad_width_empty = "请输入广告位的宽度!";
+var ad_height_empty = "请输入广告位的高度!";
+var ad_width_number = "广告位的宽度必须是一个数字!";
+var ad_height_number = "广告位的高度必须是一个数字!";
+var no_outside_address = "建议您指定该广告所要投放的站点的名称，方便于该广告的来源统计!";
+var width_value = "广告位的宽度值必须在1到1024之间!";
+var height_value = "广告位的高度值必须在1到1024之间!";
+var ad_name_empty = "请输入广告名称!";
+var ad_link_empty = "请输入广告的链接URL!";
+var ad_text_empty = "广告的内容不能为空!";
+var ad_photo_empty = "广告的图片不能为空!";
+var ad_flash_empty = "广告的flash不能为空!";
+var ad_code_empty = "广告的代码不能为空!";
+var empty_position_style = "广告位的模版不能为空!";
+//-->
+</script>
+</head>
+<body>
+<h1>
+<span class="action-span"><a href="ad_position.php?act=list">广告位置</a></span>
+<span class="action-span1"><a href="index.php?act=main">ECSHOP 管理中心</a> </span><span id="search_id" class="action-span1"> - 添加广告位 </span>
+<div style="clear:both"></div>
+</h1>
+<div class="main-div">
+  <form action="{:U('Myad/runadd')}" method="post" name="theForm" enctype="multipart/form-data" onsubmit="return validate()">
+    <table width="100%">
+      <tr>
+            <td height="25" align="center">广告位标识：</td>
+            <td colspan="2"><input name="type" type="text" id="type" class='iptxt' value='{$field.type}'/>
+              （使用英文或数字表示的简洁标识）</td>
+          </tr>
+          <tr>
+            <td height="25" align="center">广告标题：</td>
+            <td colspan="2"><input name="title" type="text" id="title" class='iptxt' value='{$field.title}'/></td>
+          </tr>
+          <tr>
+            <td height="25" align="center">广告描述：</td>
+            <td colspan="2"><input name="description" type="text" id="description" class='iptxt' value='{$field.description}'/></td>
+          </tr>
+          <tr>
+            <td height="25" align="center">广告链接：</td>
+            <td colspan="2"><input name="url" type="text" id="url" size="30" class='iptxt' value='{$field.url}'/></td>
+          </tr>
+          <tr>
+            <td height="25" align="center">排序：</td>
+            <td colspan="2"><input name="rank" type="text" id="sortrank" size="10" class='iptxt' <if empty='$field'>value='50'<else>value="{$field.rank}"</if> /></td>
+          </tr>
+          <tr>
+            <td height="25" align="center">广告图片：</td>
+            <td colspan='2'>
+              <input type='text' name='textfield' id='textfield' class='txt' value="{$field.litpic}"/> 
+              <input type='button' value='浏览...' /> 
+              <input type="file" name="litpic" class="file" onchange="document.getElementById('textfield').value=this.value" />
+            </td>
+          </tr>
+          <tr>
+            <td height="25" align="center">是否开启：</td>
+            <td colspan="2">
+              <select name='switch' style='width:60px'>
+              <option value='1' <if condition="empty($field)||$field['switch']==='1'">selected</if>>开启</option>
+              <option value='0' <if condition="!empty($field)&&$field['switch']==='0'">selected</if>>关闭</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td height="80" align="center">广告内容：</td>
+            <td width="76%">
+                <textarea name="content" cols="3" rows="10" style="width:80%;height:100">{$field.content}</textarea>
+            </td>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td height="25" align="center">当前广告素材：</td>
+            <td colspan="2"><img src='{$field.litpic}'/></td>
+          </tr>
+      <tr>
+        <td class="label">&nbsp;</td>
+        <td>
+          <input type="submit" value=" 确定 " class="button" />
+          <input type="reset" value=" 重置 " class="button" />
+        </td>
+      </tr>
+     <tr>
+       <td colspan="2">
+         <input type="hidden" name="id" value="{$field.id}" />
+       </td>
+     </tr>
+    </table>
+  </form>
+</div>
+<script type="text/javascript" src="../js/utils.js"></script><script type="text/javascript" src="js/validator.js"></script><script language="JavaScript">
+<!--
+
+document.forms['theForm'].elements['position_name'].focus();
+
+onload = function()
+{
+    // 开始检查订单
+    startCheckOrder();
+}
+
+/**
+ * 检查表单输入的数据
+ */
+function validate()
+{
+    validator = new Validator("theForm");
+    validator.required("position_name",   posit_name_empty);
+    validator.required("ad_width",        ad_width_empty);
+    validator.required("ad_height",       ad_height_empty);
+    validator.isNumber("ad_width",        ad_width_number, true);
+    validator.isNumber("ad_height",       ad_height_number, true);
+    validator.required("position_style",  empty_position_style);
+
+    if (document.forms['theForm'].elements['ad_width'].value > 1024 || document.forms['theForm'].elements['ad_width'].value == 0)
+    {
+        alert(width_value);
+        return false;
+    }
+    if (document.forms['theForm'].elements['ad_height'].value > 1024 || document.forms['theForm'].elements['ad_height'].value == 0)
+    {
+        alert(height_value);
+        return false;
+    }
+
+    return validator.passed();
+}
+//-->
+
+</script>
+<include file='pagefooter'>
+</body>
+</html>
